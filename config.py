@@ -1,14 +1,20 @@
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import List
+from typing import List, Optional
 
 
 @dataclass
 class RunConfig:
-    img_path: str = './data/0012.jpg'
-    cond_path: str = './condition/0012.json'
+    img_path: str = './data/test.jpg'
+    cond_path: str = './condition/test_condition1_512.json'
+    cond_name: str = 'cond_1'
+    cond_names: List[str] = field(default_factory=lambda: ['cond_1', 'cond_2'])
+    cond_paths: List[str] = field(default_factory=lambda: [
+        './condition/test_condition1_512.json',
+        './condition/test_condition2_512.json',
+    ])
 
-    attn_steps: int = 7
+    attn_steps: int = 12
 
     up_ft_indices: List[int] = field(default_factory=lambda: [2])
     ensemble_size: int = 1
@@ -24,14 +30,26 @@ class RunConfig:
     guidance_scale: float = 7.5
 
     transfer_step: int = 35
+    s_step: Optional[int] = None
+    o_step: Optional[int] = None
     scale_factor: int = 150
     scale_range: tuple = field(default_factory=lambda: (1.0, 0.5))
-    update_steps: int = 50
+    update_steps: int = 100
     dilate_kernel_size = 15
 
     sd_2_1: bool = False
+    pipeline: str = "inp"
 
+    use_relation: bool = False
     bbox: List[int] = field(default_factory=lambda: [36, 186, 246, 416])
+    bbox_s: List[int] = field(default_factory=lambda: [36, 186, 246, 416])
+    bbox_o: List[int] = field(default_factory=lambda: [36, 186, 246, 416])
+    bbox_a: List[int] = field(default_factory=list)
+    bbox_s_src: Optional[List[int]] = None
+    bbox_o_src: Optional[List[int]] = None
+    token_idx_s: List[int] = field(default_factory=list)
+    token_idx_o: List[int] = field(default_factory=list)
+    token_idx_a: List[int] = field(default_factory=list)
     color: List[str] = field(default_factory=lambda: ['blue', 'red', 'purple', 'orange', 'green', 'yellow', 'black'])
     P: float = 0.3
 

@@ -1,0 +1,13 @@
+{
+    "fname": "test.jpg",
+    "inv_prompt": "a photo of a horse and a woman",
+    "s_word": "woman",
+    "a_word": "riding",
+    "o_word": "horse",
+    "bbox_s": [ 92, 145, 260, 356 ],
+    "bbox_o": [ 5, 203, 337, 455 ],
+    "bbox_s_pre": [ 337, 203, 500, 455 ],
+    "bbox_o_pre": [ 5, 203, 337, 455 ],
+    "mask_o": "test_mask_o.png",
+    "mask_s": "test_mask_s.png"
+}

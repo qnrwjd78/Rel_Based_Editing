@@ -3,7 +3,6 @@ from PIL import ImageDraw as D
 
 import math
 class DashedImageDraw(D.ImageDraw):
-
     def thick_line(self, xy, direction, fill=None, width=0):
 
         if xy[0] != xy[1]:

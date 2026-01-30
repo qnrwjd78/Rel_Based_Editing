@@ -7,6 +7,23 @@ You can build the environment as follow:
 ```
 conda env create -f environment.yaml
 conda activate ldm
+
+pip install --force-reinstall --no-deps \
+  diffusers==0.18.2 \
+  huggingface_hub==0.16.4 \
+  accelerate==0.20.3
+```
+
+### Setup cuda121
+You can build the environment as follow: 
+```
+conda env create -f environment_121.yaml
+conda activate ldm
+
+pip install --force-reinstall --no-deps \
+  diffusers==0.18.2 \
+  huggingface_hub==0.16.4 \
+  accelerate==0.20.3
 ```
  
 ### Usage

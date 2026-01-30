@@ -15,6 +15,12 @@ from tqdm import tqdm
 warnings.filterwarnings("ignore", category=UserWarning)
 
 
+def compute_relation_bbox(bbox_s, bbox_o):
+    xs = sorted([bbox_s[0], bbox_s[2], bbox_o[0], bbox_o[2]])
+    ys = sorted([bbox_s[1], bbox_s[3], bbox_o[1], bbox_o[3]])
+    return [xs[1], ys[1], xs[2], ys[2]]
+
+
 def load_model(config):
     device = torch.device('cuda:0') if torch.cuda.is_available() else torch.device('cpu')
     
@@ -89,9 +95,28 @@ def main(config: RunConfig):
             cond = json.load(fp)
 
         
-        config.inv_prompt = cond["inv_prompt"]
-        config.edit_prompt = cond["edit_prompt"]
-        config.bbox = cond["bbox"]
+        if "inv_prompt" in cond:
+            config.inv_prompt = cond["inv_prompt"]
+        if "edit_prompt" in cond:
+            config.edit_prompt = cond["edit_prompt"]
+
+        if "bbox_s" in cond and "bbox_o" in cond:
+            config.use_relation = True
+            config.bbox_s = cond["bbox_s"]
+            config.bbox_o = cond["bbox_o"]
+            config.bbox_a = compute_relation_bbox(config.bbox_s, config.bbox_o)
+            config.bbox_s_src = cond.get("bbox_s_src")
+            config.bbox_o_src = cond.get("bbox_o_src")
+            config.token_idx_s = cond.get("token_idx_s", [])
+            config.token_idx_o = cond.get("token_idx_o", [])
+            config.token_idx_a = cond.get("token_idx_a", [])
+            config.bbox = config.bbox_s
+        elif "bbox" in cond:
+            config.use_relation = False
+            config.bbox = cond["bbox"]
+            config.bbox_s = config.bbox
+            config.bbox_o = config.bbox
+            config.bbox_a = config.bbox
         config.img_path = os.path.join(config.dataset_path, img_path)
 
         for seed in config.seeds:
@@ -110,8 +135,14 @@ def main(config: RunConfig):
             canvas = Image.fromarray(np.zeros((image.size[0], image.size[0], 3), dtype=np.uint8) + 220)
             draw = DashedImageDraw(canvas)
 
-            x1, y1, x2, y2 = config.bbox
-            draw.dashed_rectangle([(x1, y1), (x2, y2)], dash=(5, 5), outline=config.color[2], width=5)
+            if config.use_relation:
+                x1, y1, x2, y2 = config.bbox_s
+                draw.dashed_rectangle([(x1, y1), (x2, y2)], dash=(5, 5), outline=config.color[0], width=5)
+                x1, y1, x2, y2 = config.bbox_o
+                draw.dashed_rectangle([(x1, y1), (x2, y2)], dash=(5, 5), outline=config.color[1], width=5)
+            else:
+                x1, y1, x2, y2 = config.bbox
+                draw.dashed_rectangle([(x1, y1), (x2, y2)], dash=(5, 5), outline=config.color[2], width=5)
             canvas.save(prompt_output_path / f'{img_name}_{seed}_bbox.png')
 
 

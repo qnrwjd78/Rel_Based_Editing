@@ -1,0 +1,17 @@
+{
+    "fname": "test.jpg",
+    "inv_prompt": "a photo of a horse and a person",
+    "edit_prompt": "a person is touching a horse",
+    "bbox_s": [
+        318,
+        307,
+        761,
+        690
+    ],
+    "bbox_o": [
+        19,
+        370,
+        274,
+        690
+    ]
+}

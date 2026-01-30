@@ -67,13 +67,20 @@ class AttentionStore:
         self.merge_attn_map = None
 
     def merge_attention(self):
-        smoothing = GaussianSmoothing(channels=1, kernel_size=3, sigma=0.5, dim=2).cuda()
+        if not self.attention_maps:
+            self.merge_attn_map = None
+            return
         resize = transforms.Resize([64, 64])
-
-        self.merge_attn_map = (torch.mean(torch.stack(self.attention_maps), dim=0))
-        self.merge_attn_map = resize(self.merge_attn_map.unsqueeze(0)).squeeze(0)    
-        input = F.pad(self.merge_attn_map.unsqueeze(0).unsqueeze(0), (1, 1, 1, 1), mode='reflect')
-        self.merge_attn_map = smoothing(input).squeeze(0).squeeze(0)
+        self.merge_attn_map = torch.mean(torch.stack(self.attention_maps), dim=0)
+        self.merge_attn_map = resize(self.merge_attn_map)
+        smoothing = GaussianSmoothing(
+            channels=self.merge_attn_map.shape[0],
+            kernel_size=3,
+            sigma=0.5,
+            dim=2,
+        ).to(self.merge_attn_map.device)
+        input = F.pad(self.merge_attn_map.unsqueeze(0), (1, 1, 1, 1), mode='reflect')
+        self.merge_attn_map = smoothing(input).squeeze(0)
 
     def reset(self):
         self.attention_maps = []
@@ -219,7 +226,7 @@ def no_register(model):
             module.forward = sa_forward(module)
 
 
-def register_cross_attention_control_efficient(model, token_idx):
+def register_cross_attention_control_efficient(model):
 
     controller = AttentionStore()
     setattr(model, 'controller', controller)
@@ -231,7 +238,7 @@ def register_cross_attention_control_efficient(model, token_idx):
         else:
             to_out = self.to_out
 
-        def forward(x, encoder_hidden_states=None, attention_mask=None, token_idx=token_idx,
+        def forward(x, encoder_hidden_states=None, attention_mask=None,
                     controller=model.controller):
             batch_size, sequence_length, dim = x.shape
             heads = self.heads
@@ -253,7 +260,8 @@ def register_cross_attention_control_efficient(model, token_idx):
             if controller.merge_attn_map is None and ((self.mark[0] == 'down' and self.mark[1] == 2) or (self.mark[0] == 'up' and self.mark[1] == 1)):
                 _, hw, l = attn.shape
                 h = w = int(hw ** 0.5)
-                controller.attention_maps.append(torch.mean(attn, dim=0).reshape(h, w, l)[:, :, token_idx])
+                attn_map = torch.mean(attn, dim=0).reshape(h, w, l).permute(2, 0, 1)
+                controller.attention_maps.append(attn_map)
 
 
             v = self.to_v(encoder_hidden_states)
