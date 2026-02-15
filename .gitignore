@@ -35,7 +35,6 @@ Thumbs.db
 # Data & outputs
 data/
 dataset/
-outputs/
 latents_forward/
 *.pt
 *.pth

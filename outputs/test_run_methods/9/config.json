@@ -1,0 +1,16 @@
+{
+    "pipeline": "base",
+    "cond_paths": [
+        "./condition/test_condition1_512.json",
+        "./condition/test_condition2_512.json"
+    ],
+    "cond_names": [
+        "cond_1",
+        "cond_2"
+    ],
+    "n_inference_steps": 49,
+    "attn_steps": 12,
+    "transfer_step": 28,
+    "erase_method": "inpaint_then_inv",
+    "compose_method": "norm"
+}
