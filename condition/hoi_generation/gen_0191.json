@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_591_a_person_sip_a_wine_glass/gen_0191.jpg",
+    "inv_prompt": "a person sip a wine glass",
+    "s_word": "person",
+    "a_word": "sip",
+    "o_word": "wine glass",
+    "bbox_s": [
+        1,
+        3,
+        510,
+        510
+    ],
+    "bbox_s_pre": [
+        1,
+        3,
+        510,
+        510
+    ],
+    "bbox_o": [
+        0,
+        0,
+        324,
+        417
+    ],
+    "bbox_o_pre": [
+        0,
+        0,
+        324,
+        417
+    ],
+    "mask_s": "gen_0191_s_person_mask.png",
+    "mask_o": "gen_0191_o_wine glass_mask.png"
+}

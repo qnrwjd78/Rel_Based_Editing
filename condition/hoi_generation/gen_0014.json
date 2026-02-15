@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_214_a_person_no_interaction_a_backpack/gen_0014.jpg",
+    "inv_prompt": "a person no interaction a backpack",
+    "s_word": "person no",
+    "a_word": "interaction",
+    "o_word": "backpack",
+    "bbox_s": [
+        245,
+        1,
+        511,
+        512
+    ],
+    "bbox_s_pre": [
+        245,
+        1,
+        511,
+        512
+    ],
+    "bbox_o": [
+        94,
+        0,
+        452,
+        493
+    ],
+    "bbox_o_pre": [
+        94,
+        0,
+        452,
+        493
+    ],
+    "mask_s": "gen_0014_s_person no_mask.png",
+    "mask_o": "gen_0014_o_backpack_mask.png"
+}

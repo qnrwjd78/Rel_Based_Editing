@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_516_a_person_no_interaction_a_suitcase/gen_0116.jpg",
+    "inv_prompt": "a person no interaction a suitcase",
+    "s_word": "person no",
+    "a_word": "interaction",
+    "o_word": "suitcase",
+    "bbox_s": [
+        191,
+        0,
+        390,
+        361
+    ],
+    "bbox_s_pre": [
+        191,
+        0,
+        390,
+        361
+    ],
+    "bbox_o": [
+        35,
+        43,
+        225,
+        492
+    ],
+    "bbox_o_pre": [
+        35,
+        43,
+        225,
+        492
+    ],
+    "mask_s": "gen_0116_s_person no_mask.png",
+    "mask_o": "gen_0116_o_suitcase_mask.png"
+}

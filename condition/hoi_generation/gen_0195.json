@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_595_a_person_no_interaction_a_wine_glass/gen_0195.jpg",
+    "inv_prompt": "a person no interaction a wine glass",
+    "s_word": "person no",
+    "a_word": "interaction",
+    "o_word": "wine glass",
+    "bbox_s": [
+        387,
+        139,
+        511,
+        511
+    ],
+    "bbox_s_pre": [
+        387,
+        139,
+        511,
+        511
+    ],
+    "bbox_o": [
+        371,
+        58,
+        512,
+        261
+    ],
+    "bbox_o_pre": [
+        371,
+        58,
+        512,
+        261
+    ],
+    "mask_s": "gen_0195_s_person no_mask.png",
+    "mask_o": "gen_0195_o_wine glass_mask.png"
+}

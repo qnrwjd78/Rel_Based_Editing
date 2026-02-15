@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_373_a_person_inspect_a_kite/gen_0173.jpg",
+    "inv_prompt": "a person inspect a kite",
+    "s_word": "person",
+    "a_word": "inspect",
+    "o_word": "kite",
+    "bbox_s": [
+        15,
+        230,
+        243,
+        511
+    ],
+    "bbox_s_pre": [
+        15,
+        230,
+        243,
+        511
+    ],
+    "bbox_o": [
+        310,
+        0,
+        463,
+        66
+    ],
+    "bbox_o_pre": [
+        310,
+        0,
+        463,
+        66
+    ],
+    "mask_s": "gen_0173_s_person_mask.png",
+    "mask_o": "gen_0173_o_kite_mask.png"
+}

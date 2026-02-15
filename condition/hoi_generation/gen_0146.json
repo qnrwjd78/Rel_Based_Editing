@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_546_a_person_no_interaction_a_tie/gen_0146.jpg",
+    "inv_prompt": "a person no interaction a tie",
+    "s_word": "person no",
+    "a_word": "interaction",
+    "o_word": "tie",
+    "bbox_s": [
+        87,
+        0,
+        360,
+        511
+    ],
+    "bbox_s_pre": [
+        87,
+        0,
+        360,
+        511
+    ],
+    "bbox_o": [
+        224,
+        0,
+        256,
+        108
+    ],
+    "bbox_o_pre": [
+        224,
+        0,
+        256,
+        108
+    ],
+    "mask_s": "gen_0146_s_person no_mask.png",
+    "mask_o": "gen_0146_o_tie_mask.png"
+}

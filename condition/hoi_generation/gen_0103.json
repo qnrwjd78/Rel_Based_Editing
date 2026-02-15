@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_503_a_person_hold_a_stop_sign/gen_0103.jpg",
+    "inv_prompt": "a person hold a stop sign",
+    "s_word": "person",
+    "a_word": "hold",
+    "o_word": "stop sign",
+    "bbox_s": [
+        108,
+        23,
+        512,
+        511
+    ],
+    "bbox_s_pre": [
+        108,
+        23,
+        512,
+        511
+    ],
+    "bbox_o": [
+        232,
+        247,
+        511,
+        490
+    ],
+    "bbox_o_pre": [
+        232,
+        247,
+        511,
+        490
+    ],
+    "mask_s": "gen_0103_s_person_mask.png",
+    "mask_o": "gen_0103_o_stop sign_mask.png"
+}

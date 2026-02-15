@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_442_a_person_eat_a_sandwich/gen_0042.jpg",
+    "inv_prompt": "a person eat a sandwich",
+    "s_word": "person",
+    "a_word": "eat",
+    "o_word": "sandwich",
+    "bbox_s": [
+        287,
+        0,
+        511,
+        216
+    ],
+    "bbox_s_pre": [
+        287,
+        0,
+        511,
+        216
+    ],
+    "bbox_o": [
+        0,
+        45,
+        495,
+        502
+    ],
+    "bbox_o_pre": [
+        0,
+        45,
+        495,
+        502
+    ],
+    "mask_s": "gen_0042_s_person_mask.png",
+    "mask_o": "gen_0042_o_sandwich_mask.png"
+}

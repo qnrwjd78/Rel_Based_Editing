@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_073_a_person_park_a_car/gen_0073.jpg",
+    "inv_prompt": "a person park a car",
+    "s_word": "person",
+    "a_word": "park",
+    "o_word": "car",
+    "bbox_s": [
+        2,
+        123,
+        53,
+        220
+    ],
+    "bbox_s_pre": [
+        2,
+        123,
+        53,
+        220
+    ],
+    "bbox_o": [
+        0,
+        136,
+        348,
+        392
+    ],
+    "bbox_o_pre": [
+        0,
+        136,
+        348,
+        392
+    ],
+    "mask_s": "gen_0073_s_person_mask.png",
+    "mask_o": "gen_0073_o_car_mask.png"
+}

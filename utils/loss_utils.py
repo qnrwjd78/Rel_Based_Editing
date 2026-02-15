@@ -64,3 +64,97 @@ def kl_loss(attn_map, mask_box, tau=1.0, eps=1e-8):
     p = mask_box.float()
     p = p / (p.sum() + eps)
     return torch.sum(p * (torch.log(p + eps) - torch.log(q + eps)))
+
+
+def _bg_loss(ft, source_ft, mask_bg):
+    if mask_bg is None:
+        return ft.new_tensor(0.0)
+    if mask_bg.sum() > 0:
+        return torch.nn.SmoothL1Loss()(ft[:, mask_bg], source_ft[:, mask_bg])
+    return ft.new_tensor(0.0)
+
+
+def compute_relation_loss(
+    *,
+    attn_map_s,
+    attn_map_o,
+    attn_map_a,
+    mask_box_s_flat,
+    mask_box_o_flat,
+    mask_box_a_flat,
+    ft,
+    source_ft,
+    mask_src_s,
+    mask_src_o,
+    mask_edge_s,
+    mask_edge_o,
+    mask_bg,
+    topk_ratio,
+):
+    l_dice_s = dice_loss(attn_map_s, mask_box_s_flat)
+    l_dice_o = dice_loss(attn_map_o, mask_box_o_flat)
+    l_dice = 0.5 * (l_dice_s + l_dice_o)
+
+    l_kl_s = kl_loss(attn_map_s, mask_box_s_flat)
+    l_kl_o = kl_loss(attn_map_o, mask_box_o_flat)
+    l_kl = 0.5 * (l_kl_s + l_kl_o)
+
+    loss_in_s, loss_out_s = attn_in_out_loss(attn_map_s, mask_box_s_flat, topk_ratio)
+    loss_in_o, loss_out_o = attn_in_out_loss(attn_map_o, mask_box_o_flat, topk_ratio)
+    loss_in_a, loss_out_a = attn_in_out_loss(attn_map_a, mask_box_a_flat, topk_ratio)
+
+    loss_oii = loss_in_s + 3 * loss_out_s + loss_in_o + 3 * loss_out_o
+
+    loss_ipt_s = inpaint_loss(ft, source_ft, mask_src_s, mask_edge_s)
+    loss_ipt_o = inpaint_loss(ft, source_ft, mask_src_o, mask_edge_o)
+    loss_sai = loss_ipt_s + loss_ipt_o
+
+    loss_bg = _bg_loss(ft, source_ft, mask_bg)
+
+    loss = 0.1 * loss_bg + 0.0 * loss_sai + 0.3 * loss_oii + 0.3 * l_dice + 0.3 * l_kl
+
+    metrics = {
+        "loss_in_s": loss_in_s,
+        "loss_out_s": loss_out_s,
+        "loss_in_o": loss_in_o,
+        "loss_out_o": loss_out_o,
+        "loss_in_a": loss_in_a,
+        "loss_out_a": loss_out_a,
+        "loss_ipt_s": loss_ipt_s,
+        "loss_ipt_o": loss_ipt_o,
+        "loss_bg": loss_bg,
+        "loss_sai": loss_sai,
+        "loss_oii": loss_oii,
+        "loss_dice": l_dice,
+        "loss_kl": l_kl,
+    }
+    return loss, metrics
+
+
+def compute_single_loss(
+    *,
+    attn_map_main,
+    mask_box_flat,
+    ft,
+    source_ft,
+    mask_src,
+    mask_edge,
+    mask_bg,
+    topk_ratio,
+):
+    loss_attn, loss_zero = attn_in_out_loss(attn_map_main, mask_box_flat, topk_ratio)
+    loss_oii = loss_attn + loss_zero
+
+    loss_ipt = inpaint_loss(ft, source_ft, mask_src, mask_edge)
+    loss_bg = _bg_loss(ft, source_ft, mask_bg)
+
+    loss = 0.1 * loss_bg + 0.0 * loss_ipt + 0.3 * loss_oii
+
+    metrics = {
+        "loss_attn": loss_attn,
+        "loss_zero": loss_zero,
+        "loss_ipt": loss_ipt,
+        "loss_bg": loss_bg,
+        "loss_oii": loss_oii,
+    }
+    return loss, metrics

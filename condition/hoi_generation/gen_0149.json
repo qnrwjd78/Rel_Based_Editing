@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_549_a_person_repair_a_toaster/gen_0149.jpg",
+    "inv_prompt": "a person repair a toaster",
+    "s_word": "person",
+    "a_word": "repair",
+    "o_word": "toaster",
+    "bbox_s": [
+        29,
+        0,
+        511,
+        387
+    ],
+    "bbox_s_pre": [
+        29,
+        0,
+        511,
+        387
+    ],
+    "bbox_o": [
+        0,
+        151,
+        347,
+        430
+    ],
+    "bbox_o_pre": [
+        0,
+        151,
+        347,
+        430
+    ],
+    "mask_s": "gen_0149_s_person_mask.png",
+    "mask_o": "gen_0149_o_toaster_mask.png"
+}

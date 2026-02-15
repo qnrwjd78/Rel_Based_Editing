@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_539_a_person_adjust_a_tie/gen_0139.jpg",
+    "inv_prompt": "a person adjust a tie",
+    "s_word": "person",
+    "a_word": "adjust",
+    "o_word": "tie",
+    "bbox_s": [
+        3,
+        1,
+        511,
+        511
+    ],
+    "bbox_s_pre": [
+        3,
+        1,
+        511,
+        511
+    ],
+    "bbox_o": [
+        145,
+        8,
+        285,
+        510
+    ],
+    "bbox_o_pre": [
+        145,
+        8,
+        285,
+        510
+    ],
+    "mask_s": "gen_0139_s_person_mask.png",
+    "mask_o": "gen_0139_o_tie_mask.png"
+}

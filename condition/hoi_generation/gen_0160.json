@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_560_a_person_hold_a_toothbrush/gen_0160.jpg",
+    "inv_prompt": "a person hold a toothbrush",
+    "s_word": "person",
+    "a_word": "hold",
+    "o_word": "toothbrush",
+    "bbox_s": [
+        44,
+        0,
+        511,
+        347
+    ],
+    "bbox_s_pre": [
+        44,
+        0,
+        511,
+        347
+    ],
+    "bbox_o": [
+        144,
+        22,
+        511,
+        340
+    ],
+    "bbox_o_pre": [
+        144,
+        22,
+        511,
+        340
+    ],
+    "mask_s": "gen_0160_s_person_mask.png",
+    "mask_o": "gen_0160_o_toothbrush_mask.png"
+}

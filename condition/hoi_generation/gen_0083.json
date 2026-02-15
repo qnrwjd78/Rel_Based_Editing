@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_483_a_person_no_interaction_a_snowboard/gen_0083.jpg",
+    "inv_prompt": "a person no interaction a snowboard",
+    "s_word": "person no",
+    "a_word": "interaction",
+    "o_word": "snowboard",
+    "bbox_s": [
+        274,
+        164,
+        445,
+        379
+    ],
+    "bbox_s_pre": [
+        274,
+        164,
+        445,
+        379
+    ],
+    "bbox_o": [
+        255,
+        348,
+        441,
+        401
+    ],
+    "bbox_o_pre": [
+        255,
+        348,
+        441,
+        401
+    ],
+    "mask_s": "gen_0083_s_person no_mask.png",
+    "mask_o": "gen_0083_o_snowboard_mask.png"
+}

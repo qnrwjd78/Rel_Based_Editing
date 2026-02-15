@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_474_a_person_no_interaction_a_skis/gen_0074.jpg",
+    "inv_prompt": "a person no interaction a skis",
+    "s_word": "person no",
+    "a_word": "interaction",
+    "o_word": "skis",
+    "bbox_s": [
+        0,
+        19,
+        375,
+        511
+    ],
+    "bbox_s_pre": [
+        0,
+        19,
+        375,
+        511
+    ],
+    "bbox_o": [
+        352,
+        27,
+        396,
+        348
+    ],
+    "bbox_o_pre": [
+        352,
+        27,
+        396,
+        348
+    ],
+    "mask_s": "gen_0074_s_person no_mask.png",
+    "mask_o": "gen_0074_o_skis_mask.png"
+}

@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_104_a_person_pet_a_cow/gen_0104.jpg",
+    "inv_prompt": "a person pet a cow",
+    "s_word": "person",
+    "a_word": "pet",
+    "o_word": "cow",
+    "bbox_s": [
+        0,
+        0,
+        139,
+        458
+    ],
+    "bbox_s_pre": [
+        0,
+        0,
+        139,
+        458
+    ],
+    "bbox_o": [
+        84,
+        0,
+        511,
+        505
+    ],
+    "bbox_o_pre": [
+        84,
+        0,
+        511,
+        505
+    ],
+    "mask_s": "gen_0104_s_person_mask.png",
+    "mask_o": "gen_0104_o_cow_mask.png"
+}

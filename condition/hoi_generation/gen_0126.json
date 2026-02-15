@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_526_a_person_sit_on_a_surfboard/gen_0126.jpg",
+    "inv_prompt": "a person sit on a surfboard",
+    "s_word": "person sit",
+    "a_word": "on",
+    "o_word": "surfboard",
+    "bbox_s": [
+        4,
+        0,
+        413,
+        301
+    ],
+    "bbox_s_pre": [
+        4,
+        0,
+        413,
+        301
+    ],
+    "bbox_o": [
+        0,
+        253,
+        511,
+        443
+    ],
+    "bbox_o_pre": [
+        0,
+        253,
+        511,
+        443
+    ],
+    "mask_s": "gen_0126_s_person sit_mask.png",
+    "mask_o": "gen_0126_o_surfboard_mask.png"
+}

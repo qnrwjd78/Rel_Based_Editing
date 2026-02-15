@@ -1,0 +1,52 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# Virtualenv / Conda
+.venv/
+venv/
+env/
+.conda/
+*.conda
+.env
+.condarc
+condaenv*.requirements.txt
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Python tooling
+.pytest_cache/
+.mypy_cache/
+
+# IDE / OS
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Data & outputs
+data/
+dataset/
+outputs/
+latents_forward/
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.npz
+*.npy
+
+# Model-specific large assets
+model/sam2/checkpoints/
+model/sam2/sav_dataset/
+
+# Logs
+*.log

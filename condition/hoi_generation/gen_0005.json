@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_405_a_person_squeeze_a_orange/gen_0005.jpg",
+    "inv_prompt": "a person squeeze a orange",
+    "s_word": "person",
+    "a_word": "squeeze",
+    "o_word": "orange",
+    "bbox_s": [
+        66,
+        112,
+        191,
+        483
+    ],
+    "bbox_s_pre": [
+        66,
+        112,
+        191,
+        483
+    ],
+    "bbox_o": [
+        234,
+        331,
+        295,
+        394
+    ],
+    "bbox_o_pre": [
+        234,
+        331,
+        295,
+        394
+    ],
+    "mask_s": "gen_0005_s_person_mask.png",
+    "mask_o": "gen_0005_o_orange_mask.png"
+}

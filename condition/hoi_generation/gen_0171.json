@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_371_a_person_fly_a_kite/gen_0171.jpg",
+    "inv_prompt": "a person fly a kite",
+    "s_word": "person",
+    "a_word": "fly",
+    "o_word": "kite",
+    "bbox_s": [
+        101,
+        36,
+        429,
+        511
+    ],
+    "bbox_s_pre": [
+        101,
+        36,
+        429,
+        511
+    ],
+    "bbox_o": [
+        371,
+        0,
+        511,
+        328
+    ],
+    "bbox_o_pre": [
+        371,
+        0,
+        511,
+        328
+    ],
+    "mask_s": "gen_0171_s_person_mask.png",
+    "mask_o": "gen_0171_o_kite_mask.png"
+}

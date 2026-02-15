@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_443_a_person_hold_a_sandwich/gen_0043.jpg",
+    "inv_prompt": "a person hold a sandwich",
+    "s_word": "person",
+    "a_word": "hold",
+    "o_word": "sandwich",
+    "bbox_s": [
+        10,
+        0,
+        509,
+        510
+    ],
+    "bbox_s_pre": [
+        10,
+        0,
+        509,
+        510
+    ],
+    "bbox_o": [
+        0,
+        80,
+        253,
+        413
+    ],
+    "bbox_o_pre": [
+        0,
+        80,
+        253,
+        413
+    ],
+    "mask_s": "gen_0043_s_person_mask.png",
+    "mask_o": "gen_0043_o_sandwich_mask.png"
+}

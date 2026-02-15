@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_411_a_person_open_a_oven/gen_0011.jpg",
+    "inv_prompt": "a person open a oven",
+    "s_word": "person",
+    "a_word": "open",
+    "o_word": "oven",
+    "bbox_s": [
+        1,
+        95,
+        509,
+        511
+    ],
+    "bbox_s_pre": [
+        1,
+        95,
+        509,
+        511
+    ],
+    "bbox_o": [
+        213,
+        0,
+        511,
+        509
+    ],
+    "bbox_o_pre": [
+        213,
+        0,
+        511,
+        509
+    ],
+    "mask_s": "gen_0011_s_person_mask.png",
+    "mask_o": "gen_0011_o_oven_mask.png"
+}

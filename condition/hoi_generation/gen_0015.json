@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_215_a_person_buy_a_banana/gen_0015.jpg",
+    "inv_prompt": "a person buy a banana",
+    "s_word": "person",
+    "a_word": "buy",
+    "o_word": "banana",
+    "bbox_s": [
+        11,
+        141,
+        189,
+        511
+    ],
+    "bbox_s_pre": [
+        11,
+        141,
+        189,
+        511
+    ],
+    "bbox_o": [
+        89,
+        0,
+        144,
+        151
+    ],
+    "bbox_o_pre": [
+        89,
+        0,
+        144,
+        151
+    ],
+    "mask_s": "gen_0015_s_person_mask.png",
+    "mask_o": "gen_0015_o_banana_mask.png"
+}

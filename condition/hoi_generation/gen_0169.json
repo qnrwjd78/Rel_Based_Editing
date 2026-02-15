@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_569_a_person_drive_a_truck/gen_0169.jpg",
+    "inv_prompt": "a person drive a truck",
+    "s_word": "person",
+    "a_word": "drive",
+    "o_word": "truck",
+    "bbox_s": [
+        368,
+        94,
+        463,
+        372
+    ],
+    "bbox_s_pre": [
+        368,
+        94,
+        463,
+        372
+    ],
+    "bbox_o": [
+        0,
+        132,
+        424,
+        468
+    ],
+    "bbox_o_pre": [
+        0,
+        132,
+        424,
+        468
+    ],
+    "mask_s": "gen_0169_s_person_mask.png",
+    "mask_o": "gen_0169_o_truck_mask.png"
+}

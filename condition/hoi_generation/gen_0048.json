@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_448_a_person_open_a_scissors/gen_0048.jpg",
+    "inv_prompt": "a person open a scissors",
+    "s_word": "person",
+    "a_word": "open",
+    "o_word": "scissors",
+    "bbox_s": [
+        255,
+        190,
+        511,
+        511
+    ],
+    "bbox_s_pre": [
+        255,
+        190,
+        511,
+        511
+    ],
+    "bbox_o": [
+        0,
+        0,
+        475,
+        303
+    ],
+    "bbox_o_pre": [
+        0,
+        0,
+        475,
+        303
+    ],
+    "mask_s": "gen_0048_s_person_mask.png",
+    "mask_o": "gen_0048_o_scissors_mask.png"
+}

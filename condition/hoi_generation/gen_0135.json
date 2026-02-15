@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_535_a_person_hold_a_tennis_racket/gen_0135.jpg",
+    "inv_prompt": "a person hold a tennis racket",
+    "s_word": "person",
+    "a_word": "hold",
+    "o_word": "tennis racket",
+    "bbox_s": [
+        119,
+        0,
+        205,
+        134
+    ],
+    "bbox_s_pre": [
+        119,
+        0,
+        205,
+        134
+    ],
+    "bbox_o": [
+        1,
+        38,
+        177,
+        509
+    ],
+    "bbox_o_pre": [
+        1,
+        38,
+        177,
+        509
+    ],
+    "mask_s": "gen_0135_s_person_mask.png",
+    "mask_o": "gen_0135_o_tennis racket_mask.png"
+}

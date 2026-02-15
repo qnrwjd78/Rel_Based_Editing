@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_582_a_person_set_a_umbrella/gen_0182.jpg",
+    "inv_prompt": "a person set a umbrella",
+    "s_word": "person",
+    "a_word": "set",
+    "o_word": "umbrella",
+    "bbox_s": [
+        350,
+        386,
+        451,
+        511
+    ],
+    "bbox_s_pre": [
+        350,
+        386,
+        451,
+        511
+    ],
+    "bbox_o": [
+        166,
+        0,
+        511,
+        418
+    ],
+    "bbox_o_pre": [
+        166,
+        0,
+        511,
+        418
+    ],
+    "mask_s": "gen_0182_s_person_mask.png",
+    "mask_o": "gen_0182_o_umbrella_mask.png"
+}

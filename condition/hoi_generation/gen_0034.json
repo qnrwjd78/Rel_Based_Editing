@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_434_a_person_no_interaction_a_refrigerator/gen_0034.jpg",
+    "inv_prompt": "a person no interaction a refrigerator",
+    "s_word": "person no",
+    "a_word": "interaction",
+    "o_word": "refrigerator",
+    "bbox_s": [
+        236,
+        0,
+        441,
+        416
+    ],
+    "bbox_s_pre": [
+        236,
+        0,
+        441,
+        416
+    ],
+    "bbox_o": [
+        72,
+        56,
+        289,
+        410
+    ],
+    "bbox_o_pre": [
+        72,
+        56,
+        289,
+        410
+    ],
+    "mask_s": "gen_0034_s_person no_mask.png",
+    "mask_o": "gen_0034_o_refrigerator_mask.png"
+}

@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_462_a_person_stand_on_a_skateboard/gen_0062.jpg",
+    "inv_prompt": "a person stand on a skateboard",
+    "s_word": "person stand",
+    "a_word": "on",
+    "o_word": "skateboard",
+    "bbox_s": [
+        0,
+        0,
+        137,
+        362
+    ],
+    "bbox_s_pre": [
+        0,
+        0,
+        137,
+        362
+    ],
+    "bbox_o": [
+        0,
+        316,
+        154,
+        439
+    ],
+    "bbox_o_pre": [
+        0,
+        316,
+        154,
+        439
+    ],
+    "mask_s": "gen_0062_s_person stand_mask.png",
+    "mask_o": "gen_0062_o_skateboard_mask.png"
+}

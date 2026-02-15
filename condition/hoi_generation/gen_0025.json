@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_225_a_person_break_a_baseball_bat/gen_0025.jpg",
+    "inv_prompt": "a person break a baseball bat",
+    "s_word": "person",
+    "a_word": "break",
+    "o_word": "baseball bat",
+    "bbox_s": [
+        152,
+        73,
+        455,
+        511
+    ],
+    "bbox_s_pre": [
+        152,
+        73,
+        455,
+        511
+    ],
+    "bbox_o": [
+        424,
+        235,
+        511,
+        322
+    ],
+    "bbox_o_pre": [
+        424,
+        235,
+        511,
+        322
+    ],
+    "mask_s": "gen_0025_s_person_mask.png",
+    "mask_o": "gen_0025_o_baseball bat_mask.png"
+}

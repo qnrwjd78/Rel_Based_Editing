@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_432_a_person_move_a_refrigerator/gen_0032.jpg",
+    "inv_prompt": "a person move a refrigerator",
+    "s_word": "person",
+    "a_word": "move",
+    "o_word": "refrigerator",
+    "bbox_s": [
+        362,
+        0,
+        507,
+        409
+    ],
+    "bbox_s_pre": [
+        362,
+        0,
+        507,
+        409
+    ],
+    "bbox_o": [
+        3,
+        0,
+        341,
+        511
+    ],
+    "bbox_o_pre": [
+        3,
+        0,
+        341,
+        511
+    ],
+    "mask_s": "gen_0032_s_person_mask.png",
+    "mask_o": "gen_0032_o_refrigerator_mask.png"
+}

@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_265_a_person_blow_a_cake/gen_0065.jpg",
+    "inv_prompt": "a person blow a cake",
+    "s_word": "person",
+    "a_word": "blow",
+    "o_word": "cake",
+    "bbox_s": [
+        138,
+        0,
+        511,
+        510
+    ],
+    "bbox_s_pre": [
+        138,
+        0,
+        511,
+        510
+    ],
+    "bbox_o": [
+        0,
+        229,
+        178,
+        490
+    ],
+    "bbox_o_pre": [
+        0,
+        229,
+        178,
+        490
+    ],
+    "mask_s": "gen_0065_s_person_mask.png",
+    "mask_o": "gen_0065_o_cake_mask.png"
+}

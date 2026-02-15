@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_574_a_person_sit_on_a_truck/gen_0174.jpg",
+    "inv_prompt": "a person sit on a truck",
+    "s_word": "person sit",
+    "a_word": "on",
+    "o_word": "truck",
+    "bbox_s": [
+        192,
+        105,
+        321,
+        368
+    ],
+    "bbox_s_pre": [
+        192,
+        105,
+        321,
+        368
+    ],
+    "bbox_o": [
+        0,
+        263,
+        509,
+        511
+    ],
+    "bbox_o_pre": [
+        0,
+        263,
+        509,
+        511
+    ],
+    "mask_s": "gen_0174_s_person sit_mask.png",
+    "mask_o": "gen_0174_o_truck_mask.png"
+}

@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_484_a_person_hold_a_spoon/gen_0084.jpg",
+    "inv_prompt": "a person hold a spoon",
+    "s_word": "person",
+    "a_word": "hold",
+    "o_word": "spoon",
+    "bbox_s": [
+        149,
+        0,
+        427,
+        286
+    ],
+    "bbox_s_pre": [
+        149,
+        0,
+        427,
+        286
+    ],
+    "bbox_o": [
+        192,
+        120,
+        294,
+        361
+    ],
+    "bbox_o_pre": [
+        192,
+        120,
+        294,
+        361
+    ],
+    "mask_s": "gen_0084_s_person_mask.png",
+    "mask_o": "gen_0084_o_spoon_mask.png"
+}

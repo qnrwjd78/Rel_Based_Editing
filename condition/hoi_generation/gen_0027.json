@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_427_a_person_slide_a_pizza/gen_0027.jpg",
+    "inv_prompt": "a person slide a pizza",
+    "s_word": "person",
+    "a_word": "slide",
+    "o_word": "pizza",
+    "bbox_s": [
+        0,
+        0,
+        152,
+        116
+    ],
+    "bbox_s_pre": [
+        0,
+        0,
+        152,
+        116
+    ],
+    "bbox_o": [
+        39,
+        86,
+        464,
+        457
+    ],
+    "bbox_o_pre": [
+        39,
+        86,
+        464,
+        457
+    ],
+    "mask_s": "gen_0027_s_person_mask.png",
+    "mask_o": "gen_0027_o_pizza_mask.png"
+}

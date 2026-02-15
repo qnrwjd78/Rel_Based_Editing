@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_498_a_person_serve_a_sports_ball/gen_0098.jpg",
+    "inv_prompt": "a person serve a sports ball",
+    "s_word": "person",
+    "a_word": "serve",
+    "o_word": "sports ball",
+    "bbox_s": [
+        48,
+        106,
+        324,
+        511
+    ],
+    "bbox_s_pre": [
+        48,
+        106,
+        324,
+        511
+    ],
+    "bbox_o": [
+        23,
+        353,
+        130,
+        473
+    ],
+    "bbox_o_pre": [
+        23,
+        353,
+        130,
+        473
+    ],
+    "mask_s": "gen_0098_s_person_mask.png",
+    "mask_o": "gen_0098_o_sports ball_mask.png"
+}

@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_408_a_person_clean_a_oven/gen_0008.jpg",
+    "inv_prompt": "a person clean a oven",
+    "s_word": "person",
+    "a_word": "clean",
+    "o_word": "oven",
+    "bbox_s": [
+        267,
+        84,
+        511,
+        470
+    ],
+    "bbox_s_pre": [
+        267,
+        84,
+        511,
+        470
+    ],
+    "bbox_o": [
+        206,
+        72,
+        509,
+        509
+    ],
+    "bbox_o_pre": [
+        206,
+        72,
+        509,
+        509
+    ],
+    "mask_s": "gen_0008_s_person_mask.png",
+    "mask_o": "gen_0008_o_oven_mask.png"
+}

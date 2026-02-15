@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_423_a_person_eat_a_pizza/gen_0023.jpg",
+    "inv_prompt": "a person eat a pizza",
+    "s_word": "person",
+    "a_word": "eat",
+    "o_word": "pizza",
+    "bbox_s": [
+        101,
+        165,
+        226,
+        270
+    ],
+    "bbox_s_pre": [
+        101,
+        165,
+        226,
+        270
+    ],
+    "bbox_o": [
+        254,
+        212,
+        511,
+        454
+    ],
+    "bbox_o_pre": [
+        254,
+        212,
+        511,
+        454
+    ],
+    "mask_s": "gen_0023_s_person_mask.png",
+    "mask_o": "gen_0023_o_pizza_mask.png"
+}

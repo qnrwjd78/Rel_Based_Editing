@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_419_a_person_buy_a_pizza/gen_0019.jpg",
+    "inv_prompt": "a person buy a pizza",
+    "s_word": "person",
+    "a_word": "buy",
+    "o_word": "pizza",
+    "bbox_s": [
+        0,
+        0,
+        511,
+        488
+    ],
+    "bbox_s_pre": [
+        0,
+        0,
+        511,
+        488
+    ],
+    "bbox_o": [
+        0,
+        5,
+        344,
+        435
+    ],
+    "bbox_o_pre": [
+        0,
+        5,
+        344,
+        435
+    ],
+    "mask_s": "gen_0019_s_person_mask.png",
+    "mask_o": "gen_0019_o_pizza_mask.png"
+}

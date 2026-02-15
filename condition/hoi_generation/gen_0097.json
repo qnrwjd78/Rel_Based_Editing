@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_497_a_person_pick_up_a_sports_ball/gen_0097.jpg",
+    "inv_prompt": "a person pick up a sports ball",
+    "s_word": "person pick",
+    "a_word": "up",
+    "o_word": "sports ball",
+    "bbox_s": [
+        335,
+        0,
+        497,
+        403
+    ],
+    "bbox_s_pre": [
+        335,
+        0,
+        497,
+        403
+    ],
+    "bbox_o": [
+        465,
+        343,
+        511,
+        444
+    ],
+    "bbox_o_pre": [
+        465,
+        343,
+        511,
+        444
+    ],
+    "mask_s": "gen_0097_s_person pick_mask.png",
+    "mask_o": "gen_0097_o_sports ball_mask.png"
+}

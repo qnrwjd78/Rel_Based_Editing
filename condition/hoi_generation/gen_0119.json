@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_519_a_person_hold_a_surfboard/gen_0119.jpg",
+    "inv_prompt": "a person hold a surfboard",
+    "s_word": "person",
+    "a_word": "hold",
+    "o_word": "surfboard",
+    "bbox_s": [
+        186,
+        82,
+        429,
+        468
+    ],
+    "bbox_s_pre": [
+        186,
+        82,
+        429,
+        468
+    ],
+    "bbox_o": [
+        67,
+        214,
+        511,
+        343
+    ],
+    "bbox_o_pre": [
+        67,
+        214,
+        511,
+        343
+    ],
+    "mask_s": "gen_0119_s_person_mask.png",
+    "mask_o": "gen_0119_o_surfboard_mask.png"
+}

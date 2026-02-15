@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_288_a_person_talk_on_a_cell_phone/gen_0088.jpg",
+    "inv_prompt": "a person talk on a cell phone",
+    "s_word": "person talk",
+    "a_word": "on",
+    "o_word": "cell phone",
+    "bbox_s": [
+        342,
+        72,
+        498,
+        511
+    ],
+    "bbox_s_pre": [
+        342,
+        72,
+        498,
+        511
+    ],
+    "bbox_o": [
+        370,
+        186,
+        406,
+        229
+    ],
+    "bbox_o_pre": [
+        370,
+        186,
+        406,
+        229
+    ],
+    "mask_s": "gen_0088_s_person talk_mask.png",
+    "mask_o": "gen_0088_o_cell phone_mask.png"
+}

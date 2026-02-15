@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_529_a_person_carry_a_teddy_bear/gen_0129.jpg",
+    "inv_prompt": "a person carry a teddy bear",
+    "s_word": "person",
+    "a_word": "carry",
+    "o_word": "teddy bear",
+    "bbox_s": [
+        0,
+        0,
+        451,
+        512
+    ],
+    "bbox_s_pre": [
+        0,
+        0,
+        451,
+        512
+    ],
+    "bbox_o": [
+        42,
+        29,
+        353,
+        510
+    ],
+    "bbox_o_pre": [
+        42,
+        29,
+        353,
+        510
+    ],
+    "mask_s": "gen_0129_s_person_mask.png",
+    "mask_o": "gen_0129_o_teddy bear_mask.png"
+}

@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_337_a_person_block_a_frisbee/gen_0137.jpg",
+    "inv_prompt": "a person block a frisbee",
+    "s_word": "person",
+    "a_word": "block",
+    "o_word": "frisbee",
+    "bbox_s": [
+        247,
+        0,
+        507,
+        349
+    ],
+    "bbox_s_pre": [
+        247,
+        0,
+        507,
+        349
+    ],
+    "bbox_o": [
+        118,
+        245,
+        409,
+        476
+    ],
+    "bbox_o_pre": [
+        118,
+        245,
+        409,
+        476
+    ],
+    "mask_s": "gen_0137_s_person_mask.png",
+    "mask_o": "gen_0137_o_frisbee_mask.png"
+}

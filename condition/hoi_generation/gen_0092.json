@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_292_a_person_hold_a_clock/gen_0092.jpg",
+    "inv_prompt": "a person hold a clock",
+    "s_word": "person",
+    "a_word": "hold",
+    "o_word": "clock",
+    "bbox_s": [
+        0,
+        0,
+        511,
+        510
+    ],
+    "bbox_s_pre": [
+        0,
+        0,
+        511,
+        510
+    ],
+    "bbox_o": [
+        373,
+        157,
+        492,
+        281
+    ],
+    "bbox_o_pre": [
+        373,
+        157,
+        492,
+        281
+    ],
+    "mask_s": "gen_0092_s_person_mask.png",
+    "mask_o": "gen_0092_o_clock_mask.png"
+}

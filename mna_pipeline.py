@@ -5,6 +5,7 @@ import cv2
 import torch
 import numpy as np
 import matplotlib.pyplot as plt
+import math
 from diffusers.utils import logging
 
 from diffusers.pipelines.stable_diffusion import StableDiffusionPipeline
@@ -18,6 +19,9 @@ from utils.vis_utils import (
     build_diff_attention_image,
     get_image_grid,
 )
+from utils.loss_utils import compute_relation_loss, compute_single_loss
+from utils.latent_update import update_latent, _update_latent
+from edit.overlap import overlap_soft_zbuffer
 import torchvision.transforms as transforms
 from utils.ptp_utils import register_time, load_source_latents_t
 from utils.dift_sd import SDFeaturizer
@@ -212,6 +216,35 @@ class MnAPipeline(StableDiffusionPipeline):
         device = torch.device('cuda:0') if torch.cuda.is_available() else torch.device('cpu')
         image = transforms.ToTensor()(image_pil).unsqueeze(0).to(device)
         return image
+
+    def _load_mask_64(self, mask_path: str, device, *, dst_img=512, dst_lat=64) -> Optional[torch.Tensor]:
+        """
+        Load a binary segmentation mask image and convert it to a bool mask on the 64x64 latent grid.
+        Expected mask format: white(>0) = foreground, black = background.
+        """
+        if not mask_path or not os.path.exists(mask_path):
+            return None
+        m = Image.open(mask_path).convert("L")
+        # Match the resized image size (512x512) used by the pipeline, then downsample to latent grid.
+        m = m.resize((dst_img, dst_img), resample=Image.NEAREST)
+        m = m.resize((dst_lat, dst_lat), resample=Image.NEAREST)
+        arr = (np.array(m) > 0)
+        return torch.from_numpy(arr).to(device=device, dtype=torch.bool)
+
+    @staticmethod
+    def _grid_with_cols(images: List[Image.Image], cols: int) -> Image.Image:
+        if not images:
+            return Image.new("RGB", (1, 1), (255, 255, 255))
+        cols = max(1, int(cols or 1))
+        cols = min(cols, len(images))
+        rows = int(math.ceil(len(images) / cols))
+        w, h = images[0].size
+        grid = Image.new("RGB", (cols * w, rows * h), (255, 255, 255))
+        for idx, img in enumerate(images):
+            x = (idx % cols) * w
+            y = (idx // cols) * h
+            grid.paste(img, (x, y))
+        return grid
     
     @torch.no_grad()
     def encode_imgs(self, imgs):
@@ -304,48 +337,6 @@ class MnAPipeline(StableDiffusionPipeline):
                 best_idx = i
         return [best_idx] if best_idx is not None else []
 
-    @staticmethod
-    def _attn_in_out_loss(attn_map, mask_box, topk_ratio):
-        zero = torch.tensor(0.0, device=mask_box.device)
-        
-        if attn_map is None or mask_box.sum().item() == 0:
-            return zero, zero
-        
-        values_in = attn_map[mask_box]
-        values_out = attn_map[~mask_box]
-        
-        if values_in.numel() == 0:
-            loss_in = zero
-        else:
-            k = max(1, int(values_in.numel() * topk_ratio))
-            k = min(k, values_in.numel())
-            loss_in = 1.0 - values_in.topk(k).values.mean()
-        
-        loss_out = values_out.mean() if values_out.numel() > 0 else zero
-        return loss_in, loss_out
-
-    @staticmethod
-    def _inpaint_loss(ft, source_ft, mask_src, mask_edge):
-        mask_src_count = int(mask_src.sum().item())
-        mask_edge_count = int(mask_edge.sum().item())
-
-        if mask_src_count == 0 or mask_edge_count == 0:
-            return ft.new_tensor(0.0)
-        ft_edge = source_ft[:, mask_edge]
-        if ft_edge.numel() == 0:
-            return ft.new_tensor(0.0)
-        fts_edge = ft_edge
-        while fts_edge.shape[1] < mask_src_count:
-            fts_edge = torch.cat([fts_edge, ft_edge], dim=1)
-        return torch.nn.SmoothL1Loss()(ft[:, mask_src], fts_edge[:, :mask_src_count])
-    
-    @staticmethod
-    def _update_latent(latents, loss, step_size):
-        grad_cond = torch.autograd.grad(loss.requires_grad_(True), [latents], retain_graph=True)[0]
-        latents = latents - step_size * grad_cond
-
-        return latents
-
     def idx_single(self, token):
         if isinstance(token, (list, tuple)):
             if token:
@@ -413,6 +404,9 @@ class MnAPipeline(StableDiffusionPipeline):
         mask_box_a_flat = None
         mask_src_s = None
         mask_src_o = None
+        # Keep 64x64 (2d) versions for erase losses that need spatial indexing.
+        mask_src_s_2d = None
+        mask_src_o_2d = None
         mask_edge_s = None
         mask_edge_o = None
 
@@ -420,6 +414,10 @@ class MnAPipeline(StableDiffusionPipeline):
         mask_bg = None
 
         with torch.autocast(device_type='cuda', dtype=torch.float32):
+            save_step_grids = bool(getattr(config, "save_step_attn_grids", False)) and use_relation
+            inv_s_imgs: List[Image.Image] = []
+            inv_o_imgs: List[Image.Image] = []
+
             for i, t in enumerate(tqdm(timesteps, desc="Inversion")): # t: 1000 to 0, t: timestep index
                 register_time(self, t.item())
 
@@ -527,12 +525,33 @@ class MnAPipeline(StableDiffusionPipeline):
                         mask_edge_s = self.dilate_mask(mask_s, config)
                         mask_edge_o = self.dilate_mask(mask_o, config)
 
-                        mask_src_s = mask_s.clone()
-                        mask_src_s[mask_box_s] = False
-                        mask_src_o = mask_o.clone()
-                        mask_src_o[mask_box_o] = False
+                        # If segmentation masks are provided (e.g. SAM2), prefer them as the source erase masks.
+                        # These masks already represent the source object regions precisely, so we do not
+                        # subtract target boxes (which can under-erase when target overlaps source).
+                        seg_s = self._load_mask_64(getattr(config, "mask_s_path", None), device)
+                        seg_o = self._load_mask_64(getattr(config, "mask_o_path", None), device)
+
+                        # Subject
+                        if seg_s is not None:
+                            mask_s = seg_s
+                            mask_edge_s = self.dilate_mask(mask_s, config)
+                            mask_src_s = mask_s.clone()
+                        else:
+                            mask_src_s = mask_s.clone()
+
+                        # Object
+                        if seg_o is not None:
+                            mask_o = seg_o
+                            mask_edge_o = self.dilate_mask(mask_o, config)
+                            mask_src_o = mask_o.clone()
+                        else:
+                            mask_src_o = mask_o.clone()
 
                         mask_bg = ~(mask_src_s | mask_src_o | mask_box_a)
+
+                        # Preserve 2D masks before flattening for loss functions.
+                        mask_src_s_2d = mask_src_s.clone()
+                        mask_src_o_2d = mask_src_o.clone()
 
                         mask_box_s_flat = mask_box_s.reshape(-1)
                         mask_box_o_flat = mask_box_o.reshape(-1)
@@ -563,282 +582,468 @@ class MnAPipeline(StableDiffusionPipeline):
                         mask_edge = mask_edge.reshape(-1)
                         mask_bg = mask_bg.reshape(-1)
 
-
-
-                if i == config.transfer_step:
-                    with torch.enable_grad():
-
-                        latent = latent.clone().detach().requires_grad_(True)
-
+                # Per-step attention (inversion). This is computed on the *current* latent at the *current* timestep.
+                # Note: timesteps are iterated as `reversed(self.scheduler.timesteps)` in this repo.
+                if save_step_grids and token_idx_s and token_idx_o:
+                    try:
                         dift.pipe.controller.reset()
-                        source_ft = dift.forward(
-                            latent,
+                        _ = dift.forward(
+                            latent.detach(),
                             prompt=dift_prompt,
                             t=t.item(),
                             up_ft_indices=config.up_ft_indices,
                             ensemble_size=config.ensemble_size,
                         )
-                        
-                        source_ft = source_ft.reshape(source_ft.shape[0], -1)
-
+                        dift.pipe.controller.merge_attention()
+                        attn_map_step = dift.pipe.controller.merge_attn_map
+                    finally:
                         dift.pipe.controller.reset()
-                        dift.pipe.unet.zero_grad()
 
-                        # 스케일별 attention 이미지를 모아두기 위한 리스트
-                        attn_map_s_frames = []
-                        attn_map_a_frames = []
-                        attn_map_o_frames = []
-                        attn_map_os_diff_frames = []
-                        
-                        # 손실값을 step별로 모아두기 위한 리스트
-                        loss_steps = []
-                        loss_in_s_vals = []
-                        loss_out_s_vals = []
-                        loss_in_o_vals = []
-                        loss_out_o_vals = []
-                        loss_ipt_s_vals = []
-                        loss_ipt_o_vals = []
-                        loss_bg_vals = []
-                        loss_total_vals = []
-                        step = 0
-                        
-                        print("updating latent code...")
-                        for scale in scale_range:
-                            step += 1
-                            dift.pipe.controller.reset()
-                            ft = dift.forward(
-                                latent,
+                    attn_s = self._select_attn_map(attn_map_step, token_idx_s)
+                    attn_o = self._select_attn_map(attn_map_step, token_idx_o)
+                    idx_s_single = self.idx_single(token_idx_s)
+                    idx_o_single = self.idx_single(token_idx_o)
+                    if attn_s is not None and idx_s_single is not None:
+                        inv_s_imgs.append(
+                            build_cross_attention_image(
                                 prompt=dift_prompt,
-                                t=t.item(),
-                                up_ft_indices=config.up_ft_indices,
-                                ensemble_size=config.ensemble_size,
+                                attention_map=attn_s.detach(),
+                                tokenizer=self.tokenizer,
+                                token_idx=idx_s_single,
+                                orig_image=self.orig_img,
+                                caption=f"S i={i} t={int(t)}",
+                            )
+                        )
+                    if attn_o is not None and idx_o_single is not None:
+                        inv_o_imgs.append(
+                            build_cross_attention_image(
+                                prompt=dift_prompt,
+                                attention_map=attn_o.detach(),
+                                tokenizer=self.tokenizer,
+                                token_idx=idx_o_single,
+                                orig_image=self.orig_img,
+                                caption=f"O i={i} t={int(t)}",
+                            )
+                        )
+
+
+                if i == config.transfer_step:
+                    # 기존 Move&Act 최적화(for scale in scale_range)는 제거하고,
+                    # transfer_step에서 erase/compose를 딱 1번만 적용한다.
+                    erase_method = getattr(config, 'erase_method', 'none')
+                    compose_method = getattr(config, 'compose_method', 'none')
+                    if erase_method != 'none' or compose_method != 'none':
+                        erase_kwargs = dict(getattr(config, 'erase_kwargs', {}) or {})
+                        compose_kwargs = dict(getattr(config, 'compose_kwargs', {}) or {})
+                        b, c, h, w = latent.shape
+
+                        # Build object patches for compose *before* erase mutates the latent.
+                        # This enables move/swap behavior: extract from source region and paste into target boxes.
+                        latent_pre_erase = latent.detach()
+
+                        # Save attention maps for subject/object at three stages:
+                        # pre-erase, post-erase, post-compose.
+                        def _save_stage_attn(latent_stage, stage_name: str):
+                            if not use_relation:
+                                return
+                            if not token_idx_s or not token_idx_o:
+                                return
+                            try:
+                                dift.pipe.controller.reset()
+                                _ = dift.forward(
+                                    latent_stage,
+                                    prompt=dift_prompt,
+                                    t=t.item(),
+                                    up_ft_indices=config.up_ft_indices,
+                                    ensemble_size=config.ensemble_size,
+                                )
+                                dift.pipe.controller.merge_attention()
+                                attn_map_stage = dift.pipe.controller.merge_attn_map
+                                print(f"Shape of attn_map_step: {attn_map_step.shape}")
+                            finally:
+                                dift.pipe.controller.reset()
+
+                            attn_map_s_stage = self._select_attn_map(attn_map_stage, token_idx_s)
+
+                            attn_map_o_stage = self._select_attn_map(attn_map_stage, token_idx_o)
+                            token_idx_s_single = self.idx_single(token_idx_s)
+                            token_idx_o_single = self.idx_single(token_idx_o)
+
+                            if attn_map_s_stage is not None and token_idx_s_single is not None:
+                                res_fname = str(config.output_path / f"{prefix}attn_map_s_{stage_name}.png")
+                                with torch.no_grad():
+                                    show_cross_attention(
+                                        prompt=dift_prompt,
+                                        attention_map=attn_map_s_stage.detach(),
+                                        tokenizer=self.tokenizer,
+                                        token_idx=token_idx_s_single,
+                                        orig_image=self.orig_img,
+                                        res_fname=res_fname,
+                                    )
+                            if attn_map_o_stage is not None and token_idx_o_single is not None:
+                                res_fname = str(config.output_path / f"{prefix}attn_map_o_{stage_name}.png")
+                                with torch.no_grad():
+                                    show_cross_attention(
+                                        prompt=dift_prompt,
+                                        attention_map=attn_map_o_stage.detach(),
+                                        tokenizer=self.tokenizer,
+                                        token_idx=token_idx_o_single,
+                                        orig_image=self.orig_img,
+                                        res_fname=res_fname,
+                                    )
+
+                        _save_stage_attn(latent_pre_erase, "pre_erase")
+
+                        mask_src_lat = (mask_src_s | mask_src_o).reshape(1, 1, h, w).float()
+
+                        # Target masks come from target bboxes (not source masks).
+                        tgt_bbox_s = self._scale_bbox(config.bbox_s)
+                        tgt_bbox_o = self._scale_bbox(config.bbox_o)
+                        mask_tgt_s_lat = self._bbox_to_mask(tgt_bbox_s, latent.device).reshape(1, 1, h, w).float()
+                        mask_tgt_o_lat = self._bbox_to_mask(tgt_bbox_o, latent.device).reshape(1, 1, h, w).float()
+
+                        masks_for_objs = [mask_tgt_s_lat, mask_tgt_o_lat]
+
+                        # Prepare paste patches for compose (relation mode only).
+                        objs = []
+                        if compose_method != 'none' and use_relation:
+                            import torch.nn.functional as F
+
+                            def _bbox_from_mask64(mask64: torch.Tensor):
+                                if mask64 is None:
+                                    return None
+                                if mask64.ndim != 2:
+                                    mask64 = mask64.reshape(64, 64)
+                                ys, xs = torch.where(mask64)
+                                if ys.numel() == 0:
+                                    return None
+                                y1 = int(ys.min().item())
+                                y2 = int(ys.max().item()) + 1
+                                x1 = int(xs.min().item())
+                                x2 = int(xs.max().item()) + 1
+                                return [x1, y1, x2, y2]
+
+                            def _make_patch_from_bbox(src_bbox, tgt_bbox, tgt_mask_lat):
+                                x1s, y1s, x2s, y2s = src_bbox
+                                x1t, y1t, x2t, y2t = tgt_bbox
+                                hs = max(1, y2s - y1s)
+                                ws = max(1, x2s - x1s)
+                                ht = max(1, y2t - y1t)
+                                wt = max(1, x2t - x1t)
+                                src = latent_pre_erase[:, :, y1s:y2s, x1s:x2s]
+                                if src.shape[-2:] != (ht, wt):
+                                    src = F.interpolate(src, size=(ht, wt), mode="bilinear", align_corners=False)
+                                out = torch.zeros_like(latent_pre_erase)
+                                out[:, :, y1t:y2t, x1t:x2t] = src
+                                # Keep patch content only where the target mask is active (important for gaussian/weighted compose).
+                                return out * tgt_mask_lat
+
+                            def _make_patch_from_mask(src_mask64: torch.Tensor, tgt_bbox):
+                                """
+                                Extract a masked crop from the *source* region using a segmentation mask,
+                                compute a tight bbox, then paste it into the *target* bbox.
+
+                                Returns:
+                                  xt_patch_full: [B,4,H,W] patch placed in target bbox
+                                  mask_tgt_lat: [B,1,H,W] alpha mask placed in target bbox (tight, not full bbox)
+                                """
+                                if src_mask64 is None:
+                                    return None, None
+                                if src_mask64.ndim != 2:
+                                    src_mask64 = src_mask64.reshape(64, 64)
+                                ys, xs = torch.where(src_mask64)
+                                if ys.numel() == 0:
+                                    return None, None
+                                y1s = int(ys.min().item())
+                                y2s = int(ys.max().item()) + 1
+                                x1s = int(xs.min().item())
+                                x2s = int(xs.max().item()) + 1
+                                x1t, y1t, x2t, y2t = tgt_bbox
+                                ht = max(1, y2t - y1t)
+                                wt = max(1, x2t - x1t)
+
+                                src = latent_pre_erase[:, :, y1s:y2s, x1s:x2s]
+                                src_m = src_mask64[y1s:y2s, x1s:x2s].float().unsqueeze(0).unsqueeze(0)
+                                src = src * src_m
+
+                                if src.shape[-2:] != (ht, wt):
+                                    src = F.interpolate(src, size=(ht, wt), mode="bilinear", align_corners=False)
+                                    src_m = F.interpolate(src_m, size=(ht, wt), mode="nearest")
+
+                                out = torch.zeros_like(latent_pre_erase)
+                                out[:, :, y1t:y2t, x1t:x2t] = src
+
+                                mask_tgt = torch.zeros((1, 1, latent_pre_erase.shape[-2], latent_pre_erase.shape[-1]), device=latent_pre_erase.device)
+                                mask_tgt[:, :, y1t:y2t, x1t:x2t] = src_m
+                                return out, mask_tgt
+
+                            # Source bboxes: prefer explicit *_src, otherwise derive from source masks.
+                            src_bbox_s = self._scale_bbox(config.bbox_s_src) if getattr(config, "bbox_s_src", None) else _bbox_from_mask64(mask_s)
+                            src_bbox_o = self._scale_bbox(config.bbox_o_src) if getattr(config, "bbox_o_src", None) else _bbox_from_mask64(mask_o)
+
+                            if src_bbox_s is None or src_bbox_o is None:
+                                # If we cannot find source regions, skip compose (will behave like erase-only).
+                                objs = []
+                            else:
+                                # Subject -> subject target box
+                                o_s = type("Obj", (), {})()
+                                # Prefer SAM2/segmentation masks when available to avoid bbox-only artifacts.
+                                patch_s, tgt_alpha_s = _make_patch_from_mask(mask_s, tgt_bbox_s)
+                                if patch_s is None:
+                                    o_s.mask_tgt_lat = mask_tgt_s_lat
+                                    o_s.xt_patch_full = _make_patch_from_bbox(src_bbox_s, tgt_bbox_s, mask_tgt_s_lat)
+                                else:
+                                    o_s.mask_tgt_lat = tgt_alpha_s
+                                    o_s.xt_patch_full = patch_s
+                                o_s.priority = 0.0
+                                objs.append(o_s)
+
+                                # Object -> object target box
+                                o_o = type("Obj", (), {})()
+                                patch_o, tgt_alpha_o = _make_patch_from_mask(mask_o, tgt_bbox_o)
+                                if patch_o is None:
+                                    o_o.mask_tgt_lat = mask_tgt_o_lat
+                                    o_o.xt_patch_full = _make_patch_from_bbox(src_bbox_o, tgt_bbox_o, mask_tgt_o_lat)
+                                else:
+                                    o_o.mask_tgt_lat = tgt_alpha_o
+                                    o_o.xt_patch_full = patch_o
+                                o_o.priority = 0.0
+                                objs.append(o_o)
+                        # 1) erase 1회 적용
+                        if erase_method != 'none':
+                            if erase_method in ('loss_optim', 'loss_global', 'inpaint_then_inv'):
+                                erase_kwargs.setdefault('mask_src_lat', mask_src_lat)
+
+                            # Provide a default erase loss for loss_optim/loss_global:
+                            # minimize subject/object cross-attention inside the *source* masks.
+                            if erase_method in ('loss_optim', 'loss_global') and 'loss_fn' not in erase_kwargs:
+                                w_s = float(getattr(config, "erase_w_s", 1.0))
+                                w_o = float(getattr(config, "erase_w_o", 1.0))
+
+                                src_s = mask_src_s_2d  # 64x64 bool
+                                src_o = mask_src_o_2d  # 64x64 bool
+                                token_s = list(token_idx_s) if token_idx_s else []
+                                token_o = list(token_idx_o) if token_idx_o else []
+                                up_idx = list(getattr(config, "up_ft_indices", [2]))
+                                ens = int(getattr(config, "ensemble_size", 1) or 1)
+
+                                def _erase_loss_fn(latent_in, mask_bg=None, **_):
+                                    dift.pipe.controller.reset()
+                                    _ = dift.forward(
+                                        latent_in,
+                                        prompt=dift_prompt,
+                                        t=t.item(),
+                                        up_ft_indices=up_idx,
+                                        ensemble_size=ens,
+                                    )
+                                    dift.pipe.controller.merge_attention()
+                                    attn_map_cur = dift.pipe.controller.merge_attn_map
+                                    dift.pipe.controller.reset()
+
+                                    attn_s_cur = self._select_attn_map(attn_map_cur, token_s)
+                                    attn_o_cur = self._select_attn_map(attn_map_cur, token_o)
+                                    loss = latent_in.new_tensor(0.0)
+                                    if attn_s_cur is not None and src_s is not None and src_s.any():
+                                        loss = loss + w_s * attn_s_cur[src_s].mean()
+                                    if attn_o_cur is not None and src_o is not None and src_o.any():
+                                        loss = loss + w_o * attn_o_cur[src_o].mean()
+                                    return loss
+
+                                erase_kwargs['loss_fn'] = _erase_loss_fn
+
+
+
+
+                            if erase_method in ('masked_renoise', 'masked_random_noise'):
+
+
+
+                                # x0_bg 추정: x_t = mu*x0 + sigma*eps  => x0 = (x_t - sigma*eps)/mu
+
+
+
+                                with torch.no_grad():
+
+
+
+                                    eps_star = self.unet(latent, t, encoder_hidden_states=cond_batch).sample
+
+
+
+                                x0_bg_est = (latent - sigma * eps_star) / mu
+
+
+
+                                erase_kwargs.update({
+
+
+
+                                    'x0_bg': x0_bg_est.detach(),
+
+
+
+                                    'mask_src_lat': mask_src_lat,
+
+
+
+                                    'scheduler': self.scheduler,
+
+
+
+                                    't_star': t,
+
+
+
+                                    't_high': getattr(config, 't_high', t),
+
+
+
+                                    'eps_star': eps_star.detach(),
+
+
+
+                                })
+
+
+
+
+                            # loss_optim/loss_global require gradients; enable them even though this
+                            # function is under @torch.no_grad().
+                            if erase_method in ("loss_optim", "loss_global"):
+                                with torch.enable_grad():
+                                    latent = _update_latent(
+                                        latent,
+                                        erase=erase_method,
+                                        compose=None,
+                                        erase_kwargs=erase_kwargs,
+                                        strict=False,
+                                    )
+                            else:
+                                latent = _update_latent(
+                                    latent,
+                                    erase=erase_method,
+                                    compose=None,
+                                    erase_kwargs=erase_kwargs,
+                                    strict=False,
+                                )
+
+                        _save_stage_attn(latent.detach(), "post_erase")
+
+
+
+
+                        # 2) compose 1회 적용 (precomputed patches, pasted into target boxes)
+
+
+
+                        if compose_method != 'none':
+                            if not use_relation:
+                                # Non-relation path: keep previous behavior.
+                                objs = []
+                                for m in masks_for_objs:
+                                    o = type('Obj', (), {})()
+                                    o.mask_tgt_lat = m
+                                    o.xt_patch_full = latent_pre_erase.detach() * m
+                                    o.priority = 0.0
+                                    objs.append(o)
+                            # Relation path: objs already computed above (may be empty if source regions were missing).
+
+
+
+
+                            if compose_method in ('norm', 'norm_overlap_avg', 'norm_feather'):
+
+
+
+                                compose_kwargs.update({'objs': objs})
+
+
+
+                            elif compose_method == 'gaussian':
+
+
+
+                                compose_kwargs.update({'objs': objs, 't': t, 'scheduler': self.scheduler})
+
+
+
+                            elif compose_method == 'weighted':
+
+
+
+                                alpha_bg, alpha_list = overlap_soft_zbuffer(objs)
+
+
+
+                                m_transition = torch.zeros_like(mask_src_lat)
+
+
+
+                                compose_kwargs.update({
+
+
+
+                                    'objs': objs,
+
+
+
+                                    'alpha_list': alpha_list,
+
+
+
+                                    'alpha_bg': alpha_bg,
+
+
+
+                                    'm_transition': m_transition,
+
+
+
+                                    't': t,
+
+
+
+                                    'scheduler': self.scheduler,
+
+
+
+                                })
+
+                            elif compose_method == 'weighted_transition':
+                                # Transition region is computed inside the compose function.
+                                compose_kwargs.update({'objs': objs, 't': t, 'scheduler': self.scheduler})
+
+
+
+
+                            latent = _update_latent(
+
+
+
+                                latent,
+
+
+
+                                erase=None,
+
+
+
+                                compose=compose_method,
+
+
+
+                                compose_kwargs=compose_kwargs,
+
+
+
+                                strict=False,
+
+
+
                             )
 
-                            ft = ft.reshape(ft.shape[0], -1)
+                        _save_stage_attn(latent.detach(), "post_compose")
 
-                            dift.pipe.controller.merge_attention()
-
-                            attn_map = dift.pipe.controller.merge_attn_map
-
-                            dift.pipe.controller.reset()
-                            dift.pipe.unet.zero_grad()
-
-                            if use_relation:
-                                attn_map_s = self._select_attn_map(attn_map, token_idx_s)
-                                attn_map_o = self._select_attn_map(attn_map, token_idx_o)
-                                attn_map_a = self._select_attn_map(attn_map, token_idx_a)
-
-                                token_idx_s_single = self.idx_single(token_idx_s)
-                                if attn_map_s is not None and token_idx_s_single is not None:
-                                    s_word = getattr(config, "s_word", "")
-                                    with torch.no_grad():
-                                        frame = build_cross_attention_image(
-                                            prompt=dift_prompt,
-                                            attention_map=attn_map_s.detach(),
-                                            tokenizer=self.tokenizer,
-                                            token_idx=token_idx_s_single,
-                                            orig_image=self.orig_img,
-                                            caption=self._caption_for_token(
-                                                step, "S", s_word, dift_prompt, token_idx_s
-                                            ),
-                                            bbox=config.bbox_s     
-                                        )
-                                    attn_map_s_frames.append(frame)
-                                
-                                token_idx_a_single = self.idx_single(token_idx_a)
-                                if attn_map_a is not None and token_idx_a_single is not None:
-                                    a_word = getattr(config, "a_word", "")
-                                    with torch.no_grad():
-                                        frame = build_cross_attention_image(
-                                            prompt=dift_prompt,
-                                            attention_map=attn_map_a.detach(),
-                                            tokenizer=self.tokenizer,
-                                            token_idx=token_idx_a_single,
-                                            orig_image=self.orig_img,
-                                            caption=self._caption_for_token(
-                                                step, "A", a_word, dift_prompt, token_idx_a
-                                            ),
-                                            bbox=config.bbox_a     
-                                        )
-                                    attn_map_a_frames.append(frame)
-                                
-                                token_idx_o_single = self.idx_single(token_idx_o)
-                                if attn_map_o is not None and token_idx_o_single is not None:
-                                    o_word = getattr(config, "o_word", "")
-                                    # 루프마다 저장하지 않고 이미지로 누적
-                                    with torch.no_grad():
-                                        frame = build_cross_attention_image(
-                                            prompt=dift_prompt,
-                                            attention_map=attn_map_o.detach(),
-                                            tokenizer=self.tokenizer,
-                                            token_idx=token_idx_o_single,
-                                            orig_image=self.orig_img,
-                                            caption=self._caption_for_token(
-                                                step, "O", o_word, dift_prompt, token_idx_o
-                                            ),
-                                            bbox=config.bbox_o     
-                                        )
-                                    attn_map_o_frames.append(frame)
-
-                                if attn_map_s is not None and attn_map_o is not None:
-                                    with torch.no_grad():
-                                        diff_frame = build_diff_attention_image(
-                                            attention_diff=(attn_map_o - attn_map_s).detach(),
-                                            orig_image=self.orig_img,
-                                            caption=f"step {step} O-S",
-                                            bbox_s=config.bbox_s,
-                                            bbox_o=config.bbox_o,
-                                        )
-                                    attn_map_os_diff_frames.append(diff_frame)
-
-                                
-                                attn_map_s = attn_map_s.reshape(-1) if attn_map_s is not None else None
-                                attn_map_o = attn_map_o.reshape(-1) if attn_map_o is not None else None
-                                attn_map_a = attn_map_a.reshape(-1) if attn_map_a is not None else None
-                                
-
-                                ### loss 계산
-                                # loss dice
-                                def _dice_loss(attn_map, mask_box, eps=1e-8):
-                                    if attn_map is None or mask_box.sum().item() == 0:
-                                        return attn_map.new_tensor(0.0) if attn_map is not None else torch.tensor(0.0, device=mask_box.device)
-                                    a_min = attn_map.min()
-                                    a_max = attn_map.max()
-                                    a_norm = (attn_map - a_min) / (a_max - a_min + eps)
-                                    m = mask_box.float()
-                                    inter = (a_norm * m).sum()
-                                    denom = a_norm.sum() + m.sum()
-                                    return 1.0 - (2.0 * inter + eps) / (denom + eps)
-
-                                l_dice_s = _dice_loss(attn_map_s, mask_box_s_flat)
-                                l_dice_o = _dice_loss(attn_map_o, mask_box_o_flat)
-                                l_dice = 0.5 * (l_dice_s + l_dice_o)
-
-                                # loss kl
-                                def _kl_loss(attn_map, mask_box, tau=1.0, eps=1e-8):
-                                    if attn_map is None or mask_box.sum().item() == 0:
-                                        return attn_map.new_tensor(0.0) if attn_map is not None else torch.tensor(0.0, device=mask_box.device)
-                                    q = torch.nn.functional.softmax(attn_map / tau, dim=0)
-                                    p = mask_box.float()
-                                    p = p / (p.sum() + eps)
-                                    return torch.sum(p * (torch.log(p + eps) - torch.log(q + eps)))
-
-                                l_kl_s = _kl_loss(attn_map_s, mask_box_s_flat)
-                                l_kl_o = _kl_loss(attn_map_o, mask_box_o_flat)
-                                l_kl = 0.5 * (l_kl_s + l_kl_o)
-
-                                # loss oii
-                                loss_in_s, loss_out_s = self._attn_in_out_loss(
-                                    attn_map_s, mask_box_s_flat, config.P
-                                )
-                                loss_in_o, loss_out_o = self._attn_in_out_loss(
-                                    attn_map_o, mask_box_o_flat, config.P
-                                )
-                                loss_in_a, loss_out_a = self._attn_in_out_loss(
-                                    attn_map_a, mask_box_a_flat, config.P
-                                )
-                                loss_oii = (
-                                    loss_in_s + 3*loss_out_s
-                                    + loss_in_o + 3*loss_out_o
-                                    # + loss_in_a + 3*loss_out_a
-                                )
-                                
-                                # loss sai
-                                loss_ipt_s = self._inpaint_loss(ft, source_ft, mask_src_s, mask_edge_s)
-                                loss_ipt_o = self._inpaint_loss(ft, source_ft, mask_src_o, mask_edge_o)
-                                loss_sai = loss_ipt_s + loss_ipt_o
-                            else:
-                                attn_map_main = self._select_attn_map(attn_map, token_idx_main)
-                                attn_map_main = attn_map_main.reshape(-1) if attn_map_main is not None else None
-                                loss_attn, loss_zero = self._attn_in_out_loss(
-                                    attn_map_main, mask_box_flat, config.P
-                                )
-                                loss_oii = loss_attn + loss_zero
-                                loss_sai = self._inpaint_loss(ft, source_ft, mask_src, mask_edge)
-
-                            if mask_bg.sum() > 0:
-                                loss_bg = torch.nn.SmoothL1Loss()(ft[:, mask_bg], source_ft[:, mask_bg])
-                            else:
-                                loss_bg = ft.new_tensor(0.0)
-
-                            loss = 0.1*loss_bg + 0.0*loss_sai + 0.3*loss_oii + 0.3*l_dice + 0.3*l_kl
-                            # loss 곡선 기록 (relation 모드에서만)
-                            if use_relation:
-                                loss_steps.append(step)
-                                loss_in_s_vals.append(float(loss_in_s.detach().cpu().item()))
-                                loss_out_s_vals.append(float(loss_out_s.detach().cpu().item()))
-                                loss_in_o_vals.append(float(loss_in_o.detach().cpu().item()))
-                                loss_out_o_vals.append(float(loss_out_o.detach().cpu().item()))
-                                loss_ipt_s_vals.append(float(loss_ipt_s.detach().cpu().item()))
-                                loss_ipt_o_vals.append(float(loss_ipt_o.detach().cpu().item()))
-                                loss_bg_vals.append(float(loss_bg.detach().cpu().item()))
-                                loss_total_vals.append(float(loss.detach().cpu().item()))
-
-                            # print('loss_bg: ', loss_bg)
-                            # print('loss_ipt: ', loss_ipt)
-                            # print('loss_attn: ', loss_attn)
-                            # print('loss_zero: ', loss_zero)
-                            # print('loss: ', loss)
-                            latent = self._update_latent(
-                                latents=latent,
-                                loss=loss,
-                                step_size=config.scale_factor * np.sqrt(scale),
-                            )
-
-                        # 누적된 시각화 이미지를 한 장으로 저장
-                        # if attn_map_s_frames:
-                        #     grid = get_image_grid(attn_map_s_frames)
-                        #     grid.save(config.output_path / f"{prefix}attn_map_s_scales.png")
-                        # if attn_map_a_frames:
-                        #     grid = get_image_grid(attn_map_a_frames)
-                        #     grid.save(config.output_path / f"{prefix}attn_map_a_scales.png")
-                        # if attn_map_o_frames:
-                        #     grid = get_image_grid(attn_map_o_frames)
-                        #     grid.save(config.output_path / f"{prefix}attn_map_o_scales.png")
-                        # if attn_map_os_diff_frames:
-                        #     grid = get_image_grid(attn_map_os_diff_frames)
-                        #     grid.save(config.output_path / f"{prefix}attn_map_o_minus_s_scales.png")
-                        
-                        # 누적된 손실값을 한 그래프에 저장
-                        # if loss_steps:
-                        #     plt.figure(figsize=(10, 6))
-                        #     plt.plot(loss_steps, loss_in_s_vals, label="loss_in_s")
-                        #     plt.plot(loss_steps, loss_out_s_vals, label="loss_out_s")
-                        #     plt.plot(loss_steps, loss_in_o_vals, label="loss_in_o")
-                        #     plt.plot(loss_steps, loss_out_o_vals, label="loss_out_o")
-                        #     plt.plot(loss_steps, loss_ipt_s_vals, label="loss_ipt_s")
-                        #     plt.plot(loss_steps, loss_ipt_o_vals, label="loss_ipt_o")
-                        #     plt.plot(loss_steps, loss_bg_vals, label="loss_bg")
-                        #     plt.plot(loss_steps, loss_total_vals, label="loss_total")
-                        #     plt.xlabel("step")
-                        #     plt.ylabel("loss")
-                        #     plt.legend()
-                        #     plt.tight_layout()
-                        #     plt.savefig(str(config.output_path / f"{prefix}loss_curves.png"))
-                        #     plt.close()
-
-                        #     plt.figure(figsize=(10, 6))
-                        #     plt.plot(loss_steps, loss_in_s_vals, label="loss_in_s")
-                        #     plt.plot(loss_steps, loss_out_s_vals, label="loss_out_s")
-                        #     plt.plot(loss_steps, loss_in_o_vals, label="loss_in_o")
-                        #     plt.plot(loss_steps, loss_out_o_vals, label="loss_out_o")
-                        #     plt.xlabel("step")
-                        #     plt.ylabel("loss")
-                        #     plt.legend()
-                        #     plt.tight_layout()
-                        #     plt.savefig(str(config.output_path / f"{prefix}loss_oii_curves.png"))
-                        #     plt.close()
-                        
-                        #     plt.figure(figsize=(10, 6))
-                        #     plt.plot(loss_steps, loss_ipt_s_vals, label="loss_ipt_s")
-                        #     plt.plot(loss_steps, loss_ipt_o_vals, label="loss_ipt_o")
-                        #     plt.xlabel("step")
-                        #     plt.ylabel("loss")
-                        #     plt.legend()
-                        #     plt.tight_layout()
-                        #     plt.savefig(str(config.output_path / f"{prefix}loss_sai_curves.png"))
-                        #     plt.close()
-                        print("update completed!")
 
 
                 eps = self.unet(latent, t, encoder_hidden_states=cond_batch).sample
@@ -848,6 +1053,22 @@ class MnAPipeline(StableDiffusionPipeline):
 
                 torch.save(latent, os.path.join(config.latents_path, f'noisy_latents_{t}.pt'))
         torch.save(latent, os.path.join(config.latents_path, f'noisy_latents_{t}.pt'))
+
+        # Save 4 grids for inversion: (0->transfer) and (transfer->end), for S and O.
+        if save_step_grids and inv_s_imgs and inv_o_imgs:
+            cols = int(getattr(config, "attn_grid_cols", 10) or 10)
+            split = int(getattr(config, "transfer_step", 0) or 0)
+            split = max(0, min(split, len(inv_s_imgs) - 1))
+
+            s_0 = inv_s_imgs[: split + 1]
+            s_1 = inv_s_imgs[split:]
+            o_0 = inv_o_imgs[: split + 1]
+            o_1 = inv_o_imgs[split:]
+
+            self._grid_with_cols(s_0, cols).save(str(config.output_path / f"{prefix}attn_grid_s_inv_0_{split}.png"))
+            self._grid_with_cols(o_0, cols).save(str(config.output_path / f"{prefix}attn_grid_o_inv_0_{split}.png"))
+            self._grid_with_cols(s_1, cols).save(str(config.output_path / f"{prefix}attn_grid_s_inv_{split}_{len(inv_s_imgs)-1}.png"))
+            self._grid_with_cols(o_1, cols).save(str(config.output_path / f"{prefix}attn_grid_o_inv_{split}_{len(inv_o_imgs)-1}.png"))
 
         return latent
 
@@ -861,6 +1082,19 @@ class MnAPipeline(StableDiffusionPipeline):
     ):
 
         timesteps = self.scheduler.timesteps
+        use_relation = bool(getattr(config, "use_relation", False))
+        save_step_grids = bool(getattr(config, "save_step_attn_grids", False)) and use_relation
+        cond_name = getattr(config, "cond_name", "")
+        prefix = f"{cond_name}_" if cond_name else ""
+        dift_prompt = config.edit_prompt if use_relation else (config.inv_prompt or config.edit_prompt)
+
+        if save_step_grids:
+            dift = SDFeaturizer()
+            register_cross_attention_control_efficient(dift.pipe)
+            token_idx_s = getattr(config, "token_idx_s", []) or []
+            token_idx_o = getattr(config, "token_idx_o", []) or []
+            den_s_imgs: List[Image.Image] = []
+            den_o_imgs: List[Image.Image] = []
 
         with torch.autocast(device_type='cuda', dtype=torch.float32):
 
@@ -891,5 +1125,53 @@ class MnAPipeline(StableDiffusionPipeline):
 
                 # compute the previous noisy sample x_t -> x_t-1
                 latents = self.scheduler.step(noise_pred, t, latents).prev_sample
+
+                # Per-step attention grids for denoising (50->0 in scheduler order).
+                if save_step_grids and token_idx_s and token_idx_o:
+                    try:
+                        dift.pipe.controller.reset()
+                        _ = dift.forward(
+                            latents.detach(),
+                            prompt=dift_prompt,
+                            t=t.item(),
+                            up_ft_indices=getattr(config, "up_ft_indices", [2]),
+                            ensemble_size=getattr(config, "ensemble_size", 1),
+                        )
+                        dift.pipe.controller.merge_attention()
+                        attn_map_step = dift.pipe.controller.merge_attn_map
+                    finally:
+                        dift.pipe.controller.reset()
+
+                    attn_s = self._select_attn_map(attn_map_step, token_idx_s)
+                    attn_o = self._select_attn_map(attn_map_step, token_idx_o)
+                    idx_s_single = self.idx_single(token_idx_s)
+                    idx_o_single = self.idx_single(token_idx_o)
+                    if attn_s is not None and idx_s_single is not None:
+                        den_s_imgs.append(
+                            build_cross_attention_image(
+                                prompt=dift_prompt,
+                                attention_map=attn_s.detach(),
+                                tokenizer=self.tokenizer,
+                                token_idx=idx_s_single,
+                                orig_image=self.orig_img,
+                                caption=f"S denoise i={i} t={int(t)}",
+                            )
+                        )
+                    if attn_o is not None and idx_o_single is not None:
+                        den_o_imgs.append(
+                            build_cross_attention_image(
+                                prompt=dift_prompt,
+                                attention_map=attn_o.detach(),
+                                tokenizer=self.tokenizer,
+                                token_idx=idx_o_single,
+                                orig_image=self.orig_img,
+                                caption=f"O denoise i={i} t={int(t)}",
+                            )
+                        )
                               
+        if save_step_grids and den_s_imgs and den_o_imgs:
+            cols = int(getattr(config, "attn_grid_cols", 10) or 10)
+            self._grid_with_cols(den_s_imgs, cols).save(str(config.output_path / f"{prefix}attn_grid_s_denoise.png"))
+            self._grid_with_cols(den_o_imgs, cols).save(str(config.output_path / f"{prefix}attn_grid_o_denoise.png"))
+
         return latents

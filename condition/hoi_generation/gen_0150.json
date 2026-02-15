@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_550_a_person_no_interaction_a_toaster/gen_0150.jpg",
+    "inv_prompt": "a person no interaction a toaster",
+    "s_word": "person no",
+    "a_word": "interaction",
+    "o_word": "toaster",
+    "bbox_s": [
+        254,
+        1,
+        511,
+        344
+    ],
+    "bbox_s_pre": [
+        254,
+        1,
+        511,
+        344
+    ],
+    "bbox_o": [
+        36,
+        98,
+        390,
+        452
+    ],
+    "bbox_o_pre": [
+        36,
+        98,
+        390,
+        452
+    ],
+    "mask_s": "gen_0150_s_person no_mask.png",
+    "mask_o": "gen_0150_o_toaster_mask.png"
+}

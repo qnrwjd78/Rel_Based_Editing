@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_037_a_person_launch_a_boat/gen_0037.jpg",
+    "inv_prompt": "a person launch a boat",
+    "s_word": "person",
+    "a_word": "launch",
+    "o_word": "boat",
+    "bbox_s": [
+        180,
+        138,
+        264,
+        293
+    ],
+    "bbox_s_pre": [
+        180,
+        138,
+        264,
+        293
+    ],
+    "bbox_o": [
+        12,
+        269,
+        511,
+        328
+    ],
+    "bbox_o_pre": [
+        12,
+        269,
+        511,
+        328
+    ],
+    "mask_s": "gen_0037_s_person_mask.png",
+    "mask_o": "gen_0037_o_boat_mask.png"
+}

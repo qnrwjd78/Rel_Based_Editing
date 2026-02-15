@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_466_a_person_hold_a_skis/gen_0066.jpg",
+    "inv_prompt": "a person hold a skis",
+    "s_word": "person",
+    "a_word": "hold",
+    "o_word": "skis",
+    "bbox_s": [
+        153,
+        0,
+        490,
+        379
+    ],
+    "bbox_s_pre": [
+        153,
+        0,
+        490,
+        379
+    ],
+    "bbox_o": [
+        152,
+        237,
+        511,
+        504
+    ],
+    "bbox_o_pre": [
+        152,
+        237,
+        511,
+        504
+    ],
+    "mask_s": "gen_0066_s_person_mask.png",
+    "mask_o": "gen_0066_o_skis_mask.png"
+}

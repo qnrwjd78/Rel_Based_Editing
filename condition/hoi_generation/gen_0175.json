@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_175_a_person_carry_a_sheep/gen_0175.jpg",
+    "inv_prompt": "a person carry a sheep",
+    "s_word": "person",
+    "a_word": "carry",
+    "o_word": "sheep",
+    "bbox_s": [
+        229,
+        104,
+        384,
+        511
+    ],
+    "bbox_s_pre": [
+        229,
+        104,
+        384,
+        511
+    ],
+    "bbox_o": [
+        0,
+        288,
+        89,
+        409
+    ],
+    "bbox_o_pre": [
+        0,
+        288,
+        89,
+        409
+    ],
+    "mask_s": "gen_0175_s_person_mask.png",
+    "mask_o": "gen_0175_o_sheep_mask.png"
+}

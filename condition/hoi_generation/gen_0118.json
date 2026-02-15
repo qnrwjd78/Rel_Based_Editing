@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_518_a_person_drag_a_surfboard/gen_0118.jpg",
+    "inv_prompt": "a person drag a surfboard",
+    "s_word": "person",
+    "a_word": "drag",
+    "o_word": "surfboard",
+    "bbox_s": [
+        173,
+        162,
+        511,
+        400
+    ],
+    "bbox_s_pre": [
+        173,
+        162,
+        511,
+        400
+    ],
+    "bbox_o": [
+        296,
+        244,
+        511,
+        485
+    ],
+    "bbox_o_pre": [
+        296,
+        244,
+        511,
+        485
+    ],
+    "mask_s": "gen_0118_s_person_mask.png",
+    "mask_o": "gen_0118_o_surfboard_mask.png"
+}

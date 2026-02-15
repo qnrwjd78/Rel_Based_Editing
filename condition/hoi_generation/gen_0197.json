@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_597_a_person_hold_a_zebra/gen_0197.jpg",
+    "inv_prompt": "a person hold a zebra",
+    "s_word": "person",
+    "a_word": "hold",
+    "o_word": "zebra",
+    "bbox_s": [
+        204,
+        99,
+        511,
+        511
+    ],
+    "bbox_s_pre": [
+        204,
+        99,
+        511,
+        511
+    ],
+    "bbox_o": [
+        0,
+        22,
+        262,
+        431
+    ],
+    "bbox_o_pre": [
+        0,
+        22,
+        262,
+        431
+    ],
+    "mask_s": "gen_0197_s_person_mask.png",
+    "mask_o": "gen_0197_o_zebra_mask.png"
+}

@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_554_a_person_repair_a_toilet/gen_0154.jpg",
+    "inv_prompt": "a person repair a toilet",
+    "s_word": "person",
+    "a_word": "repair",
+    "o_word": "toilet",
+    "bbox_s": [
+        90,
+        66,
+        363,
+        407
+    ],
+    "bbox_s_pre": [
+        90,
+        66,
+        363,
+        407
+    ],
+    "bbox_o": [
+        0,
+        0,
+        40,
+        57
+    ],
+    "bbox_o_pre": [
+        0,
+        0,
+        40,
+        57
+    ],
+    "mask_s": "gen_0154_s_person_mask.png",
+    "mask_o": "gen_0154_o_toilet_mask.png"
+}

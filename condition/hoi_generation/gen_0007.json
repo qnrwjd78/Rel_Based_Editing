@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_207_a_person_wash_a_apple/gen_0007.jpg",
+    "inv_prompt": "a person wash a apple",
+    "s_word": "person",
+    "a_word": "wash",
+    "o_word": "apple",
+    "bbox_s": [
+        202,
+        0,
+        511,
+        190
+    ],
+    "bbox_s_pre": [
+        202,
+        0,
+        511,
+        190
+    ],
+    "bbox_o": [
+        339,
+        323,
+        477,
+        462
+    ],
+    "bbox_o_pre": [
+        339,
+        323,
+        477,
+        462
+    ],
+    "mask_s": "gen_0007_s_person_mask.png",
+    "mask_o": "gen_0007_o_apple_mask.png"
+}

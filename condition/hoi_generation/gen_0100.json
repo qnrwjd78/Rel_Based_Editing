@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_500_a_person_spin_a_sports_ball/gen_0100.jpg",
+    "inv_prompt": "a person spin a sports ball",
+    "s_word": "person",
+    "a_word": "spin",
+    "o_word": "sports ball",
+    "bbox_s": [
+        42,
+        0,
+        317,
+        472
+    ],
+    "bbox_s_pre": [
+        42,
+        0,
+        317,
+        472
+    ],
+    "bbox_o": [
+        270,
+        117,
+        431,
+        284
+    ],
+    "bbox_o_pre": [
+        270,
+        117,
+        431,
+        284
+    ],
+    "mask_s": "gen_0100_s_person_mask.png",
+    "mask_o": "gen_0100_o_sports ball_mask.png"
+}

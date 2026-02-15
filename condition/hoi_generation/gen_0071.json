@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_071_a_person_jump_a_car/gen_0071.jpg",
+    "inv_prompt": "a person jump a car",
+    "s_word": "person",
+    "a_word": "jump",
+    "o_word": "car",
+    "bbox_s": [
+        307,
+        252,
+        354,
+        347
+    ],
+    "bbox_s_pre": [
+        307,
+        252,
+        354,
+        347
+    ],
+    "bbox_o": [
+        223,
+        124,
+        511,
+        301
+    ],
+    "bbox_o_pre": [
+        223,
+        124,
+        511,
+        301
+    ],
+    "mask_s": "gen_0071_s_person_mask.png",
+    "mask_o": "gen_0071_o_car_mask.png"
+}

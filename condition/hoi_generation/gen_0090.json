@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_490_a_person_carry_a_sports_ball/gen_0090.jpg",
+    "inv_prompt": "a person carry a sports ball",
+    "s_word": "person",
+    "a_word": "carry",
+    "o_word": "sports ball",
+    "bbox_s": [
+        2,
+        0,
+        380,
+        511
+    ],
+    "bbox_s_pre": [
+        2,
+        0,
+        380,
+        511
+    ],
+    "bbox_o": [
+        253,
+        137,
+        451,
+        333
+    ],
+    "bbox_o_pre": [
+        253,
+        137,
+        451,
+        333
+    ],
+    "mask_s": "gen_0090_s_person_mask.png",
+    "mask_o": "gen_0090_o_sports ball_mask.png"
+}

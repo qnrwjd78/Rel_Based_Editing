@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_353_a_person_carry_a_handbag/gen_0153.jpg",
+    "inv_prompt": "a person carry a handbag",
+    "s_word": "person",
+    "a_word": "carry",
+    "o_word": "handbag",
+    "bbox_s": [
+        80,
+        0,
+        470,
+        506
+    ],
+    "bbox_s_pre": [
+        80,
+        0,
+        470,
+        506
+    ],
+    "bbox_o": [
+        65,
+        124,
+        470,
+        411
+    ],
+    "bbox_o_pre": [
+        65,
+        124,
+        470,
+        411
+    ],
+    "mask_s": "gen_0153_s_person_mask.png",
+    "mask_o": "gen_0153_o_handbag_mask.png"
+}

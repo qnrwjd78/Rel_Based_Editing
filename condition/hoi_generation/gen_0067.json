@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_467_a_person_inspect_a_skis/gen_0067.jpg",
+    "inv_prompt": "a person inspect a skis",
+    "s_word": "person",
+    "a_word": "inspect",
+    "o_word": "skis",
+    "bbox_s": [
+        94,
+        13,
+        286,
+        432
+    ],
+    "bbox_s_pre": [
+        94,
+        13,
+        286,
+        432
+    ],
+    "bbox_o": [
+        106,
+        413,
+        338,
+        506
+    ],
+    "bbox_o_pre": [
+        106,
+        413,
+        338,
+        506
+    ],
+    "mask_s": "gen_0067_s_person_mask.png",
+    "mask_o": "gen_0067_o_skis_mask.png"
+}

@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_592_a_person_toast_a_wine_glass/gen_0192.jpg",
+    "inv_prompt": "a person toast a wine glass",
+    "s_word": "person",
+    "a_word": "toast",
+    "o_word": "wine glass",
+    "bbox_s": [
+        0,
+        352,
+        142,
+        511
+    ],
+    "bbox_s_pre": [
+        0,
+        352,
+        142,
+        511
+    ],
+    "bbox_o": [
+        0,
+        157,
+        147,
+        491
+    ],
+    "bbox_o_pre": [
+        0,
+        157,
+        147,
+        491
+    ],
+    "mask_s": "gen_0192_s_person_mask.png",
+    "mask_o": "gen_0192_o_wine glass_mask.png"
+}

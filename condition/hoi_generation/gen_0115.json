@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_515_a_person_zip_a_suitcase/gen_0115.jpg",
+    "inv_prompt": "a person zip a suitcase",
+    "s_word": "person",
+    "a_word": "zip",
+    "o_word": "suitcase",
+    "bbox_s": [
+        275,
+        0,
+        511,
+        462
+    ],
+    "bbox_s_pre": [
+        275,
+        0,
+        511,
+        462
+    ],
+    "bbox_o": [
+        0,
+        46,
+        511,
+        493
+    ],
+    "bbox_o_pre": [
+        0,
+        46,
+        511,
+        493
+    ],
+    "mask_s": "gen_0115_s_person_mask.png",
+    "mask_o": "gen_0115_o_suitcase_mask.png"
+}

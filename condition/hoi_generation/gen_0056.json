@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_456_a_person_grind_a_skateboard/gen_0056.jpg",
+    "inv_prompt": "a person grind a skateboard",
+    "s_word": "person",
+    "a_word": "grind",
+    "o_word": "skateboard",
+    "bbox_s": [
+        204,
+        0,
+        379,
+        315
+    ],
+    "bbox_s_pre": [
+        204,
+        0,
+        379,
+        315
+    ],
+    "bbox_o": [
+        132,
+        235,
+        467,
+        402
+    ],
+    "bbox_o_pre": [
+        132,
+        235,
+        467,
+        402
+    ],
+    "mask_s": "gen_0056_s_person_mask.png",
+    "mask_o": "gen_0056_o_skateboard_mask.png"
+}

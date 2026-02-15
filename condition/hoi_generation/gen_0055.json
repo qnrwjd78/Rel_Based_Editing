@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_455_a_person_flip_a_skateboard/gen_0055.jpg",
+    "inv_prompt": "a person flip a skateboard",
+    "s_word": "person",
+    "a_word": "flip",
+    "o_word": "skateboard",
+    "bbox_s": [
+        0,
+        0,
+        418,
+        386
+    ],
+    "bbox_s_pre": [
+        0,
+        0,
+        418,
+        386
+    ],
+    "bbox_o": [
+        69,
+        273,
+        381,
+        439
+    ],
+    "bbox_o_pre": [
+        69,
+        273,
+        381,
+        439
+    ],
+    "mask_s": "gen_0055_s_person_mask.png",
+    "mask_o": "gen_0055_o_skateboard_mask.png"
+}

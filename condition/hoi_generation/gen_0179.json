@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_579_a_person_lose_a_umbrella/gen_0179.jpg",
+    "inv_prompt": "a person lose a umbrella",
+    "s_word": "person",
+    "a_word": "lose",
+    "o_word": "umbrella",
+    "bbox_s": [
+        131,
+        192,
+        251,
+        470
+    ],
+    "bbox_s_pre": [
+        131,
+        192,
+        251,
+        470
+    ],
+    "bbox_o": [
+        105,
+        127,
+        247,
+        231
+    ],
+    "bbox_o_pre": [
+        105,
+        127,
+        247,
+        231
+    ],
+    "mask_s": "gen_0179_s_person_mask.png",
+    "mask_o": "gen_0179_o_umbrella_mask.png"
+}

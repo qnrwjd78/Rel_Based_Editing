@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_365_a_person_clean_a_keyboard/gen_0165.jpg",
+    "inv_prompt": "a person clean a keyboard",
+    "s_word": "person",
+    "a_word": "clean",
+    "o_word": "keyboard",
+    "bbox_s": [
+        0,
+        24,
+        355,
+        209
+    ],
+    "bbox_s_pre": [
+        0,
+        24,
+        355,
+        209
+    ],
+    "bbox_o": [
+        1,
+        1,
+        510,
+        511
+    ],
+    "bbox_o_pre": [
+        1,
+        1,
+        510,
+        511
+    ],
+    "mask_s": "gen_0165_s_person_mask.png",
+    "mask_o": "gen_0165_o_keyboard_mask.png"
+}

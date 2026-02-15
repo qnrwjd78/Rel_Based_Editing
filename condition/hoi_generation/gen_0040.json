@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_440_a_person_cook_a_sandwich/gen_0040.jpg",
+    "inv_prompt": "a person cook a sandwich",
+    "s_word": "person",
+    "a_word": "cook",
+    "o_word": "sandwich",
+    "bbox_s": [
+        127,
+        0,
+        495,
+        144
+    ],
+    "bbox_s_pre": [
+        127,
+        0,
+        495,
+        144
+    ],
+    "bbox_o": [
+        255,
+        114,
+        511,
+        295
+    ],
+    "bbox_o_pre": [
+        255,
+        114,
+        511,
+        295
+    ],
+    "mask_s": "gen_0040_s_person_mask.png",
+    "mask_o": "gen_0040_o_sandwich_mask.png"
+}

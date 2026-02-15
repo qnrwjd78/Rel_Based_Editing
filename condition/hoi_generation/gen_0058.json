@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_458_a_person_jump_a_skateboard/gen_0058.jpg",
+    "inv_prompt": "a person jump a skateboard",
+    "s_word": "person",
+    "a_word": "jump",
+    "o_word": "skateboard",
+    "bbox_s": [
+        288,
+        6,
+        494,
+        231
+    ],
+    "bbox_s_pre": [
+        288,
+        6,
+        494,
+        231
+    ],
+    "bbox_o": [
+        306,
+        205,
+        448,
+        257
+    ],
+    "bbox_o_pre": [
+        306,
+        205,
+        448,
+        257
+    ],
+    "mask_s": "gen_0058_s_person_mask.png",
+    "mask_o": "gen_0058_o_skateboard_mask.png"
+}

@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_480_a_person_ride_a_snowboard/gen_0080.jpg",
+    "inv_prompt": "a person ride a snowboard",
+    "s_word": "person",
+    "a_word": "ride",
+    "o_word": "snowboard",
+    "bbox_s": [
+        378,
+        243,
+        511,
+        439
+    ],
+    "bbox_s_pre": [
+        378,
+        243,
+        511,
+        439
+    ],
+    "bbox_o": [
+        424,
+        421,
+        511,
+        446
+    ],
+    "bbox_o_pre": [
+        424,
+        421,
+        511,
+        446
+    ],
+    "mask_s": "gen_0080_s_person_mask.png",
+    "mask_o": "gen_0080_o_snowboard_mask.png"
+}

@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_152_a_person_push_a_motorcycle/gen_0152.jpg",
+    "inv_prompt": "a person push a motorcycle",
+    "s_word": "person",
+    "a_word": "push",
+    "o_word": "motorcycle",
+    "bbox_s": [
+        279,
+        3,
+        511,
+        409
+    ],
+    "bbox_s_pre": [
+        279,
+        3,
+        511,
+        409
+    ],
+    "bbox_o": [
+        153,
+        196,
+        511,
+        486
+    ],
+    "bbox_o_pre": [
+        153,
+        196,
+        511,
+        486
+    ],
+    "mask_s": "gen_0152_s_person_mask.png",
+    "mask_o": "gen_0152_o_motorcycle_mask.png"
+}

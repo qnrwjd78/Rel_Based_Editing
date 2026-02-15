@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_477_a_person_grind_a_snowboard/gen_0077.jpg",
+    "inv_prompt": "a person grind a snowboard",
+    "s_word": "person",
+    "a_word": "grind",
+    "o_word": "snowboard",
+    "bbox_s": [
+        170,
+        95,
+        351,
+        342
+    ],
+    "bbox_s_pre": [
+        170,
+        95,
+        351,
+        342
+    ],
+    "bbox_o": [
+        126,
+        261,
+        464,
+        427
+    ],
+    "bbox_o_pre": [
+        126,
+        261,
+        464,
+        427
+    ],
+    "mask_s": "gen_0077_s_person_mask.png",
+    "mask_o": "gen_0077_o_snowboard_mask.png"
+}

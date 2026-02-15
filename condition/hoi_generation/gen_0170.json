@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_570_a_person_inspect_a_truck/gen_0170.jpg",
+    "inv_prompt": "a person inspect a truck",
+    "s_word": "person",
+    "a_word": "inspect",
+    "o_word": "truck",
+    "bbox_s": [
+        264,
+        102,
+        511,
+        510
+    ],
+    "bbox_s_pre": [
+        264,
+        102,
+        511,
+        510
+    ],
+    "bbox_o": [
+        0,
+        18,
+        396,
+        512
+    ],
+    "bbox_o_pre": [
+        0,
+        18,
+        396,
+        512
+    ],
+    "mask_s": "gen_0170_s_person_mask.png",
+    "mask_o": "gen_0170_o_truck_mask.png"
+}

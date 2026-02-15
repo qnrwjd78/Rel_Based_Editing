@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_523_a_person_load_a_surfboard/gen_0123.jpg",
+    "inv_prompt": "a person load a surfboard",
+    "s_word": "person",
+    "a_word": "load",
+    "o_word": "surfboard",
+    "bbox_s": [
+        0,
+        104,
+        216,
+        390
+    ],
+    "bbox_s_pre": [
+        0,
+        104,
+        216,
+        390
+    ],
+    "bbox_o": [
+        40,
+        307,
+        341,
+        405
+    ],
+    "bbox_o_pre": [
+        40,
+        307,
+        341,
+        405
+    ],
+    "mask_s": "gen_0123_s_person_mask.png",
+    "mask_o": "gen_0123_o_surfboard_mask.png"
+}

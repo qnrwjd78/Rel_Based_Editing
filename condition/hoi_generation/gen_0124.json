@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_524_a_person_ride_a_surfboard/gen_0124.jpg",
+    "inv_prompt": "a person ride a surfboard",
+    "s_word": "person",
+    "a_word": "ride",
+    "o_word": "surfboard",
+    "bbox_s": [
+        245,
+        74,
+        476,
+        361
+    ],
+    "bbox_s_pre": [
+        245,
+        74,
+        476,
+        361
+    ],
+    "bbox_o": [
+        233,
+        329,
+        511,
+        402
+    ],
+    "bbox_o_pre": [
+        233,
+        329,
+        511,
+        402
+    ],
+    "mask_s": "gen_0124_s_person_mask.png",
+    "mask_o": "gen_0124_o_surfboard_mask.png"
+}

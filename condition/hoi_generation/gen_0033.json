@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_433_a_person_open_a_refrigerator/gen_0033.jpg",
+    "inv_prompt": "a person open a refrigerator",
+    "s_word": "person",
+    "a_word": "open",
+    "o_word": "refrigerator",
+    "bbox_s": [
+        0,
+        47,
+        332,
+        511
+    ],
+    "bbox_s_pre": [
+        0,
+        47,
+        332,
+        511
+    ],
+    "bbox_o": [
+        6,
+        8,
+        485,
+        511
+    ],
+    "bbox_o_pre": [
+        6,
+        8,
+        485,
+        511
+    ],
+    "mask_s": "gen_0033_s_person_mask.png",
+    "mask_o": "gen_0033_o_refrigerator_mask.png"
+}

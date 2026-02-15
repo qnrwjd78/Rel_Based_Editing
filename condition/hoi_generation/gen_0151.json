@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_551_a_person_clean_a_toilet/gen_0151.jpg",
+    "inv_prompt": "a person clean a toilet",
+    "s_word": "person",
+    "a_word": "clean",
+    "o_word": "toilet",
+    "bbox_s": [
+        69,
+        48,
+        307,
+        447
+    ],
+    "bbox_s_pre": [
+        69,
+        48,
+        307,
+        447
+    ],
+    "bbox_o": [
+        48,
+        167,
+        247,
+        511
+    ],
+    "bbox_o_pre": [
+        48,
+        167,
+        247,
+        511
+    ],
+    "mask_s": "gen_0151_s_person_mask.png",
+    "mask_o": "gen_0151_o_toilet_mask.png"
+}

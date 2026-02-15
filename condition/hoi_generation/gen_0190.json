@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_590_a_person_hold_a_wine_glass/gen_0190.jpg",
+    "inv_prompt": "a person hold a wine glass",
+    "s_word": "person",
+    "a_word": "hold",
+    "o_word": "wine glass",
+    "bbox_s": [
+        244,
+        352,
+        427,
+        511
+    ],
+    "bbox_s_pre": [
+        244,
+        352,
+        427,
+        511
+    ],
+    "bbox_o": [
+        258,
+        66,
+        418,
+        504
+    ],
+    "bbox_o_pre": [
+        258,
+        66,
+        418,
+        504
+    ],
+    "mask_s": "gen_0190_s_person_mask.png",
+    "mask_o": "gen_0190_o_wine glass_mask.png"
+}

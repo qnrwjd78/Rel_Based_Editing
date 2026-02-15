@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_409_a_person_hold_a_oven/gen_0009.jpg",
+    "inv_prompt": "a person hold a oven",
+    "s_word": "person",
+    "a_word": "hold",
+    "o_word": "oven",
+    "bbox_s": [
+        0,
+        0,
+        361,
+        388
+    ],
+    "bbox_s_pre": [
+        0,
+        0,
+        361,
+        388
+    ],
+    "bbox_o": [
+        73,
+        5,
+        511,
+        510
+    ],
+    "bbox_o_pre": [
+        73,
+        5,
+        511,
+        510
+    ],
+    "mask_s": "gen_0009_s_person_mask.png",
+    "mask_o": "gen_0009_o_oven_mask.png"
+}

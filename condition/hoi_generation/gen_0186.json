@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_386_a_person_read_a_laptop/gen_0186.jpg",
+    "inv_prompt": "a person read a laptop",
+    "s_word": "person",
+    "a_word": "read",
+    "o_word": "laptop",
+    "bbox_s": [
+        213,
+        204,
+        393,
+        438
+    ],
+    "bbox_s_pre": [
+        213,
+        204,
+        393,
+        438
+    ],
+    "bbox_o": [
+        224,
+        307,
+        397,
+        386
+    ],
+    "bbox_o_pre": [
+        224,
+        307,
+        397,
+        386
+    ],
+    "mask_s": "gen_0186_s_person_mask.png",
+    "mask_o": "gen_0186_o_laptop_mask.png"
+}

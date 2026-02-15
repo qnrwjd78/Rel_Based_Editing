@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_521_a_person_jump_a_surfboard/gen_0121.jpg",
+    "inv_prompt": "a person jump a surfboard",
+    "s_word": "person",
+    "a_word": "jump",
+    "o_word": "surfboard",
+    "bbox_s": [
+        189,
+        71,
+        286,
+        177
+    ],
+    "bbox_s_pre": [
+        189,
+        71,
+        286,
+        177
+    ],
+    "bbox_o": [
+        216,
+        117,
+        269,
+        190
+    ],
+    "bbox_o_pre": [
+        216,
+        117,
+        269,
+        190
+    ],
+    "mask_s": "gen_0121_s_person_mask.png",
+    "mask_o": "gen_0121_o_surfboard_mask.png"
+}

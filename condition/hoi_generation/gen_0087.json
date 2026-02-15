@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_287_a_person_repair_a_cell_phone/gen_0087.jpg",
+    "inv_prompt": "a person repair a cell phone",
+    "s_word": "person",
+    "a_word": "repair",
+    "o_word": "cell phone",
+    "bbox_s": [
+        133,
+        6,
+        511,
+        510
+    ],
+    "bbox_s_pre": [
+        133,
+        6,
+        511,
+        510
+    ],
+    "bbox_o": [
+        375,
+        287,
+        511,
+        380
+    ],
+    "bbox_o_pre": [
+        375,
+        287,
+        511,
+        380
+    ],
+    "mask_s": "gen_0087_s_person_mask.png",
+    "mask_o": "gen_0087_o_cell phone_mask.png"
+}

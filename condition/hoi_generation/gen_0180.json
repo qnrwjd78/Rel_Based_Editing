@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_580_a_person_open_a_umbrella/gen_0180.jpg",
+    "inv_prompt": "a person open a umbrella",
+    "s_word": "person",
+    "a_word": "open",
+    "o_word": "umbrella",
+    "bbox_s": [
+        184,
+        168,
+        382,
+        511
+    ],
+    "bbox_s_pre": [
+        184,
+        168,
+        382,
+        511
+    ],
+    "bbox_o": [
+        35,
+        5,
+        450,
+        210
+    ],
+    "bbox_o_pre": [
+        35,
+        5,
+        450,
+        210
+    ],
+    "mask_s": "gen_0180_s_person_mask.png",
+    "mask_o": "gen_0180_o_umbrella_mask.png"
+}

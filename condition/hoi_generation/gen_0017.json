@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_017_a_person_push_a_bicycle/gen_0017.jpg",
+    "inv_prompt": "a person push a bicycle",
+    "s_word": "person",
+    "a_word": "push",
+    "o_word": "bicycle",
+    "bbox_s": [
+        107,
+        37,
+        329,
+        383
+    ],
+    "bbox_s_pre": [
+        107,
+        37,
+        329,
+        383
+    ],
+    "bbox_o": [
+        0,
+        171,
+        327,
+        491
+    ],
+    "bbox_o_pre": [
+        0,
+        171,
+        327,
+        491
+    ],
+    "mask_s": "gen_0017_s_person_mask.png",
+    "mask_o": "gen_0017_o_bicycle_mask.png"
+}

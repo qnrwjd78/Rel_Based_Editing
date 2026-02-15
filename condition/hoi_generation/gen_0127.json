@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_527_a_person_wash_a_surfboard/gen_0127.jpg",
+    "inv_prompt": "a person wash a surfboard",
+    "s_word": "person",
+    "a_word": "wash",
+    "o_word": "surfboard",
+    "bbox_s": [
+        0,
+        96,
+        167,
+        381
+    ],
+    "bbox_s_pre": [
+        0,
+        96,
+        167,
+        381
+    ],
+    "bbox_o": [
+        89,
+        351,
+        506,
+        399
+    ],
+    "bbox_o_pre": [
+        89,
+        351,
+        506,
+        399
+    ],
+    "mask_s": "gen_0127_s_person_mask.png",
+    "mask_o": "gen_0127_o_surfboard_mask.png"
+}

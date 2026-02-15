@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_502_a_person_no_interaction_a_sports_ball/gen_0102.jpg",
+    "inv_prompt": "a person no interaction a sports ball",
+    "s_word": "person no",
+    "a_word": "interaction",
+    "o_word": "sports ball",
+    "bbox_s": [
+        128,
+        78,
+        212,
+        392
+    ],
+    "bbox_s_pre": [
+        128,
+        78,
+        212,
+        392
+    ],
+    "bbox_o": [
+        167,
+        9,
+        211,
+        53
+    ],
+    "bbox_o_pre": [
+        167,
+        9,
+        211,
+        53
+    ],
+    "mask_s": "gen_0102_s_person no_mask.png",
+    "mask_o": "gen_0102_o_sports ball_mask.png"
+}

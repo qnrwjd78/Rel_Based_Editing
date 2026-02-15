@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_250_a_person_open_a_book/gen_0050.jpg",
+    "inv_prompt": "a person open a book",
+    "s_word": "person",
+    "a_word": "open",
+    "o_word": "book",
+    "bbox_s": [
+        64,
+        136,
+        440,
+        511
+    ],
+    "bbox_s_pre": [
+        64,
+        136,
+        440,
+        511
+    ],
+    "bbox_o": [
+        0,
+        91,
+        232,
+        178
+    ],
+    "bbox_o_pre": [
+        0,
+        91,
+        232,
+        178
+    ],
+    "mask_s": "gen_0050_s_person_mask.png",
+    "mask_o": "gen_0050_o_book_mask.png"
+}

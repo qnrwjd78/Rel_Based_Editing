@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_105_a_person_ride_a_cow/gen_0105.jpg",
+    "inv_prompt": "a person ride a cow",
+    "s_word": "person",
+    "a_word": "ride",
+    "o_word": "cow",
+    "bbox_s": [
+        147,
+        19,
+        259,
+        144
+    ],
+    "bbox_s_pre": [
+        147,
+        19,
+        259,
+        144
+    ],
+    "bbox_o": [
+        120,
+        107,
+        511,
+        407
+    ],
+    "bbox_o_pre": [
+        120,
+        107,
+        511,
+        407
+    ],
+    "mask_s": "gen_0105_s_person_mask.png",
+    "mask_o": "gen_0105_o_cow_mask.png"
+}

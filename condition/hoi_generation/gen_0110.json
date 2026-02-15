@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_310_a_person_make_a_donut/gen_0110.jpg",
+    "inv_prompt": "a person make a donut",
+    "s_word": "person",
+    "a_word": "make",
+    "o_word": "donut",
+    "bbox_s": [
+        22,
+        395,
+        145,
+        511
+    ],
+    "bbox_s_pre": [
+        22,
+        395,
+        145,
+        511
+    ],
+    "bbox_o": [
+        181,
+        169,
+        435,
+        380
+    ],
+    "bbox_o_pre": [
+        181,
+        169,
+        435,
+        380
+    ],
+    "mask_s": "gen_0110_s_person_mask.png",
+    "mask_o": "gen_0110_o_donut_mask.png"
+}

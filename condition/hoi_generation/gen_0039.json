@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_039_a_person_ride_a_boat/gen_0039.jpg",
+    "inv_prompt": "a person ride a boat",
+    "s_word": "person",
+    "a_word": "ride",
+    "o_word": "boat",
+    "bbox_s": [
+        266,
+        88,
+        389,
+        308
+    ],
+    "bbox_s_pre": [
+        266,
+        88,
+        389,
+        308
+    ],
+    "bbox_o": [
+        61,
+        271,
+        511,
+        378
+    ],
+    "bbox_o_pre": [
+        61,
+        271,
+        511,
+        378
+    ],
+    "mask_s": "gen_0039_s_person_mask.png",
+    "mask_o": "gen_0039_o_boat_mask.png"
+}

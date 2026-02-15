@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_016_a_person_park_a_bicycle/gen_0016.jpg",
+    "inv_prompt": "a photo of a person park a bicycle",
+    "s_word": "person",
+    "a_word": "park",
+    "o_word": "bicycle",
+    "bbox_s": [
+        229,
+        0,
+        466,
+        436
+    ],
+    "bbox_s_pre": [
+        229,
+        0,
+        466,
+        436
+    ],
+    "bbox_o": [
+        0,
+        0,
+        511,
+        431
+    ],
+    "bbox_o_pre": [
+        0,
+        0,
+        511,
+        431
+    ],
+    "mask_s": "test_hoi_s_person_mask.png",
+    "mask_o": "test_hoi_o_bicycle_mask.png"
+}

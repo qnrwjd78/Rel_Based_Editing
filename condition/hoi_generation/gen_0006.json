@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_406_a_person_wash_a_orange/gen_0006.jpg",
+    "inv_prompt": "a person wash a orange",
+    "s_word": "person",
+    "a_word": "wash",
+    "o_word": "orange",
+    "bbox_s": [
+        250,
+        0,
+        503,
+        510
+    ],
+    "bbox_s_pre": [
+        250,
+        0,
+        503,
+        510
+    ],
+    "bbox_o": [
+        420,
+        250,
+        511,
+        392
+    ],
+    "bbox_o_pre": [
+        420,
+        250,
+        511,
+        392
+    ],
+    "mask_s": "gen_0006_s_person_mask.png",
+    "mask_o": "gen_0006_o_orange_mask.png"
+}

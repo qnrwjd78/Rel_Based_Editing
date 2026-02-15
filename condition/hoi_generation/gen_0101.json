@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_101_a_person_kiss_a_cow/gen_0101.jpg",
+    "inv_prompt": "a person kiss a cow",
+    "s_word": "person",
+    "a_word": "kiss",
+    "o_word": "cow",
+    "bbox_s": [
+        102,
+        203,
+        288,
+        507
+    ],
+    "bbox_s_pre": [
+        102,
+        203,
+        288,
+        507
+    ],
+    "bbox_o": [
+        0,
+        0,
+        465,
+        507
+    ],
+    "bbox_o_pre": [
+        0,
+        0,
+        465,
+        507
+    ],
+    "mask_s": "gen_0101_s_person_mask.png",
+    "mask_o": "gen_0101_o_cow_mask.png"
+}

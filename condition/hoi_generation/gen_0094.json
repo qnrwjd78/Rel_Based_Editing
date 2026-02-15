@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_494_a_person_hold_a_sports_ball/gen_0094.jpg",
+    "inv_prompt": "a person hold a sports ball",
+    "s_word": "person",
+    "a_word": "hold",
+    "o_word": "sports ball",
+    "bbox_s": [
+        104,
+        42,
+        473,
+        511
+    ],
+    "bbox_s_pre": [
+        104,
+        42,
+        473,
+        511
+    ],
+    "bbox_o": [
+        172,
+        307,
+        348,
+        461
+    ],
+    "bbox_o_pre": [
+        172,
+        307,
+        348,
+        461
+    ],
+    "mask_s": "gen_0094_s_person_mask.png",
+    "mask_o": "gen_0094_o_sports ball_mask.png"
+}

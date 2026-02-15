@@ -1,4 +1,5 @@
 import json
+import os
 import pyrallis
 import torch
 from PIL import Image
@@ -100,6 +101,9 @@ def find_token_indices(tokenizer, prompt: str, word: str):
 def main_impl(config: RunConfig):
     stable = load_model(config)
 
+    # output_path can be overridden by callers (e.g. test sweeps); ensure it exists.
+    config.output_path.mkdir(exist_ok=True, parents=True)
+
     cond_paths = list(getattr(config, "cond_paths", []) or [])
     cond_names = list(getattr(config, "cond_names", []) or [])
     if cond_paths:
@@ -123,6 +127,21 @@ def main_impl(config: RunConfig):
         if "inv_prompt" in cond:
             config.inv_prompt = cond["inv_prompt"]
 
+        # Allow per-condition image path override.
+        if "fname" in cond:
+            cond_fname = cond["fname"]
+            config.img_path = cond_fname if os.path.isabs(cond_fname) else os.path.join("./dataset/hoi/hoi_generation", cond_fname)
+
+        # Optional segmentation masks (SAM2 etc.) for source objects.
+        # If relative, resolve next to the input image path.
+        mask_s = cond.get("mask_s")
+        mask_o = cond.get("mask_o")
+        img_dir = os.path.dirname(config.img_path) if getattr(config, "img_path", None) else ""
+        if mask_s:
+            config.mask_s_path = mask_s if os.path.isabs(mask_s) else os.path.join(img_dir, mask_s)
+        if mask_o:
+            config.mask_o_path = mask_o if os.path.isabs(mask_o) else os.path.join(img_dir, mask_o)
+
         s_word = cond.get("s_word") or cond.get("s")
         a_word = cond.get("a_word") or cond.get("a")
         o_word = cond.get("o_word") or cond.get("o")
@@ -142,8 +161,10 @@ def main_impl(config: RunConfig):
             config.bbox_s = cond["bbox_s"]
             config.bbox_o = cond["bbox_o"]
             config.bbox_a = compute_relation_bbox(config.bbox_s, config.bbox_o)
-            config.bbox_s_src = cond.get("bbox_s_src")
-            config.bbox_o_src = cond.get("bbox_o_src")
+            # If a condition provides separate source boxes (where the objects currently are),
+            # prefer them. For legacy condition files, fall back to *_pre fields.
+            config.bbox_s_src = cond.get("bbox_s_src") or cond.get("bbox_s_pre")
+            config.bbox_o_src = cond.get("bbox_o_src") or cond.get("bbox_o_pre")
             config.bbox = config.bbox_s
 
         elif "bbox" in cond:

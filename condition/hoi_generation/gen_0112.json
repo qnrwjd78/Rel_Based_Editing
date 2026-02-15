@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_512_a_person_open_a_suitcase/gen_0112.jpg",
+    "inv_prompt": "a person open a suitcase",
+    "s_word": "person",
+    "a_word": "open",
+    "o_word": "suitcase",
+    "bbox_s": [
+        0,
+        218,
+        279,
+        510
+    ],
+    "bbox_s_pre": [
+        0,
+        218,
+        279,
+        510
+    ],
+    "bbox_o": [
+        0,
+        23,
+        366,
+        449
+    ],
+    "bbox_o_pre": [
+        0,
+        23,
+        366,
+        449
+    ],
+    "mask_s": "gen_0112_s_person_mask.png",
+    "mask_o": "gen_0112_o_suitcase_mask.png"
+}

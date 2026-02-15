@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_435_a_person_hold_a_remote/gen_0035.jpg",
+    "inv_prompt": "a person hold a remote",
+    "s_word": "person",
+    "a_word": "hold",
+    "o_word": "remote",
+    "bbox_s": [
+        179,
+        245,
+        510,
+        511
+    ],
+    "bbox_s_pre": [
+        179,
+        245,
+        510,
+        511
+    ],
+    "bbox_o": [
+        63,
+        58,
+        197,
+        383
+    ],
+    "bbox_o_pre": [
+        63,
+        58,
+        197,
+        383
+    ],
+    "mask_s": "gen_0035_s_person_mask.png",
+    "mask_o": "gen_0035_o_remote_mask.png"
+}

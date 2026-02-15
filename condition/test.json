@@ -1,5 +1,14 @@
-{  
-    "transfer_step": [40, 35, 30],
-    "s_step": [25, 30, 35, 40],
-    "o_step": [25, 30, 35, 40]
+{
+    "pipeline": ["base"],
+    "cond_paths": [
+        ["./condition/test_condition1_512.json", "./condition/test_condition2_512.json"]
+    ],
+    "cond_names": [
+        ["cond_1", "cond_2"]
+    ],
+    "n_inference_steps": [49],
+    "attn_steps": [12],
+    "transfer_step": [28],
+    "erase_method": ["masked_renoise", "inpaint_then_inv"],
+    "compose_method": ["weighted", "weighted_transition", "norm", "norm_feather", "norm_overlap_avg", "gaussian"]
 }

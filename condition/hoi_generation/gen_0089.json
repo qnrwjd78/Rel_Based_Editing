@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_489_a_person_block_a_sports_ball/gen_0089.jpg",
+    "inv_prompt": "a person block a sports ball",
+    "s_word": "person",
+    "a_word": "block",
+    "o_word": "sports ball",
+    "bbox_s": [
+        230,
+        161,
+        386,
+        511
+    ],
+    "bbox_s_pre": [
+        230,
+        161,
+        386,
+        511
+    ],
+    "bbox_o": [
+        267,
+        127,
+        312,
+        169
+    ],
+    "bbox_o_pre": [
+        267,
+        127,
+        312,
+        169
+    ],
+    "mask_s": "gen_0089_s_person_mask.png",
+    "mask_o": "gen_0089_o_sports ball_mask.png"
+}

@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_596_a_person_feed_a_zebra/gen_0196.jpg",
+    "inv_prompt": "a person feed a zebra",
+    "s_word": "person",
+    "a_word": "feed",
+    "o_word": "zebra",
+    "bbox_s": [
+        160,
+        63,
+        511,
+        511
+    ],
+    "bbox_s_pre": [
+        160,
+        63,
+        511,
+        511
+    ],
+    "bbox_o": [
+        0,
+        63,
+        262,
+        511
+    ],
+    "bbox_o_pre": [
+        0,
+        63,
+        262,
+        511
+    ],
+    "mask_s": "gen_0196_s_person_mask.png",
+    "mask_o": "gen_0196_o_zebra_mask.png"
+}

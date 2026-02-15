@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_530_a_person_hold_a_teddy_bear/gen_0130.jpg",
+    "inv_prompt": "a person hold a teddy bear",
+    "s_word": "person",
+    "a_word": "hold",
+    "o_word": "teddy bear",
+    "bbox_s": [
+        11,
+        1,
+        512,
+        509
+    ],
+    "bbox_s_pre": [
+        11,
+        1,
+        512,
+        509
+    ],
+    "bbox_o": [
+        49,
+        77,
+        508,
+        511
+    ],
+    "bbox_o_pre": [
+        49,
+        77,
+        508,
+        511
+    ],
+    "mask_s": "gen_0130_s_person_mask.png",
+    "mask_o": "gen_0130_o_teddy bear_mask.png"
+}

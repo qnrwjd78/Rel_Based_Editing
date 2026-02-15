@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_451_a_person_repair_a_sink/gen_0051.jpg",
+    "inv_prompt": "a person repair a sink",
+    "s_word": "person",
+    "a_word": "repair",
+    "o_word": "sink",
+    "bbox_s": [
+        259,
+        1,
+        511,
+        510
+    ],
+    "bbox_s_pre": [
+        259,
+        1,
+        511,
+        510
+    ],
+    "bbox_o": [
+        0,
+        66,
+        511,
+        490
+    ],
+    "bbox_o_pre": [
+        0,
+        66,
+        511,
+        490
+    ],
+    "mask_s": "gen_0051_s_person_mask.png",
+    "mask_o": "gen_0051_o_sink_mask.png"
+}

@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_493_a_person_hit_a_sports_ball/gen_0093.jpg",
+    "inv_prompt": "a person hit a sports ball",
+    "s_word": "person",
+    "a_word": "hit",
+    "o_word": "sports ball",
+    "bbox_s": [
+        255,
+        0,
+        511,
+        407
+    ],
+    "bbox_s_pre": [
+        255,
+        0,
+        511,
+        407
+    ],
+    "bbox_o": [
+        274,
+        160,
+        428,
+        310
+    ],
+    "bbox_o_pre": [
+        274,
+        160,
+        428,
+        310
+    ],
+    "mask_s": "gen_0093_s_person_mask.png",
+    "mask_o": "gen_0093_o_sports ball_mask.png"
+}

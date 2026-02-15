@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_511_a_person_load_a_suitcase/gen_0111.jpg",
+    "inv_prompt": "a person load a suitcase",
+    "s_word": "person",
+    "a_word": "load",
+    "o_word": "suitcase",
+    "bbox_s": [
+        0,
+        0,
+        88,
+        208
+    ],
+    "bbox_s_pre": [
+        0,
+        0,
+        88,
+        208
+    ],
+    "bbox_o": [
+        0,
+        122,
+        130,
+        422
+    ],
+    "bbox_o_pre": [
+        0,
+        122,
+        130,
+        422
+    ],
+    "mask_s": "gen_0111_s_person_mask.png",
+    "mask_o": "gen_0111_o_suitcase_mask.png"
+}

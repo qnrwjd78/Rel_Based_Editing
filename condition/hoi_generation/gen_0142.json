@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_542_a_person_inspect_a_tie/gen_0142.jpg",
+    "inv_prompt": "a person inspect a tie",
+    "s_word": "person",
+    "a_word": "inspect",
+    "o_word": "tie",
+    "bbox_s": [
+        0,
+        0,
+        512,
+        510
+    ],
+    "bbox_s_pre": [
+        0,
+        0,
+        512,
+        510
+    ],
+    "bbox_o": [
+        199,
+        111,
+        275,
+        511
+    ],
+    "bbox_o_pre": [
+        199,
+        111,
+        275,
+        511
+    ],
+    "mask_s": "gen_0142_s_person_mask.png",
+    "mask_o": "gen_0142_o_tie_mask.png"
+}

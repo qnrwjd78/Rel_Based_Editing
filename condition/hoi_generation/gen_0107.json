@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_507_a_person_carry_a_suitcase/gen_0107.jpg",
+    "inv_prompt": "a person carry a suitcase",
+    "s_word": "person",
+    "a_word": "carry",
+    "o_word": "suitcase",
+    "bbox_s": [
+        189,
+        58,
+        353,
+        487
+    ],
+    "bbox_s_pre": [
+        189,
+        58,
+        353,
+        487
+    ],
+    "bbox_o": [
+        140,
+        188,
+        240,
+        433
+    ],
+    "bbox_o_pre": [
+        140,
+        188,
+        240,
+        433
+    ],
+    "mask_s": "gen_0107_s_person_mask.png",
+    "mask_o": "gen_0107_o_suitcase_mask.png"
+}

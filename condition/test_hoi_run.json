@@ -1,0 +1,11 @@
+{
+    "pipeline": ["base"],
+    "cond_paths": [["./condition/hoi_generation/gen_0005.json"]],
+    "cond_names": [["hoi_0005"]],
+    "n_inference_steps": [49],
+    "attn_steps": [12],
+    "transfer_step": [28],
+    "erase_method": ["masked_renoise", "masked_random_noise", "inpaint_then_inv"],
+    "compose_method": ["none"],
+    "guidance_scale": [0.0]
+}

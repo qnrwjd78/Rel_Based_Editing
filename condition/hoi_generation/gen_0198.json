@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_198_a_person_no_interaction_a_tv/gen_0198.jpg",
+    "inv_prompt": "a person no interaction a tv",
+    "s_word": "person no",
+    "a_word": "interaction",
+    "o_word": "tv",
+    "bbox_s": [
+        0,
+        291,
+        144,
+        431
+    ],
+    "bbox_s_pre": [
+        0,
+        291,
+        144,
+        431
+    ],
+    "bbox_o": [
+        0,
+        194,
+        253,
+        466
+    ],
+    "bbox_o_pre": [
+        0,
+        194,
+        253,
+        466
+    ],
+    "mask_s": "gen_0198_s_person no_mask.png",
+    "mask_o": "gen_0198_o_tv_mask.png"
+}

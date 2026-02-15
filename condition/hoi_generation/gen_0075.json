@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_275_a_person_cook_a_carrot/gen_0075.jpg",
+    "inv_prompt": "a person cook a carrot",
+    "s_word": "person",
+    "a_word": "cook",
+    "o_word": "carrot",
+    "bbox_s": [
+        9,
+        0,
+        471,
+        512
+    ],
+    "bbox_s_pre": [
+        9,
+        0,
+        471,
+        512
+    ],
+    "bbox_o": [
+        397,
+        195,
+        511,
+        281
+    ],
+    "bbox_o_pre": [
+        397,
+        195,
+        511,
+        281
+    ],
+    "mask_s": "gen_0075_s_person_mask.png",
+    "mask_o": "gen_0075_o_carrot_mask.png"
+}

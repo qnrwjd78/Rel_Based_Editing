@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_299_a_person_inspect_a_cup/gen_0099.jpg",
+    "inv_prompt": "a person inspect a cup",
+    "s_word": "person",
+    "a_word": "inspect",
+    "o_word": "cup",
+    "bbox_s": [
+        1,
+        0,
+        511,
+        511
+    ],
+    "bbox_s_pre": [
+        1,
+        0,
+        511,
+        511
+    ],
+    "bbox_o": [
+        0,
+        302,
+        87,
+        437
+    ],
+    "bbox_o_pre": [
+        0,
+        302,
+        87,
+        437
+    ],
+    "mask_s": "gen_0099_s_person_mask.png",
+    "mask_o": "gen_0099_o_cup_mask.png"
+}

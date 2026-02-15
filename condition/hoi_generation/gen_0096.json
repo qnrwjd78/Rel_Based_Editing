@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_496_a_person_kick_a_sports_ball/gen_0096.jpg",
+    "inv_prompt": "a person kick a sports ball",
+    "s_word": "person",
+    "a_word": "kick",
+    "o_word": "sports ball",
+    "bbox_s": [
+        58,
+        36,
+        452,
+        470
+    ],
+    "bbox_s_pre": [
+        58,
+        36,
+        452,
+        470
+    ],
+    "bbox_o": [
+        38,
+        372,
+        99,
+        433
+    ],
+    "bbox_o_pre": [
+        38,
+        372,
+        99,
+        433
+    ],
+    "mask_s": "gen_0096_s_person_mask.png",
+    "mask_o": "gen_0096_o_sports ball_mask.png"
+}

@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_389_a_person_no_interaction_a_laptop/gen_0189.jpg",
+    "inv_prompt": "a person no interaction a laptop",
+    "s_word": "person no",
+    "a_word": "interaction",
+    "o_word": "laptop",
+    "bbox_s": [
+        367,
+        134,
+        511,
+        510
+    ],
+    "bbox_s_pre": [
+        367,
+        134,
+        511,
+        510
+    ],
+    "bbox_o": [
+        7,
+        16,
+        489,
+        466
+    ],
+    "bbox_o_pre": [
+        7,
+        16,
+        489,
+        466
+    ],
+    "mask_s": "gen_0189_s_person no_mask.png",
+    "mask_o": "gen_0189_o_laptop_mask.png"
+}

@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_578_a_person_hold_a_umbrella/gen_0178.jpg",
+    "inv_prompt": "a person hold a umbrella",
+    "s_word": "person",
+    "a_word": "hold",
+    "o_word": "umbrella",
+    "bbox_s": [
+        85,
+        261,
+        314,
+        511
+    ],
+    "bbox_s_pre": [
+        85,
+        261,
+        314,
+        511
+    ],
+    "bbox_o": [
+        0,
+        42,
+        477,
+        339
+    ],
+    "bbox_o_pre": [
+        0,
+        42,
+        477,
+        339
+    ],
+    "mask_s": "gen_0178_s_person_mask.png",
+    "mask_o": "gen_0178_o_umbrella_mask.png"
+}

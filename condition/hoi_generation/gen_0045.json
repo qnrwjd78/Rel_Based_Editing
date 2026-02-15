@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_245_a_person_lie_on_a_bench/gen_0045.jpg",
+    "inv_prompt": "a person lie on a bench",
+    "s_word": "person lie",
+    "a_word": "on",
+    "o_word": "bench",
+    "bbox_s": [
+        45,
+        177,
+        511,
+        376
+    ],
+    "bbox_s_pre": [
+        45,
+        177,
+        511,
+        376
+    ],
+    "bbox_o": [
+        46,
+        167,
+        512,
+        433
+    ],
+    "bbox_o_pre": [
+        46,
+        167,
+        512,
+        433
+    ],
+    "mask_s": "gen_0045_s_person lie_mask.png",
+    "mask_o": "gen_0045_o_bench_mask.png"
+}

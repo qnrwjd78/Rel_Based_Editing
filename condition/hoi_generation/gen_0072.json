@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_472_a_person_stand_on_a_skis/gen_0072.jpg",
+    "inv_prompt": "a person stand on a skis",
+    "s_word": "person stand",
+    "a_word": "on",
+    "o_word": "skis",
+    "bbox_s": [
+        91,
+        84,
+        278,
+        449
+    ],
+    "bbox_s_pre": [
+        91,
+        84,
+        278,
+        449
+    ],
+    "bbox_o": [
+        114,
+        426,
+        327,
+        457
+    ],
+    "bbox_o_pre": [
+        114,
+        426,
+        327,
+        457
+    ],
+    "mask_s": "gen_0072_s_person stand_mask.png",
+    "mask_o": "gen_0072_o_skis_mask.png"
+}

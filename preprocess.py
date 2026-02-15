@@ -60,6 +60,19 @@ def _select_best_mask(masks: np.ndarray, scores: np.ndarray) -> np.ndarray:
     return masks[best_idx]
 
 
+def _normalize_model_cfg(model_cfg: Optional[str], sam2_root: str) -> Optional[str]:
+    if not model_cfg:
+        return model_cfg
+    # If a filesystem path is provided, convert to a package-relative config name.
+    if os.path.exists(model_cfg):
+        pkg_root = os.path.join(sam2_root, "sam2")
+        try:
+            return os.path.relpath(model_cfg, pkg_root)
+        except Exception:
+            return model_cfg
+    return model_cfg
+
+
 def _load_sam2_predictor(model_root: str, model_id: Optional[str], model_cfg: Optional[str], checkpoint: Optional[str]):
     sam2_root = os.path.join(model_root, "sam2")
     if sam2_root not in sys.path:
@@ -69,6 +82,7 @@ def _load_sam2_predictor(model_root: str, model_id: Optional[str], model_cfg: Op
     if model_id:
         return SAM2ImagePredictor.from_pretrained(model_id)
 
+    model_cfg = _normalize_model_cfg(model_cfg, sam2_root)
     if not model_cfg or not checkpoint:
         raise ValueError("Provide either --model_id or both --model_cfg and --checkpoint.")
 
@@ -91,7 +105,7 @@ def main() -> None:
     )
     parser.add_argument(
         "--image_root",
-        default="./data/",
+        default="./dataset/hoi/hoi_generation/",
         help="Base directory for condition fname images",
     )
     parser.add_argument(
@@ -157,11 +171,14 @@ def main() -> None:
 
         base = os.path.splitext(os.path.basename(path))[0]
 
+        updated = False
         if bbox_s:
             masks, scores, _ = predictor.predict(box=np.array(bbox_s, dtype=np.float32), multimask_output=True)
             best = _select_best_mask(masks, scores)
             out_name = f"{base}_s_{s or 's'}_mask.png"
             _save_mask(best, os.path.join(args.output_dir, out_name))
+            data["mask_s"] = out_name
+            updated = True
         else:
             print(f"[WARN] bbox_s missing in {path}")
 
@@ -170,8 +187,17 @@ def main() -> None:
             best = _select_best_mask(masks, scores)
             out_name = f"{base}_o_{o or 'o'}_mask.png"
             _save_mask(best, os.path.join(args.output_dir, out_name))
+            data["mask_o"] = out_name
+            updated = True
         else:
             print(f"[WARN] bbox_o missing in {path}")
+
+        if updated:
+            try:
+                with open(path, "w", encoding="utf-8") as f:
+                    json.dump(data, f, ensure_ascii=False, indent=4)
+            except Exception as exc:
+                print(f"[ERROR] failed to update {path}: {exc}")
 
 
 if __name__ == "__main__":

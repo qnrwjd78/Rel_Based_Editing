@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_270_a_person_light_a_cake/gen_0070.jpg",
+    "inv_prompt": "a person light a cake",
+    "s_word": "person",
+    "a_word": "light",
+    "o_word": "cake",
+    "bbox_s": [
+        45,
+        0,
+        509,
+        169
+    ],
+    "bbox_s_pre": [
+        45,
+        0,
+        509,
+        169
+    ],
+    "bbox_o": [
+        64,
+        139,
+        483,
+        288
+    ],
+    "bbox_o_pre": [
+        64,
+        139,
+        483,
+        288
+    ],
+    "mask_s": "gen_0070_s_person_mask.png",
+    "mask_o": "gen_0070_o_cake_mask.png"
+}

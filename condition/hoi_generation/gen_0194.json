@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_594_a_person_wash_a_wine_glass/gen_0194.jpg",
+    "inv_prompt": "a person wash a wine glass",
+    "s_word": "person",
+    "a_word": "wash",
+    "o_word": "wine glass",
+    "bbox_s": [
+        0,
+        0,
+        512,
+        466
+    ],
+    "bbox_s_pre": [
+        0,
+        0,
+        512,
+        466
+    ],
+    "bbox_o": [
+        206,
+        77,
+        423,
+        510
+    ],
+    "bbox_o_pre": [
+        206,
+        77,
+        423,
+        510
+    ],
+    "mask_s": "gen_0194_s_person_mask.png",
+    "mask_o": "gen_0194_o_wine glass_mask.png"
+}

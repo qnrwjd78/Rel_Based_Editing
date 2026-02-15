@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_076_a_person_no_interaction_a_car/gen_0076.jpg",
+    "inv_prompt": "a person no interaction a car",
+    "s_word": "person no",
+    "a_word": "interaction",
+    "o_word": "car",
+    "bbox_s": [
+        0,
+        139,
+        208,
+        511
+    ],
+    "bbox_s_pre": [
+        0,
+        139,
+        208,
+        511
+    ],
+    "bbox_o": [
+        2,
+        1,
+        511,
+        510
+    ],
+    "bbox_o_pre": [
+        2,
+        1,
+        511,
+        510
+    ],
+    "mask_s": "gen_0076_s_person no_mask.png",
+    "mask_o": "gen_0076_o_car_mask.png"
+}

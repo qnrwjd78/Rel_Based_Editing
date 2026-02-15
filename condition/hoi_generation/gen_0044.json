@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_244_a_person_inspect_a_bench/gen_0044.jpg",
+    "inv_prompt": "a person inspect a bench",
+    "s_word": "person",
+    "a_word": "inspect",
+    "o_word": "bench",
+    "bbox_s": [
+        117,
+        169,
+        300,
+        499
+    ],
+    "bbox_s_pre": [
+        117,
+        169,
+        300,
+        499
+    ],
+    "bbox_o": [
+        0,
+        221,
+        512,
+        510
+    ],
+    "bbox_o_pre": [
+        0,
+        221,
+        512,
+        510
+    ],
+    "mask_s": "gen_0044_s_person_mask.png",
+    "mask_o": "gen_0044_o_bench_mask.png"
+}

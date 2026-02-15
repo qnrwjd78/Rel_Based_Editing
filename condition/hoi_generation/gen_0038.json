@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_438_a_person_no_interaction_a_remote/gen_0038.jpg",
+    "inv_prompt": "a person no interaction a remote",
+    "s_word": "person no",
+    "a_word": "interaction",
+    "o_word": "remote",
+    "bbox_s": [
+        68,
+        216,
+        458,
+        511
+    ],
+    "bbox_s_pre": [
+        68,
+        216,
+        458,
+        511
+    ],
+    "bbox_o": [
+        44,
+        27,
+        381,
+        512
+    ],
+    "bbox_o_pre": [
+        44,
+        27,
+        381,
+        512
+    ],
+    "mask_s": "gen_0038_s_person no_mask.png",
+    "mask_o": "gen_0038_o_remote_mask.png"
+}

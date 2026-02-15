@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_534_a_person_carry_a_tennis_racket/gen_0134.jpg",
+    "inv_prompt": "a person carry a tennis racket",
+    "s_word": "person",
+    "a_word": "carry",
+    "o_word": "tennis racket",
+    "bbox_s": [
+        201,
+        108,
+        439,
+        511
+    ],
+    "bbox_s_pre": [
+        201,
+        108,
+        439,
+        511
+    ],
+    "bbox_o": [
+        136,
+        327,
+        225,
+        371
+    ],
+    "bbox_o_pre": [
+        136,
+        327,
+        225,
+        371
+    ],
+    "mask_s": "gen_0134_s_person_mask.png",
+    "mask_o": "gen_0134_o_tennis racket_mask.png"
+}

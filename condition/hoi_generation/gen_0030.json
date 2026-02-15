@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_430_a_person_clean_a_refrigerator/gen_0030.jpg",
+    "inv_prompt": "a person clean a refrigerator",
+    "s_word": "person",
+    "a_word": "clean",
+    "o_word": "refrigerator",
+    "bbox_s": [
+        186,
+        1,
+        512,
+        286
+    ],
+    "bbox_s_pre": [
+        186,
+        1,
+        512,
+        286
+    ],
+    "bbox_o": [
+        8,
+        2,
+        512,
+        511
+    ],
+    "bbox_o_pre": [
+        8,
+        2,
+        512,
+        511
+    ],
+    "mask_s": "gen_0030_s_person_mask.png",
+    "mask_o": "gen_0030_o_refrigerator_mask.png"
+}

@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_364_a_person_carry_a_keyboard/gen_0164.jpg",
+    "inv_prompt": "a person carry a keyboard",
+    "s_word": "person",
+    "a_word": "carry",
+    "o_word": "keyboard",
+    "bbox_s": [
+        0,
+        99,
+        214,
+        392
+    ],
+    "bbox_s_pre": [
+        0,
+        99,
+        214,
+        392
+    ],
+    "bbox_o": [
+        0,
+        57,
+        511,
+        473
+    ],
+    "bbox_o_pre": [
+        0,
+        57,
+        511,
+        473
+    ],
+    "mask_s": "gen_0164_s_person_mask.png",
+    "mask_o": "gen_0164_o_keyboard_mask.png"
+}

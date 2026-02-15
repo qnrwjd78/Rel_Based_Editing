@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_159_a_person_wash_a_motorcycle/gen_0159.jpg",
+    "inv_prompt": "a person wash a motorcycle",
+    "s_word": "person",
+    "a_word": "wash",
+    "o_word": "motorcycle",
+    "bbox_s": [
+        0,
+        117,
+        97,
+        434
+    ],
+    "bbox_s_pre": [
+        0,
+        117,
+        97,
+        434
+    ],
+    "bbox_o": [
+        1,
+        203,
+        221,
+        403
+    ],
+    "bbox_o_pre": [
+        1,
+        203,
+        221,
+        403
+    ],
+    "mask_s": "gen_0159_s_person_mask.png",
+    "mask_o": "gen_0159_o_motorcycle_mask.png"
+}

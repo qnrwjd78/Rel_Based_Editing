@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_253_a_person_hold_a_bowl/gen_0053.jpg",
+    "inv_prompt": "a person hold a bowl",
+    "s_word": "person",
+    "a_word": "hold",
+    "o_word": "bowl",
+    "bbox_s": [
+        0,
+        1,
+        256,
+        511
+    ],
+    "bbox_s_pre": [
+        0,
+        1,
+        256,
+        511
+    ],
+    "bbox_o": [
+        9,
+        210,
+        190,
+        314
+    ],
+    "bbox_o_pre": [
+        9,
+        210,
+        190,
+        314
+    ],
+    "mask_s": "gen_0053_s_person_mask.png",
+    "mask_o": "gen_0053_o_bowl_mask.png"
+}

@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_536_a_person_inspect_a_tennis_racket/gen_0136.jpg",
+    "inv_prompt": "a person inspect a tennis racket",
+    "s_word": "person",
+    "a_word": "inspect",
+    "o_word": "tennis racket",
+    "bbox_s": [
+        208,
+        0,
+        510,
+        347
+    ],
+    "bbox_s_pre": [
+        208,
+        0,
+        510,
+        347
+    ],
+    "bbox_o": [
+        0,
+        20,
+        471,
+        496
+    ],
+    "bbox_o_pre": [
+        0,
+        20,
+        471,
+        496
+    ],
+    "mask_s": "gen_0136_s_person_mask.png",
+    "mask_o": "gen_0136_o_tennis racket_mask.png"
+}

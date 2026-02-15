@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_545_a_person_wear_a_tie/gen_0145.jpg",
+    "inv_prompt": "a person wear a tie",
+    "s_word": "person",
+    "a_word": "wear",
+    "o_word": "tie",
+    "bbox_s": [
+        15,
+        0,
+        511,
+        510
+    ],
+    "bbox_s_pre": [
+        15,
+        0,
+        511,
+        510
+    ],
+    "bbox_o": [
+        167,
+        280,
+        313,
+        511
+    ],
+    "bbox_o_pre": [
+        167,
+        280,
+        313,
+        511
+    ],
+    "mask_s": "gen_0145_s_person_mask.png",
+    "mask_o": "gen_0145_o_tie_mask.png"
+}

@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_401_a_person_hold_a_orange/gen_0001.jpg",
+    "inv_prompt": "a person hold a orange",
+    "s_word": "person",
+    "a_word": "hold",
+    "o_word": "orange",
+    "bbox_s": [
+        42,
+        0,
+        510,
+        510
+    ],
+    "bbox_s_pre": [
+        42,
+        0,
+        510,
+        510
+    ],
+    "bbox_o": [
+        31,
+        247,
+        184,
+        400
+    ],
+    "bbox_o_pre": [
+        31,
+        247,
+        184,
+        400
+    ],
+    "mask_s": "gen_0001_s_person_mask.png",
+    "mask_o": "gen_0001_o_orange_mask.png"
+}

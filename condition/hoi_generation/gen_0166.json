@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_566_a_person_stop_at_a_traffic_light/gen_0166.jpg",
+    "inv_prompt": "a person stop at a traffic light",
+    "s_word": "person stop",
+    "a_word": "at",
+    "o_word": "traffic light",
+    "bbox_s": [
+        44,
+        160,
+        168,
+        497
+    ],
+    "bbox_s_pre": [
+        44,
+        160,
+        168,
+        497
+    ],
+    "bbox_o": [
+        21,
+        167,
+        43,
+        210
+    ],
+    "bbox_o_pre": [
+        21,
+        167,
+        43,
+        210
+    ],
+    "mask_s": "gen_0166_s_person stop_mask.png",
+    "mask_o": "gen_0166_o_traffic light_mask.png"
+}

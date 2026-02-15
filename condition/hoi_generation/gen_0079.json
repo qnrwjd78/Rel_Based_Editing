@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_479_a_person_jump_a_snowboard/gen_0079.jpg",
+    "inv_prompt": "a person jump a snowboard",
+    "s_word": "person",
+    "a_word": "jump",
+    "o_word": "snowboard",
+    "bbox_s": [
+        127,
+        126,
+        496,
+        428
+    ],
+    "bbox_s_pre": [
+        127,
+        126,
+        496,
+        428
+    ],
+    "bbox_o": [
+        107,
+        326,
+        215,
+        465
+    ],
+    "bbox_o_pre": [
+        107,
+        326,
+        215,
+        465
+    ],
+    "mask_s": "gen_0079_s_person_mask.png",
+    "mask_o": "gen_0079_o_snowboard_mask.png"
+}

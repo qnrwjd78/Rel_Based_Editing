@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_361_a_person_hold_a_hot_dog/gen_0161.jpg",
+    "inv_prompt": "a person hold a hot dog",
+    "s_word": "person",
+    "a_word": "hold",
+    "o_word": "hot dog",
+    "bbox_s": [
+        1,
+        0,
+        510,
+        471
+    ],
+    "bbox_s_pre": [
+        1,
+        0,
+        510,
+        471
+    ],
+    "bbox_o": [
+        0,
+        73,
+        363,
+        311
+    ],
+    "bbox_o_pre": [
+        0,
+        73,
+        363,
+        311
+    ],
+    "mask_s": "gen_0161_s_person_mask.png",
+    "mask_o": "gen_0161_o_hot dog_mask.png"
+}

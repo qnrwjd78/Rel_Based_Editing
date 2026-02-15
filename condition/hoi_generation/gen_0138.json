@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_538_a_person_no_interaction_a_tennis_racket/gen_0138.jpg",
+    "inv_prompt": "a person no interaction a tennis racket",
+    "s_word": "person no",
+    "a_word": "interaction",
+    "o_word": "tennis racket",
+    "bbox_s": [
+        275,
+        164,
+        357,
+        342
+    ],
+    "bbox_s_pre": [
+        275,
+        164,
+        357,
+        342
+    ],
+    "bbox_o": [
+        166,
+        253,
+        300,
+        301
+    ],
+    "bbox_o_pre": [
+        166,
+        253,
+        300,
+        301
+    ],
+    "mask_s": "gen_0138_s_person no_mask.png",
+    "mask_o": "gen_0138_o_tennis racket_mask.png"
+}

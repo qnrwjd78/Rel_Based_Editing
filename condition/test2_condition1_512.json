@@ -1,0 +1,13 @@
+{
+    "fname": "test2.jpg",
+    "inv_prompt": "a photo of a cat and a dog",
+    "s_word": "cat",
+    "a_word": "looking at",
+    "o_word": "dog",
+    "bbox_s": [ 92, 145, 260, 356 ],
+    "bbox_o": [ 5, 203, 337, 455 ],
+    "bbox_s_pre": [ 409,275,568,651 ],
+    "bbox_o_pre": [ 561,213,799,661 ],
+    "mask_o": "test_mask_o.png",
+    "mask_s": "test_mask_s.png"
+}

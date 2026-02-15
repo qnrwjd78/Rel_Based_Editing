@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_543_a_person_pull_a_tie/gen_0143.jpg",
+    "inv_prompt": "a person pull a tie",
+    "s_word": "person",
+    "a_word": "pull",
+    "o_word": "tie",
+    "bbox_s": [
+        126,
+        22,
+        387,
+        511
+    ],
+    "bbox_s_pre": [
+        126,
+        22,
+        387,
+        511
+    ],
+    "bbox_o": [
+        223,
+        153,
+        276,
+        381
+    ],
+    "bbox_o_pre": [
+        223,
+        153,
+        276,
+        381
+    ],
+    "mask_s": "gen_0143_s_person_mask.png",
+    "mask_o": "gen_0143_o_tie_mask.png"
+}

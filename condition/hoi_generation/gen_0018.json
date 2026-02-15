@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_218_a_person_eat_a_banana/gen_0018.jpg",
+    "inv_prompt": "a person eat a banana",
+    "s_word": "person",
+    "a_word": "eat",
+    "o_word": "banana",
+    "bbox_s": [
+        152,
+        0,
+        512,
+        511
+    ],
+    "bbox_s_pre": [
+        152,
+        0,
+        512,
+        511
+    ],
+    "bbox_o": [
+        167,
+        225,
+        416,
+        360
+    ],
+    "bbox_o_pre": [
+        167,
+        225,
+        416,
+        360
+    ],
+    "mask_s": "gen_0018_s_person_mask.png",
+    "mask_o": "gen_0018_o_banana_mask.png"
+}

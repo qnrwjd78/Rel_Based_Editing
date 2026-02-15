@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_457_a_person_hold_a_skateboard/gen_0057.jpg",
+    "inv_prompt": "a person hold a skateboard",
+    "s_word": "person",
+    "a_word": "hold",
+    "o_word": "skateboard",
+    "bbox_s": [
+        63,
+        141,
+        385,
+        476
+    ],
+    "bbox_s_pre": [
+        63,
+        141,
+        385,
+        476
+    ],
+    "bbox_o": [
+        116,
+        391,
+        213,
+        505
+    ],
+    "bbox_o_pre": [
+        116,
+        391,
+        213,
+        505
+    ],
+    "mask_s": "gen_0057_s_person_mask.png",
+    "mask_o": "gen_0057_o_skateboard_mask.png"
+}

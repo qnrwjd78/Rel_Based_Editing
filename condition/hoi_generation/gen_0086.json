@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_486_a_person_wash_a_spoon/gen_0086.jpg",
+    "inv_prompt": "a person wash a spoon",
+    "s_word": "person",
+    "a_word": "wash",
+    "o_word": "spoon",
+    "bbox_s": [
+        0,
+        1,
+        509,
+        512
+    ],
+    "bbox_s_pre": [
+        0,
+        1,
+        509,
+        512
+    ],
+    "bbox_o": [
+        64,
+        8,
+        432,
+        400
+    ],
+    "bbox_o_pre": [
+        64,
+        8,
+        432,
+        400
+    ],
+    "mask_s": "gen_0086_s_person_mask.png",
+    "mask_o": "gen_0086_o_spoon_mask.png"
+}

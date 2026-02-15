@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_246_a_person_sit_on_a_bench/gen_0046.jpg",
+    "inv_prompt": "a person sit on a bench",
+    "s_word": "person sit",
+    "a_word": "on",
+    "o_word": "bench",
+    "bbox_s": [
+        160,
+        184,
+        292,
+        384
+    ],
+    "bbox_s_pre": [
+        160,
+        184,
+        292,
+        384
+    ],
+    "bbox_o": [
+        0,
+        318,
+        510,
+        478
+    ],
+    "bbox_o_pre": [
+        0,
+        318,
+        510,
+        478
+    ],
+    "mask_s": "gen_0046_s_person sit_mask.png",
+    "mask_o": "gen_0046_o_bench_mask.png"
+}

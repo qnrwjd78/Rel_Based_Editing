@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_577_a_person_carry_a_umbrella/gen_0177.jpg",
+    "inv_prompt": "a person carry a umbrella",
+    "s_word": "person",
+    "a_word": "carry",
+    "o_word": "umbrella",
+    "bbox_s": [
+        171,
+        226,
+        252,
+        417
+    ],
+    "bbox_s_pre": [
+        171,
+        226,
+        252,
+        417
+    ],
+    "bbox_o": [
+        116,
+        103,
+        309,
+        232
+    ],
+    "bbox_o_pre": [
+        116,
+        103,
+        309,
+        232
+    ],
+    "mask_s": "gen_0177_s_person_mask.png",
+    "mask_o": "gen_0177_o_umbrella_mask.png"
+}

@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_562_a_person_no_interaction_a_toothbrush/gen_0162.jpg",
+    "inv_prompt": "a person no interaction a toothbrush",
+    "s_word": "person no",
+    "a_word": "interaction",
+    "o_word": "toothbrush",
+    "bbox_s": [
+        78,
+        0,
+        509,
+        507
+    ],
+    "bbox_s_pre": [
+        78,
+        0,
+        509,
+        507
+    ],
+    "bbox_o": [
+        120,
+        242,
+        468,
+        357
+    ],
+    "bbox_o_pre": [
+        120,
+        242,
+        468,
+        357
+    ],
+    "mask_s": "gen_0162_s_person no_mask.png",
+    "mask_o": "gen_0162_o_toothbrush_mask.png"
+}

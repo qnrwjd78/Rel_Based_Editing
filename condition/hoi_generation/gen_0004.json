@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_204_a_person_peel_a_apple/gen_0004.jpg",
+    "inv_prompt": "a person peel a apple",
+    "s_word": "person",
+    "a_word": "peel",
+    "o_word": "apple",
+    "bbox_s": [
+        36,
+        0,
+        422,
+        236
+    ],
+    "bbox_s_pre": [
+        36,
+        0,
+        422,
+        236
+    ],
+    "bbox_o": [
+        269,
+        245,
+        424,
+        405
+    ],
+    "bbox_o_pre": [
+        269,
+        245,
+        424,
+        405
+    ],
+    "mask_s": "gen_0004_s_person_mask.png",
+    "mask_o": "gen_0004_o_apple_mask.png"
+}

@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_054_a_person_no_interaction_a_bottle/gen_0054.jpg",
+    "inv_prompt": "a person no interaction a bottle",
+    "s_word": "person no",
+    "a_word": "interaction",
+    "o_word": "bottle",
+    "bbox_s": [
+        299,
+        153,
+        511,
+        511
+    ],
+    "bbox_s_pre": [
+        299,
+        153,
+        511,
+        511
+    ],
+    "bbox_o": [
+        277,
+        117,
+        509,
+        511
+    ],
+    "bbox_o_pre": [
+        277,
+        117,
+        509,
+        511
+    ],
+    "mask_s": "gen_0054_s_person no_mask.png",
+    "mask_o": "gen_0054_o_bottle_mask.png"
+}

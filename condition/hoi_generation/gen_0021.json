@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_421_a_person_cook_a_pizza/gen_0021.jpg",
+    "inv_prompt": "a person cook a pizza",
+    "s_word": "person",
+    "a_word": "cook",
+    "o_word": "pizza",
+    "bbox_s": [
+        176,
+        1,
+        510,
+        322
+    ],
+    "bbox_s_pre": [
+        176,
+        1,
+        510,
+        322
+    ],
+    "bbox_o": [
+        5,
+        245,
+        511,
+        484
+    ],
+    "bbox_o_pre": [
+        5,
+        245,
+        511,
+        484
+    ],
+    "mask_s": "gen_0021_s_person_mask.png",
+    "mask_o": "gen_0021_o_pizza_mask.png"
+}

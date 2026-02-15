@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_412_a_person_repair_a_oven/gen_0012.jpg",
+    "inv_prompt": "a person repair a oven",
+    "s_word": "person",
+    "a_word": "repair",
+    "o_word": "oven",
+    "bbox_s": [
+        14,
+        0,
+        292,
+        435
+    ],
+    "bbox_s_pre": [
+        14,
+        0,
+        292,
+        435
+    ],
+    "bbox_o": [
+        270,
+        6,
+        498,
+        375
+    ],
+    "bbox_o_pre": [
+        270,
+        6,
+        498,
+        375
+    ],
+    "mask_s": "gen_0012_s_person_mask.png",
+    "mask_o": "gen_0012_o_oven_mask.png"
+}

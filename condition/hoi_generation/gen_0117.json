@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_517_a_person_carry_a_surfboard/gen_0117.jpg",
+    "inv_prompt": "a person carry a surfboard",
+    "s_word": "person",
+    "a_word": "carry",
+    "o_word": "surfboard",
+    "bbox_s": [
+        171,
+        130,
+        307,
+        512
+    ],
+    "bbox_s_pre": [
+        171,
+        130,
+        307,
+        512
+    ],
+    "bbox_o": [
+        36,
+        240,
+        512,
+        359
+    ],
+    "bbox_o_pre": [
+        36,
+        240,
+        512,
+        359
+    ],
+    "mask_s": "gen_0117_s_person_mask.png",
+    "mask_o": "gen_0117_o_surfboard_mask.png"
+}

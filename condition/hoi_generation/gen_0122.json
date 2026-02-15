@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_522_a_person_lie_on_a_surfboard/gen_0122.jpg",
+    "inv_prompt": "a person lie on a surfboard",
+    "s_word": "person lie",
+    "a_word": "on",
+    "o_word": "surfboard",
+    "bbox_s": [
+        266,
+        190,
+        377,
+        350
+    ],
+    "bbox_s_pre": [
+        266,
+        190,
+        377,
+        350
+    ],
+    "bbox_o": [
+        183,
+        197,
+        451,
+        389
+    ],
+    "bbox_o_pre": [
+        183,
+        197,
+        451,
+        389
+    ],
+    "mask_s": "gen_0122_s_person lie_mask.png",
+    "mask_o": "gen_0122_o_surfboard_mask.png"
+}

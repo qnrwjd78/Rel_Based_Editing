@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_358_a_person_cook_a_hot_dog/gen_0158.jpg",
+    "inv_prompt": "a person cook a hot dog",
+    "s_word": "person",
+    "a_word": "cook",
+    "o_word": "hot dog",
+    "bbox_s": [
+        1,
+        0,
+        262,
+        375
+    ],
+    "bbox_s_pre": [
+        1,
+        0,
+        262,
+        375
+    ],
+    "bbox_o": [
+        0,
+        226,
+        423,
+        511
+    ],
+    "bbox_o_pre": [
+        0,
+        226,
+        423,
+        511
+    ],
+    "mask_s": "gen_0158_s_person_mask.png",
+    "mask_o": "gen_0158_o_hot dog_mask.png"
+}

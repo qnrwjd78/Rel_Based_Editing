@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_528_a_person_no_interaction_a_surfboard/gen_0128.jpg",
+    "inv_prompt": "a person no interaction a surfboard",
+    "s_word": "person no",
+    "a_word": "interaction",
+    "o_word": "surfboard",
+    "bbox_s": [
+        162,
+        66,
+        300,
+        447
+    ],
+    "bbox_s_pre": [
+        162,
+        66,
+        300,
+        447
+    ],
+    "bbox_o": [
+        58,
+        132,
+        396,
+        301
+    ],
+    "bbox_o_pre": [
+        58,
+        132,
+        396,
+        301
+    ],
+    "mask_s": "gen_0128_s_person no_mask.png",
+    "mask_o": "gen_0128_o_surfboard_mask.png"
+}

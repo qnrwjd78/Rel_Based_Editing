@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_481_a_person_stand_on_a_snowboard/gen_0081.jpg",
+    "inv_prompt": "a person stand on a snowboard",
+    "s_word": "person stand",
+    "a_word": "on",
+    "o_word": "snowboard",
+    "bbox_s": [
+        374,
+        358,
+        511,
+        511
+    ],
+    "bbox_s_pre": [
+        374,
+        358,
+        511,
+        511
+    ],
+    "bbox_o": [
+        158,
+        216,
+        269,
+        511
+    ],
+    "bbox_o_pre": [
+        158,
+        216,
+        269,
+        511
+    ],
+    "mask_s": "gen_0081_s_person stand_mask.png",
+    "mask_o": "gen_0081_o_snowboard_mask.png"
+}

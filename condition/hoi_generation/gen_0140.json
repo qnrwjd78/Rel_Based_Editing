@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_340_a_person_spin_a_frisbee/gen_0140.jpg",
+    "inv_prompt": "a person spin a frisbee",
+    "s_word": "person",
+    "a_word": "spin",
+    "o_word": "frisbee",
+    "bbox_s": [
+        0,
+        28,
+        507,
+        484
+    ],
+    "bbox_s_pre": [
+        0,
+        28,
+        507,
+        484
+    ],
+    "bbox_o": [
+        181,
+        31,
+        512,
+        239
+    ],
+    "bbox_o_pre": [
+        181,
+        31,
+        512,
+        239
+    ],
+    "mask_s": "gen_0140_s_person_mask.png",
+    "mask_o": "gen_0140_o_frisbee_mask.png"
+}

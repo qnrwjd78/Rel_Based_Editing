@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_249_a_person_hold_a_book/gen_0049.jpg",
+    "inv_prompt": "a person hold a book",
+    "s_word": "person",
+    "a_word": "hold",
+    "o_word": "book",
+    "bbox_s": [
+        194,
+        50,
+        421,
+        511
+    ],
+    "bbox_s_pre": [
+        194,
+        50,
+        421,
+        511
+    ],
+    "bbox_o": [
+        84,
+        247,
+        324,
+        403
+    ],
+    "bbox_o_pre": [
+        84,
+        247,
+        324,
+        403
+    ],
+    "mask_s": "gen_0049_s_person_mask.png",
+    "mask_o": "gen_0049_o_book_mask.png"
+}

@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_268_a_person_eat_a_cake/gen_0068.jpg",
+    "inv_prompt": "a person eat a cake",
+    "s_word": "person",
+    "a_word": "eat",
+    "o_word": "cake",
+    "bbox_s": [
+        44,
+        3,
+        441,
+        511
+    ],
+    "bbox_s_pre": [
+        44,
+        3,
+        441,
+        511
+    ],
+    "bbox_o": [
+        339,
+        392,
+        476,
+        511
+    ],
+    "bbox_o_pre": [
+        339,
+        392,
+        476,
+        511
+    ],
+    "mask_s": "gen_0068_s_person_mask.png",
+    "mask_o": "gen_0068_o_cake_mask.png"
+}

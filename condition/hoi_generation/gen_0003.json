@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_203_a_person_inspect_a_apple/gen_0003.jpg",
+    "inv_prompt": "a person inspect a apple",
+    "s_word": "person",
+    "a_word": "inspect",
+    "o_word": "apple",
+    "bbox_s": [
+        5,
+        28,
+        348,
+        492
+    ],
+    "bbox_s_pre": [
+        5,
+        28,
+        348,
+        492
+    ],
+    "bbox_o": [
+        277,
+        241,
+        331,
+        305
+    ],
+    "bbox_o_pre": [
+        277,
+        241,
+        331,
+        305
+    ],
+    "mask_s": "gen_0003_s_person_mask.png",
+    "mask_o": "gen_0003_o_apple_mask.png"
+}

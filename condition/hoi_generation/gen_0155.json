@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_355_a_person_inspect_a_handbag/gen_0155.jpg",
+    "inv_prompt": "a person inspect a handbag",
+    "s_word": "person",
+    "a_word": "inspect",
+    "o_word": "handbag",
+    "bbox_s": [
+        158,
+        0,
+        509,
+        511
+    ],
+    "bbox_s_pre": [
+        158,
+        0,
+        509,
+        511
+    ],
+    "bbox_o": [
+        358,
+        213,
+        511,
+        456
+    ],
+    "bbox_o_pre": [
+        358,
+        213,
+        511,
+        456
+    ],
+    "mask_s": "gen_0155_s_person_mask.png",
+    "mask_o": "gen_0155_o_handbag_mask.png"
+}

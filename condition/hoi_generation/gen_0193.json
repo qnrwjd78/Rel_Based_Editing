@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_593_a_person_lick_a_wine_glass/gen_0193.jpg",
+    "inv_prompt": "a person lick a wine glass",
+    "s_word": "person",
+    "a_word": "lick",
+    "o_word": "wine glass",
+    "bbox_s": [
+        0,
+        58,
+        511,
+        509
+    ],
+    "bbox_s_pre": [
+        0,
+        58,
+        511,
+        509
+    ],
+    "bbox_o": [
+        1,
+        0,
+        380,
+        374
+    ],
+    "bbox_o_pre": [
+        1,
+        0,
+        380,
+        374
+    ],
+    "mask_s": "gen_0193_s_person_mask.png",
+    "mask_o": "gen_0193_o_wine glass_mask.png"
+}

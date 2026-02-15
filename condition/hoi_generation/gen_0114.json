@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_514_a_person_pick_up_a_suitcase/gen_0114.jpg",
+    "inv_prompt": "a person pick up a suitcase",
+    "s_word": "person pick",
+    "a_word": "up",
+    "o_word": "suitcase",
+    "bbox_s": [
+        256,
+        0,
+        407,
+        424
+    ],
+    "bbox_s_pre": [
+        256,
+        0,
+        407,
+        424
+    ],
+    "bbox_o": [
+        27,
+        117,
+        163,
+        460
+    ],
+    "bbox_o_pre": [
+        27,
+        117,
+        163,
+        460
+    ],
+    "mask_s": "gen_0114_s_person pick_mask.png",
+    "mask_o": "gen_0114_o_suitcase_mask.png"
+}

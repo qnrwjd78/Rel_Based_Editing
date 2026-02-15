@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_464_a_person_adjust_a_skis/gen_0064.jpg",
+    "inv_prompt": "a person adjust a skis",
+    "s_word": "person",
+    "a_word": "adjust",
+    "o_word": "skis",
+    "bbox_s": [
+        332,
+        108,
+        501,
+        455
+    ],
+    "bbox_s_pre": [
+        332,
+        108,
+        501,
+        455
+    ],
+    "bbox_o": [
+        312,
+        424,
+        511,
+        464
+    ],
+    "bbox_o_pre": [
+        312,
+        424,
+        511,
+        464
+    ],
+    "mask_s": "gen_0064_s_person_mask.png",
+    "mask_o": "gen_0064_o_skis_mask.png"
+}

@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_541_a_person_hold_a_tie/gen_0141.jpg",
+    "inv_prompt": "a person hold a tie",
+    "s_word": "person",
+    "a_word": "hold",
+    "o_word": "tie",
+    "bbox_s": [
+        3,
+        0,
+        509,
+        509
+    ],
+    "bbox_s_pre": [
+        3,
+        0,
+        509,
+        509
+    ],
+    "bbox_o": [
+        409,
+        142,
+        481,
+        512
+    ],
+    "bbox_o_pre": [
+        409,
+        142,
+        481,
+        512
+    ],
+    "mask_s": "gen_0141_s_person_mask.png",
+    "mask_o": "gen_0141_o_tie_mask.png"
+}

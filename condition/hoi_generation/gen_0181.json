@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_581_a_person_repair_a_umbrella/gen_0181.jpg",
+    "inv_prompt": "a person repair a umbrella",
+    "s_word": "person",
+    "a_word": "repair",
+    "o_word": "umbrella",
+    "bbox_s": [
+        76,
+        192,
+        347,
+        511
+    ],
+    "bbox_s_pre": [
+        76,
+        192,
+        347,
+        511
+    ],
+    "bbox_o": [
+        0,
+        44,
+        437,
+        203
+    ],
+    "bbox_o_pre": [
+        0,
+        44,
+        437,
+        203
+    ],
+    "mask_s": "gen_0181_s_person_mask.png",
+    "mask_o": "gen_0181_o_umbrella_mask.png"
+}

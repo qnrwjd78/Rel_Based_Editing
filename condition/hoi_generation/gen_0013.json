@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_413_a_person_operate_a_oven/gen_0013.jpg",
+    "inv_prompt": "a person operate a oven",
+    "s_word": "person",
+    "a_word": "operate",
+    "o_word": "oven",
+    "bbox_s": [
+        304,
+        58,
+        506,
+        511
+    ],
+    "bbox_s_pre": [
+        304,
+        58,
+        506,
+        511
+    ],
+    "bbox_o": [
+        5,
+        23,
+        510,
+        507
+    ],
+    "bbox_o_pre": [
+        5,
+        23,
+        510,
+        507
+    ],
+    "mask_s": "gen_0013_s_person_mask.png",
+    "mask_o": "gen_0013_o_oven_mask.png"
+}

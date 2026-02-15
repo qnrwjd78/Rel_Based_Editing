@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_428_a_person_smell_a_pizza/gen_0028.jpg",
+    "inv_prompt": "a person smell a pizza",
+    "s_word": "person",
+    "a_word": "smell",
+    "o_word": "pizza",
+    "bbox_s": [
+        215,
+        0,
+        349,
+        138
+    ],
+    "bbox_s_pre": [
+        215,
+        0,
+        349,
+        138
+    ],
+    "bbox_o": [
+        49,
+        168,
+        434,
+        391
+    ],
+    "bbox_o_pre": [
+        49,
+        168,
+        434,
+        391
+    ],
+    "mask_s": "gen_0028_s_person_mask.png",
+    "mask_o": "gen_0028_o_pizza_mask.png"
+}

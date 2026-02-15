@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_556_a_person_stand_on_a_toilet/gen_0156.jpg",
+    "inv_prompt": "a person stand on a toilet",
+    "s_word": "person stand",
+    "a_word": "on",
+    "o_word": "toilet",
+    "bbox_s": [
+        156,
+        0,
+        402,
+        419
+    ],
+    "bbox_s_pre": [
+        156,
+        0,
+        402,
+        419
+    ],
+    "bbox_o": [
+        66,
+        83,
+        187,
+        223
+    ],
+    "bbox_o_pre": [
+        66,
+        83,
+        187,
+        223
+    ],
+    "mask_s": "gen_0156_s_person stand_mask.png",
+    "mask_o": "gen_0156_o_toilet_mask.png"
+}

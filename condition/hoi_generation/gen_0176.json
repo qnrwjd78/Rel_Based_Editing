@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_376_a_person_no_interaction_a_kite/gen_0176.jpg",
+    "inv_prompt": "a person no interaction a kite",
+    "s_word": "person no",
+    "a_word": "interaction",
+    "o_word": "kite",
+    "bbox_s": [
+        316,
+        411,
+        342,
+        504
+    ],
+    "bbox_s_pre": [
+        316,
+        411,
+        342,
+        504
+    ],
+    "bbox_o": [
+        0,
+        68,
+        220,
+        266
+    ],
+    "bbox_o_pre": [
+        0,
+        68,
+        220,
+        266
+    ],
+    "mask_s": "gen_0176_s_person no_mask.png",
+    "mask_o": "gen_0176_o_kite_mask.png"
+}

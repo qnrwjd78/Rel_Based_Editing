@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_563_a_person_install_a_traffic_light/gen_0163.jpg",
+    "inv_prompt": "a person install a traffic light",
+    "s_word": "person",
+    "a_word": "install",
+    "o_word": "traffic light",
+    "bbox_s": [
+        376,
+        497,
+        423,
+        511
+    ],
+    "bbox_s_pre": [
+        376,
+        497,
+        423,
+        511
+    ],
+    "bbox_o": [
+        125,
+        47,
+        262,
+        510
+    ],
+    "bbox_o_pre": [
+        125,
+        47,
+        262,
+        510
+    ],
+    "mask_s": "gen_0163_s_person_mask.png",
+    "mask_o": "gen_0163_o_traffic light_mask.png"
+}

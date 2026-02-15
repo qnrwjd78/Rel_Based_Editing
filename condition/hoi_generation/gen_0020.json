@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_420_a_person_carry_a_pizza/gen_0020.jpg",
+    "inv_prompt": "a person carry a pizza",
+    "s_word": "person",
+    "a_word": "carry",
+    "o_word": "pizza",
+    "bbox_s": [
+        228,
+        0,
+        410,
+        161
+    ],
+    "bbox_s_pre": [
+        228,
+        0,
+        410,
+        161
+    ],
+    "bbox_o": [
+        156,
+        115,
+        386,
+        323
+    ],
+    "bbox_o_pre": [
+        156,
+        115,
+        386,
+        323
+    ],
+    "mask_s": "gen_0020_s_person_mask.png",
+    "mask_o": "gen_0020_o_pizza_mask.png"
+}

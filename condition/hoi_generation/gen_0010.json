@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_410_a_person_inspect_a_oven/gen_0010.jpg",
+    "inv_prompt": "a person inspect a oven",
+    "s_word": "person",
+    "a_word": "inspect",
+    "o_word": "oven",
+    "bbox_s": [
+        267,
+        412,
+        511,
+        511
+    ],
+    "bbox_s_pre": [
+        267,
+        412,
+        511,
+        511
+    ],
+    "bbox_o": [
+        1,
+        0,
+        505,
+        508
+    ],
+    "bbox_o_pre": [
+        1,
+        0,
+        505,
+        508
+    ],
+    "mask_s": "gen_0010_s_person_mask.png",
+    "mask_o": "gen_0010_o_oven_mask.png"
+}

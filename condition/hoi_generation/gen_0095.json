@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_495_a_person_inspect_a_sports_ball/gen_0095.jpg",
+    "inv_prompt": "a person inspect a sports ball",
+    "s_word": "person",
+    "a_word": "inspect",
+    "o_word": "sports ball",
+    "bbox_s": [
+        58,
+        0,
+        511,
+        511
+    ],
+    "bbox_s_pre": [
+        58,
+        0,
+        511,
+        511
+    ],
+    "bbox_o": [
+        259,
+        231,
+        512,
+        503
+    ],
+    "bbox_o_pre": [
+        259,
+        231,
+        512,
+        503
+    ],
+    "mask_s": "gen_0095_s_person_mask.png",
+    "mask_o": "gen_0095_o_sports ball_mask.png"
+}

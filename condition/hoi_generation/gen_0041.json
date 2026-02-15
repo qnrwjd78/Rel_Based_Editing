@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_041_a_person_sail_a_boat/gen_0041.jpg",
+    "inv_prompt": "a person sail a boat",
+    "s_word": "person",
+    "a_word": "sail",
+    "o_word": "boat",
+    "bbox_s": [
+        214,
+        356,
+        271,
+        437
+    ],
+    "bbox_s_pre": [
+        214,
+        356,
+        271,
+        437
+    ],
+    "bbox_o": [
+        157,
+        18,
+        441,
+        438
+    ],
+    "bbox_o_pre": [
+        157,
+        18,
+        441,
+        438
+    ],
+    "mask_s": "gen_0041_s_person_mask.png",
+    "mask_o": "gen_0041_o_boat_mask.png"
+}

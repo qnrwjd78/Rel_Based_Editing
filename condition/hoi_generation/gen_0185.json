@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_385_a_person_open_a_laptop/gen_0185.jpg",
+    "inv_prompt": "a person open a laptop",
+    "s_word": "person",
+    "a_word": "open",
+    "o_word": "laptop",
+    "bbox_s": [
+        0,
+        241,
+        243,
+        511
+    ],
+    "bbox_s_pre": [
+        0,
+        241,
+        243,
+        511
+    ],
+    "bbox_o": [
+        0,
+        109,
+        297,
+        412
+    ],
+    "bbox_o_pre": [
+        0,
+        109,
+        297,
+        412
+    ],
+    "mask_s": "gen_0185_s_person_mask.png",
+    "mask_o": "gen_0185_o_laptop_mask.png"
+}

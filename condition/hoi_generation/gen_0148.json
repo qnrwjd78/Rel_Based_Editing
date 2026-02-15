@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_148_a_person_inspect_a_motorcycle/gen_0148.jpg",
+    "inv_prompt": "a person inspect a motorcycle",
+    "s_word": "person",
+    "a_word": "inspect",
+    "o_word": "motorcycle",
+    "bbox_s": [
+        142,
+        104,
+        325,
+        410
+    ],
+    "bbox_s_pre": [
+        142,
+        104,
+        325,
+        410
+    ],
+    "bbox_o": [
+        39,
+        214,
+        372,
+        409
+    ],
+    "bbox_o_pre": [
+        39,
+        214,
+        372,
+        409
+    ],
+    "mask_s": "gen_0148_s_person_mask.png",
+    "mask_o": "gen_0148_o_motorcycle_mask.png"
+}

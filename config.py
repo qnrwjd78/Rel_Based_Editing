@@ -30,6 +30,11 @@ class RunConfig:
     guidance_scale: float = 7.5
 
     transfer_step: int = 35
+    erase_method: str = 'none'
+    compose_method: str = 'none'
+    erase_kwargs: dict = field(default_factory=dict)
+    compose_kwargs: dict = field(default_factory=dict)
+
     s_step: Optional[int] = None
     o_step: Optional[int] = None
     scale_factor: int = 150
@@ -55,6 +60,10 @@ class RunConfig:
 
     dataset_path: Path = Path('./datasets/mydataset')
     eval_output_path: Path = Path('./outputs/eval')
+
+    # Debug/analysis: save per-step cross-attention grids (6 images: 3 phases x {s,o}).
+    save_step_attn_grids: bool = True
+    attn_grid_cols: int = 10
 
     def __post_init__(self):
         self.latents_path.mkdir(exist_ok=True, parents=True)

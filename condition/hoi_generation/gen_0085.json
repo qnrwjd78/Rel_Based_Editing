@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_485_a_person_lick_a_spoon/gen_0085.jpg",
+    "inv_prompt": "a person lick a spoon",
+    "s_word": "person",
+    "a_word": "lick",
+    "o_word": "spoon",
+    "bbox_s": [
+        0,
+        123,
+        512,
+        511
+    ],
+    "bbox_s_pre": [
+        0,
+        123,
+        512,
+        511
+    ],
+    "bbox_o": [
+        6,
+        40,
+        511,
+        381
+    ],
+    "bbox_o_pre": [
+        6,
+        40,
+        511,
+        381
+    ],
+    "mask_s": "gen_0085_s_person_mask.png",
+    "mask_o": "gen_0085_o_spoon_mask.png"
+}

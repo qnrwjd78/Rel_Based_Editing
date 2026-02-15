@@ -1,9 +1,0 @@
-{
-    "fname": "test.jpg",
-    "inv_prompt": "a photo of a horse and a person",
-    "edit_prompt": "a person is riding a horse",
-    "bbox_s": [8,307,511,690],
-    "bbox_o": [139,220,394,540],
-    "bbox_s_pre": [511, 308, 758, 690],
-    "bbox_o_pre": [8, 308, 511, 690]
-}

@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_460_a_person_ride_a_skateboard/gen_0060.jpg",
+    "inv_prompt": "a person ride a skateboard",
+    "s_word": "person",
+    "a_word": "ride",
+    "o_word": "skateboard",
+    "bbox_s": [
+        182,
+        12,
+        466,
+        396
+    ],
+    "bbox_s_pre": [
+        182,
+        12,
+        466,
+        396
+    ],
+    "bbox_o": [
+        207,
+        344,
+        475,
+        458
+    ],
+    "bbox_o_pre": [
+        207,
+        344,
+        475,
+        458
+    ],
+    "mask_s": "gen_0060_s_person_mask.png",
+    "mask_o": "gen_0060_o_skateboard_mask.png"
+}

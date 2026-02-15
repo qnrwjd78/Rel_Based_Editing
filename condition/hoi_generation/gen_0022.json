@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_022_a_person_walk_a_bicycle/gen_0022.jpg",
+    "inv_prompt": "a person walk a bicycle",
+    "s_word": "person",
+    "a_word": "walk",
+    "o_word": "bicycle",
+    "bbox_s": [
+        203,
+        3,
+        385,
+        447
+    ],
+    "bbox_s_pre": [
+        203,
+        3,
+        385,
+        447
+    ],
+    "bbox_o": [
+        20,
+        192,
+        491,
+        489
+    ],
+    "bbox_o_pre": [
+        20,
+        192,
+        491,
+        489
+    ],
+    "mask_s": "gen_0022_s_person_mask.png",
+    "mask_o": "gen_0022_o_bicycle_mask.png"
+}

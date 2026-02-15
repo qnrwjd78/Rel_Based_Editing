@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_184_a_person_walk_a_sheep/gen_0184.jpg",
+    "inv_prompt": "a person walk a sheep",
+    "s_word": "person",
+    "a_word": "walk",
+    "o_word": "sheep",
+    "bbox_s": [
+        363,
+        167,
+        455,
+        428
+    ],
+    "bbox_s_pre": [
+        363,
+        167,
+        455,
+        428
+    ],
+    "bbox_o": [
+        30,
+        288,
+        303,
+        463
+    ],
+    "bbox_o_pre": [
+        30,
+        288,
+        303,
+        463
+    ],
+    "mask_s": "gen_0184_s_person_mask.png",
+    "mask_o": "gen_0184_o_sheep_mask.png"
+}

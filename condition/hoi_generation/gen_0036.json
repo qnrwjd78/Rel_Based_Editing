@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_436_a_person_point_a_remote/gen_0036.jpg",
+    "inv_prompt": "a person point a remote",
+    "s_word": "person",
+    "a_word": "point",
+    "o_word": "remote",
+    "bbox_s": [
+        18,
+        157,
+        347,
+        511
+    ],
+    "bbox_s_pre": [
+        18,
+        157,
+        347,
+        511
+    ],
+    "bbox_o": [
+        222,
+        19,
+        316,
+        368
+    ],
+    "bbox_o_pre": [
+        222,
+        19,
+        316,
+        368
+    ],
+    "mask_s": "gen_0036_s_person_mask.png",
+    "mask_o": "gen_0036_o_remote_mask.png"
+}

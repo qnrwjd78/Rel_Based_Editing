@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_387_a_person_repair_a_laptop/gen_0187.jpg",
+    "inv_prompt": "a person repair a laptop",
+    "s_word": "person",
+    "a_word": "repair",
+    "o_word": "laptop",
+    "bbox_s": [
+        0,
+        284,
+        387,
+        511
+    ],
+    "bbox_s_pre": [
+        0,
+        284,
+        387,
+        511
+    ],
+    "bbox_o": [
+        40,
+        34,
+        427,
+        400
+    ],
+    "bbox_o_pre": [
+        40,
+        34,
+        427,
+        400
+    ],
+    "mask_s": "gen_0187_s_person_mask.png",
+    "mask_o": "gen_0187_o_laptop_mask.png"
+}

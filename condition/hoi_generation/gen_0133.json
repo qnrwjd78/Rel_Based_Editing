@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_133_a_person_hug_a_horse/gen_0133.jpg",
+    "inv_prompt": "a person hug a horse",
+    "s_word": "person",
+    "a_word": "hug",
+    "o_word": "horse",
+    "bbox_s": [
+        130,
+        59,
+        367,
+        511
+    ],
+    "bbox_s_pre": [
+        130,
+        59,
+        367,
+        511
+    ],
+    "bbox_o": [
+        77,
+        7,
+        417,
+        512
+    ],
+    "bbox_o_pre": [
+        77,
+        7,
+        417,
+        512
+    ],
+    "mask_s": "gen_0133_s_person_mask.png",
+    "mask_o": "gen_0133_o_horse_mask.png"
+}

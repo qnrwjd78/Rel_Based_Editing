@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_532_a_person_kiss_a_teddy_bear/gen_0132.jpg",
+    "inv_prompt": "a person kiss a teddy bear",
+    "s_word": "person",
+    "a_word": "kiss",
+    "o_word": "teddy bear",
+    "bbox_s": [
+        172,
+        0,
+        511,
+        511
+    ],
+    "bbox_s_pre": [
+        172,
+        0,
+        511,
+        511
+    ],
+    "bbox_o": [
+        15,
+        30,
+        356,
+        511
+    ],
+    "bbox_o_pre": [
+        15,
+        30,
+        356,
+        511
+    ],
+    "mask_s": "gen_0132_s_person_mask.png",
+    "mask_o": "gen_0132_o_teddy bear_mask.png"
+}

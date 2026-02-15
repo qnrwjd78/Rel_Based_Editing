@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_463_a_person_no_interaction_a_skateboard/gen_0063.jpg",
+    "inv_prompt": "a person no interaction a skateboard",
+    "s_word": "person no",
+    "a_word": "interaction",
+    "o_word": "skateboard",
+    "bbox_s": [
+        308,
+        54,
+        511,
+        357
+    ],
+    "bbox_s_pre": [
+        308,
+        54,
+        511,
+        357
+    ],
+    "bbox_o": [
+        397,
+        311,
+        511,
+        438
+    ],
+    "bbox_o_pre": [
+        397,
+        311,
+        511,
+        438
+    ],
+    "mask_s": "gen_0063_s_person no_mask.png",
+    "mask_o": "gen_0063_o_skateboard_mask.png"
+}

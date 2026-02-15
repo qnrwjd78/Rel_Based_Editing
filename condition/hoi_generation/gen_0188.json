@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_388_a_person_type_on_a_laptop/gen_0188.jpg",
+    "inv_prompt": "a person type on a laptop",
+    "s_word": "person type",
+    "a_word": "on",
+    "o_word": "laptop",
+    "bbox_s": [
+        0,
+        120,
+        321,
+        510
+    ],
+    "bbox_s_pre": [
+        0,
+        120,
+        321,
+        510
+    ],
+    "bbox_o": [
+        12,
+        1,
+        512,
+        495
+    ],
+    "bbox_o_pre": [
+        12,
+        1,
+        512,
+        495
+    ],
+    "mask_s": "gen_0188_s_person type_mask.png",
+    "mask_o": "gen_0188_o_laptop_mask.png"
+}

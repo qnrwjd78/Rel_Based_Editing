@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_431_a_person_hold_a_refrigerator/gen_0031.jpg",
+    "inv_prompt": "a person hold a refrigerator",
+    "s_word": "person",
+    "a_word": "hold",
+    "o_word": "refrigerator",
+    "bbox_s": [
+        264,
+        54,
+        512,
+        453
+    ],
+    "bbox_s_pre": [
+        264,
+        54,
+        512,
+        453
+    ],
+    "bbox_o": [
+        2,
+        0,
+        485,
+        511
+    ],
+    "bbox_o_pre": [
+        2,
+        0,
+        485,
+        511
+    ],
+    "mask_s": "gen_0031_s_person_mask.png",
+    "mask_o": "gen_0031_o_refrigerator_mask.png"
+}

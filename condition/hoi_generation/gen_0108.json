@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_508_a_person_drag_a_suitcase/gen_0108.jpg",
+    "inv_prompt": "a person drag a suitcase",
+    "s_word": "person",
+    "a_word": "drag",
+    "o_word": "suitcase",
+    "bbox_s": [
+        364,
+        0,
+        460,
+        49
+    ],
+    "bbox_s_pre": [
+        364,
+        0,
+        460,
+        49
+    ],
+    "bbox_o": [
+        347,
+        34,
+        468,
+        322
+    ],
+    "bbox_o_pre": [
+        347,
+        34,
+        468,
+        322
+    ],
+    "mask_s": "gen_0108_s_person_mask.png",
+    "mask_o": "gen_0108_o_suitcase_mask.png"
+}

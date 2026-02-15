@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_531_a_person_hug_a_teddy_bear/gen_0131.jpg",
+    "inv_prompt": "a person hug a teddy bear",
+    "s_word": "person",
+    "a_word": "hug",
+    "o_word": "teddy bear",
+    "bbox_s": [
+        230,
+        148,
+        512,
+        510
+    ],
+    "bbox_s_pre": [
+        230,
+        148,
+        512,
+        510
+    ],
+    "bbox_o": [
+        132,
+        26,
+        480,
+        500
+    ],
+    "bbox_o_pre": [
+        132,
+        26,
+        480,
+        500
+    ],
+    "mask_s": "gen_0131_s_person_mask.png",
+    "mask_o": "gen_0131_o_teddy bear_mask.png"
+}

@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_147_a_person_hold_a_motorcycle/gen_0147.jpg",
+    "inv_prompt": "a person hold a motorcycle",
+    "s_word": "person",
+    "a_word": "hold",
+    "o_word": "motorcycle",
+    "bbox_s": [
+        105,
+        0,
+        383,
+        413
+    ],
+    "bbox_s_pre": [
+        105,
+        0,
+        383,
+        413
+    ],
+    "bbox_o": [
+        2,
+        86,
+        511,
+        471
+    ],
+    "bbox_o_pre": [
+        2,
+        86,
+        511,
+        471
+    ],
+    "mask_s": "gen_0147_s_person_mask.png",
+    "mask_o": "gen_0147_o_motorcycle_mask.png"
+}

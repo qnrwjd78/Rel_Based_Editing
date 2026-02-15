@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_491_a_person_catch_a_sports_ball/gen_0091.jpg",
+    "inv_prompt": "a person catch a sports ball",
+    "s_word": "person",
+    "a_word": "catch",
+    "o_word": "sports ball",
+    "bbox_s": [
+        114,
+        0,
+        355,
+        216
+    ],
+    "bbox_s_pre": [
+        114,
+        0,
+        355,
+        216
+    ],
+    "bbox_o": [
+        142,
+        19,
+        311,
+        196
+    ],
+    "bbox_o_pre": [
+        142,
+        19,
+        311,
+        196
+    ],
+    "mask_s": "gen_0091_s_person_mask.png",
+    "mask_o": "gen_0091_o_sports ball_mask.png"
+}

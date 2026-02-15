@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_447_a_person_hold_a_scissors/gen_0047.jpg",
+    "inv_prompt": "a person hold a scissors",
+    "s_word": "person",
+    "a_word": "hold",
+    "o_word": "scissors",
+    "bbox_s": [
+        0,
+        109,
+        270,
+        511
+    ],
+    "bbox_s_pre": [
+        0,
+        109,
+        270,
+        511
+    ],
+    "bbox_o": [
+        46,
+        45,
+        452,
+        372
+    ],
+    "bbox_o_pre": [
+        46,
+        45,
+        452,
+        372
+    ],
+    "mask_s": "gen_0047_s_person_mask.png",
+    "mask_o": "gen_0047_o_scissors_mask.png"
+}

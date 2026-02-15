@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_572_a_person_repair_a_truck/gen_0172.jpg",
+    "inv_prompt": "a person repair a truck",
+    "s_word": "person",
+    "a_word": "repair",
+    "o_word": "truck",
+    "bbox_s": [
+        316,
+        147,
+        511,
+        511
+    ],
+    "bbox_s_pre": [
+        316,
+        147,
+        511,
+        511
+    ],
+    "bbox_o": [
+        70,
+        0,
+        510,
+        435
+    ],
+    "bbox_o_pre": [
+        70,
+        0,
+        510,
+        435
+    ],
+    "mask_s": "gen_0172_s_person_mask.png",
+    "mask_o": "gen_0172_o_truck_mask.png"
+}

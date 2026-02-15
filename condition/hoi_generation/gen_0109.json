@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_509_a_person_hold_a_suitcase/gen_0109.jpg",
+    "inv_prompt": "a person hold a suitcase",
+    "s_word": "person",
+    "a_word": "hold",
+    "o_word": "suitcase",
+    "bbox_s": [
+        68,
+        0,
+        508,
+        358
+    ],
+    "bbox_s_pre": [
+        68,
+        0,
+        508,
+        358
+    ],
+    "bbox_o": [
+        113,
+        1,
+        511,
+        466
+    ],
+    "bbox_o_pre": [
+        113,
+        1,
+        511,
+        466
+    ],
+    "mask_s": "gen_0109_s_person_mask.png",
+    "mask_o": "gen_0109_o_suitcase_mask.png"
+}

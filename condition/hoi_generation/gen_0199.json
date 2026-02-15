@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_199_a_person_buy_a_apple/gen_0199.jpg",
+    "inv_prompt": "a person buy a apple",
+    "s_word": "person",
+    "a_word": "buy",
+    "o_word": "apple",
+    "bbox_s": [
+        138,
+        181,
+        332,
+        509
+    ],
+    "bbox_s_pre": [
+        138,
+        181,
+        332,
+        509
+    ],
+    "bbox_o": [
+        231,
+        356,
+        511,
+        511
+    ],
+    "bbox_o_pre": [
+        231,
+        356,
+        511,
+        511
+    ],
+    "mask_s": "gen_0199_s_person_mask.png",
+    "mask_o": "gen_0199_o_apple_mask.png"
+}

@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_583_a_person_stand_under_a_umbrella/gen_0183.jpg",
+    "inv_prompt": "a person stand under a umbrella",
+    "s_word": "person stand",
+    "a_word": "under",
+    "o_word": "umbrella",
+    "bbox_s": [
+        159,
+        162,
+        249,
+        486
+    ],
+    "bbox_s_pre": [
+        159,
+        162,
+        249,
+        486
+    ],
+    "bbox_o": [
+        45,
+        18,
+        368,
+        229
+    ],
+    "bbox_o_pre": [
+        45,
+        18,
+        368,
+        229
+    ],
+    "mask_s": "gen_0183_s_person stand_mask.png",
+    "mask_o": "gen_0183_o_umbrella_mask.png"
+}

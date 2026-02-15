@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_429_a_person_no_interaction_a_pizza/gen_0029.jpg",
+    "inv_prompt": "a person no interaction a pizza",
+    "s_word": "person no",
+    "a_word": "interaction",
+    "o_word": "pizza",
+    "bbox_s": [
+        0,
+        166,
+        394,
+        512
+    ],
+    "bbox_s_pre": [
+        0,
+        166,
+        394,
+        512
+    ],
+    "bbox_o": [
+        333,
+        54,
+        511,
+        379
+    ],
+    "bbox_o_pre": [
+        333,
+        54,
+        511,
+        379
+    ],
+    "mask_s": "gen_0029_s_person no_mask.png",
+    "mask_o": "gen_0029_o_pizza_mask.png"
+}

@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_482_a_person_wear_a_snowboard/gen_0082.jpg",
+    "inv_prompt": "a person wear a snowboard",
+    "s_word": "person",
+    "a_word": "wear",
+    "o_word": "snowboard",
+    "bbox_s": [
+        43,
+        247,
+        159,
+        446
+    ],
+    "bbox_s_pre": [
+        43,
+        247,
+        159,
+        446
+    ],
+    "bbox_o": [
+        1,
+        412,
+        232,
+        454
+    ],
+    "bbox_o_pre": [
+        1,
+        412,
+        232,
+        454
+    ],
+    "mask_s": "gen_0082_s_person_mask.png",
+    "mask_o": "gen_0082_o_snowboard_mask.png"
+}

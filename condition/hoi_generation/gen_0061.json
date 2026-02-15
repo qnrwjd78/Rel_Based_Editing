@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_461_a_person_sit_on_a_skateboard/gen_0061.jpg",
+    "inv_prompt": "a person sit on a skateboard",
+    "s_word": "person sit",
+    "a_word": "on",
+    "o_word": "skateboard",
+    "bbox_s": [
+        119,
+        0,
+        494,
+        376
+    ],
+    "bbox_s_pre": [
+        119,
+        0,
+        494,
+        376
+    ],
+    "bbox_o": [
+        39,
+        302,
+        511,
+        446
+    ],
+    "bbox_o_pre": [
+        39,
+        302,
+        511,
+        446
+    ],
+    "mask_s": "gen_0061_s_person sit_mask.png",
+    "mask_o": "gen_0061_o_skateboard_mask.png"
+}

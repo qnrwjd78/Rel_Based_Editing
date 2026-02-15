@@ -1,0 +1,33 @@
+{
+    "fname": "HOI_520_a_person_inspect_a_surfboard/gen_0120.jpg",
+    "inv_prompt": "a person inspect a surfboard",
+    "s_word": "person",
+    "a_word": "inspect",
+    "o_word": "surfboard",
+    "bbox_s": [
+        340,
+        168,
+        461,
+        511
+    ],
+    "bbox_s_pre": [
+        340,
+        168,
+        461,
+        511
+    ],
+    "bbox_o": [
+        398,
+        124,
+        511,
+        387
+    ],
+    "bbox_o_pre": [
+        398,
+        124,
+        511,
+        387
+    ],
+    "mask_s": "gen_0120_s_person_mask.png",
+    "mask_o": "gen_0120_o_surfboard_mask.png"
+}
